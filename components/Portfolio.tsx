@@ -242,8 +242,8 @@ const ProjectItem: React.FC<{ project: any; index: number; setSelectedProject: (
                 </button>
             </div>
             
-            {/* Paper Texture Overlay for the note */}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-40 pointer-events-none mix-blend-multiply dark:mix-blend-overlay"></div>
+            {/* Paper Texture Overlay for the note - Updated to Rice Paper for better dark mode blending */}
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/rice-paper.png')] opacity-50 dark:opacity-20 pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
          </div>
       </motion.div>
 
@@ -392,7 +392,7 @@ const Portfolio: React.FC = () => {
                {/* Tape Element */}
                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 washi-tape z-30 transition-all duration-300 ${isIndexDragging ? '-rotate-12 scale-110 shadow-lg opacity-80 -translate-y-2' : '-rotate-2 opacity-60'}`}></div>
                
-               <div className={`bg-white dark:bg-[#3a3a3a] p-8 border border-stone-200 dark:border-white/10 transition-all duration-300 relative group ${isIndexDragging ? 'rotate-0 shadow-2xl' : 'shadow-[10px_10px_0px_rgba(0,0,0,0.05)] dark:shadow-[10px_10px_0px_rgba(255,255,255,0.05)] rotate-1 hover:rotate-0'}`}>
+               <div className={`bg-white dark:bg-[#3a3a3a] p-8 border border-stone-200 dark:border-white/10 transition-all duration-300 relative group ${isIndexDragging ? 'rotate-0 shadow-2xl' : 'shadow-[0_20px_50px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] rotate-1 hover:rotate-0 hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)]'}`}>
                   <div className="flex justify-between items-center mb-6 border-b border-stone-100 dark:border-white/5 pb-4">
                     <span className="font-hand text-2xl text-ink dark:text-white">Project Index</span>
                     <span className="font-mono text-[9px] uppercase tracking-widest text-stone-400">Vol. 01</span>
