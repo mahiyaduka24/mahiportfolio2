@@ -150,6 +150,7 @@ const ProjectItem: React.FC<{ project: any; index: number; setSelectedProject: (
 
   return (
     <motion.div 
+      id={`project-${project.id}`}
       ref={ref} 
       style={{ opacity }}
       className={`min-h-[50vh] flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center lg:items-start justify-center gap-12 lg:gap-24 mb-32 relative z-10`}
@@ -333,6 +334,14 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
 
 const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isIndexDragging, setIsIndexDragging] = useState(false);
+
+  const scrollToProject = (id: string) => {
+    const element = document.getElementById(`project-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   return (
     <section id="works" className="py-24 px-6 lg:px-20 relative overflow-visible bg-parchment dark:bg-parchment-dark bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] dark:bg-none transition-colors duration-500">
@@ -368,21 +377,36 @@ const Portfolio: React.FC = () => {
 
             {/* Right Side - Index Card to fill space */}
             <motion.div 
+              drag
+              dragSnapToOrigin
+              dragElastic={0.2}
+              whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50 }}
+              onDragStart={() => setIsIndexDragging(true)}
+              onDragEnd={() => setIsIndexDragging(false)}
               initial={{ opacity: 0, x: 20, rotate: 2 }}
               whileInView={{ opacity: 1, x: 0, rotate: 2 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="hidden lg:block w-80 relative flex-shrink-0"
+              className="hidden lg:block w-80 relative flex-shrink-0 cursor-grab active:cursor-grabbing"
             >
-               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 washi-tape opacity-60 z-30 -rotate-2"></div>
-               <div className="bg-white dark:bg-[#2a2a2a] p-8 border border-stone-200 dark:border-white/10 shadow-[10px_10px_0px_rgba(0,0,0,0.05)] dark:shadow-[10px_10px_0px_rgba(255,255,255,0.05)] rotate-1 relative group hover:rotate-0 transition-transform duration-500">
+               {/* Tape Element */}
+               <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 washi-tape z-30 transition-all duration-300 ${isIndexDragging ? '-rotate-12 scale-110 shadow-lg opacity-80 -translate-y-2' : '-rotate-2 opacity-60'}`}></div>
+               
+               <div className={`bg-white dark:bg-[#2a2a2a] p-8 border border-stone-200 dark:border-white/10 transition-all duration-300 relative group ${isIndexDragging ? 'rotate-0 shadow-2xl' : 'shadow-[10px_10px_0px_rgba(0,0,0,0.05)] dark:shadow-[10px_10px_0px_rgba(255,255,255,0.05)] rotate-1 hover:rotate-0'}`}>
                   <div className="flex justify-between items-center mb-6 border-b border-stone-100 dark:border-white/5 pb-4">
                     <span className="font-hand text-2xl text-ink dark:text-white">Project Index</span>
                     <span className="font-mono text-[9px] uppercase tracking-widest text-stone-400">Vol. 01</span>
                   </div>
                   <ul className="space-y-4">
                     {projects.map((p) => (
-                       <li key={p.id} className="group/item cursor-pointer flex justify-between items-baseline" onClick={() => setSelectedProject(p)}>
+                       <li 
+                         key={p.id} 
+                         className="group/item cursor-pointer flex justify-between items-baseline" 
+                         onClick={(e) => {
+                             e.stopPropagation();
+                             scrollToProject(p.id);
+                         }}
+                       >
                           <span className="font-serif italic text-lg text-stone-600 dark:text-stone-300 group-hover/item:text-rose transition-colors">{p.title}</span>
                           <span className="text-[10px] font-mono text-stone-300 dark:text-stone-500">0{p.id}</span>
                        </li>
