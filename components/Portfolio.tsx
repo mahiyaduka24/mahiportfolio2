@@ -471,9 +471,6 @@ const Portfolio: React.FC = () => {
         <div className="absolute top-[40%] right-[-5%] opacity-[0.05] pointer-events-none hidden lg:block rotate-12 dark:text-white">
           <Scissors size={180} strokeWidth={0.3} />
         </div>
-        <div className="absolute bottom-40 left-[-5%] opacity-[0.05] pointer-events-none hidden lg:block -rotate-45 dark:text-white">
-          <PenTool size={220} strokeWidth={0.3} />
-        </div>
         <div className="absolute bottom-0 right-[15%] opacity-[0.05] pointer-events-none hidden lg:block rotate-2">
           <Star size={120} strokeWidth={0.5} className="text-rose" />
         </div>
