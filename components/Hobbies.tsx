@@ -124,205 +124,207 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
       </div>
 
-      <div className="flex-1 relative flex items-center justify-center p-6 bg-[#f9f7f2] dark:bg-[#1a1a1a] overflow-hidden">
-        {/* Cinematic Backdrop - Enhanced film strip motif */}
-        <div className="absolute inset-0 pointer-events-none flex flex-col justify-between opacity-[0.05] dark:opacity-[0.03]">
-           <div className="h-28 border-b-12 border-dashed border-ink dark:border-white w-full flex items-center px-10 gap-20">
-             {[...Array(10)].map((_, i) => <div key={i} className="w-8 h-10 border-2 border-ink dark:border-white rounded-sm opacity-20"></div>)}
-           </div>
-           <div className="h-28 border-t-12 border-dashed border-ink dark:border-white w-full flex items-center px-10 gap-20">
-             {[...Array(10)].map((_, i) => <div key={i} className="w-8 h-10 border-2 border-ink dark:border-white rounded-sm opacity-20"></div>)}
-           </div>
-        </div>
+      <div className="flex-1 relative w-full bg-[#f9f7f2] dark:bg-[#1a1a1a] overflow-y-auto custom-scrollbar">
+        <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-6 pb-20">
+          {/* Cinematic Backdrop - Enhanced film strip motif */}
+          <div className="absolute inset-0 pointer-events-none flex flex-col justify-between opacity-[0.05] dark:opacity-[0.03]">
+             <div className="h-28 border-b-12 border-dashed border-ink dark:border-white w-full flex items-center px-10 gap-20">
+               {[...Array(10)].map((_, i) => <div key={i} className="w-8 h-10 border-2 border-ink dark:border-white rounded-sm opacity-20"></div>)}
+             </div>
+             <div className="h-28 border-t-12 border-dashed border-ink dark:border-white w-full flex items-center px-10 gap-20">
+               {[...Array(10)].map((_, i) => <div key={i} className="w-8 h-10 border-2 border-ink dark:border-white rounded-sm opacity-20"></div>)}
+             </div>
+          </div>
         
-        {/* Floating Decorative Film Quotes & Elements */}
-        <div className="absolute left-[5%] top-[25%] max-w-[200px] hidden xl:block opacity-40">
-          <motion.div initial={{ rotate: -5 }} animate={{ rotate: -3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
-             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape rotate-2"></div>
-             <p className="font-hand text-xl text-ink dark:text-white leading-tight">"Cinema is a matter of what's in the frame and what's out."</p>
-             <span className="font-mono text-[8px] uppercase tracking-widest block mt-4 text-stone-400">— Martin Scorsese</span>
-          </motion.div>
-          <div className="mt-20 flex justify-center text-rose opacity-20">
-            <Film size={80} strokeWidth={0.5} />
-          </div>
-        </div>
-
-        <div className="absolute right-[5%] bottom-[20%] max-w-[200px] hidden xl:block opacity-40">
-          <div className="mb-20 flex justify-center text-rose opacity-20 rotate-12">
-            <Ticket size={80} strokeWidth={0.5} />
-          </div>
-          <motion.div initial={{ rotate: 5 }} animate={{ rotate: 3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
-             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape -rotate-2"></div>
-             <p className="font-hand text-xl text-ink dark:text-white leading-tight">"Every scene is a canvas of light and shadow."</p>
-             <span className="font-mono text-[8px] uppercase tracking-widest block mt-4 text-stone-400">— DP Journal Notes</span>
-          </motion.div>
-        </div>
-
-        {/* Added Movie Posters on Sides - Positioned to avoid overlapping text */}
-        <div className="absolute left-8 lg:left-12 top-[60%] hidden xl:block z-0 opacity-90 pointer-events-none">
-           <motion.div 
-             initial={{ opacity: 0, x: -50, rotate: -4 }}
-             animate={{ opacity: 1, x: 0, rotate: -4 }}
-             transition={{ delay: 0.6, duration: 0.8 }}
-             className="p-3 bg-white dark:bg-stone-800 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm w-48 2xl:w-56"
-           >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm -rotate-2 z-10"></div>
-              <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
-                <img 
-                  src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" 
-                  alt="Cinema Poster 1" 
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
-              </div>
-           </motion.div>
-        </div>
-
-        <div className="absolute right-8 lg:right-12 top-6 hidden xl:block z-0 opacity-90 pointer-events-none">
-           <motion.div 
-             initial={{ opacity: 0, x: 50, rotate: 4 }}
-             animate={{ opacity: 1, x: 0, rotate: 4 }}
-             transition={{ delay: 0.8, duration: 0.8 }}
-             className="p-3 bg-white dark:bg-stone-800 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm w-48 2xl:w-56"
-           >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm rotate-2 z-10"></div>
-              <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
-                <img 
-                  src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" 
-                  alt="Cinema Poster 2" 
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
-              </div>
-           </motion.div>
-        </div>
-
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-rose/5 blur-[160px] pointer-events-none"></div>
-
-        <div className="max-w-5xl w-full relative z-10 flex flex-col items-center">
-          
-          {/* Narrative Context Label */}
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }} 
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8 flex flex-col items-center"
-          >
-            <div className="px-5 py-2 border border-stone-200 dark:border-white/10 rounded-full font-mono text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-3 bg-white/40 dark:bg-stone-900/40 backdrop-blur-sm">
-              Scene: 01 / Curation
+          {/* Floating Decorative Film Quotes & Elements */}
+          <div className="absolute left-[5%] top-[25%] max-w-[200px] hidden xl:block opacity-40">
+            <motion.div initial={{ rotate: -5 }} animate={{ rotate: -3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
+               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape rotate-2"></div>
+               <p className="font-hand text-xl text-ink dark:text-white leading-tight">"Cinema is a matter of what's in the frame and what's out."</p>
+               <span className="font-mono text-[8px] uppercase tracking-widest block mt-4 text-stone-400">— Martin Scorsese</span>
+            </motion.div>
+            <div className="mt-20 flex justify-center text-rose opacity-20">
+              <Film size={80} strokeWidth={0.5} />
             </div>
-            <div className="font-hand text-3xl md:text-4xl text-rose/70 text-center">"Frame the title within the reel..."</div>
-          </motion.div>
+          </div>
 
-          {/* New Game Layout */}
-          <div className="bg-[#fcfbf9] dark:bg-[#1e1e1e] p-10 md:p-16 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
-            
-            {/* Word Display */}
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-10 mb-16 w-full">
-              {currentMovie.split(" ").map((word, wIdx) => (
-                <div key={wIdx} className="flex gap-2 md:gap-4">
-                  {word.split("").map((char, cIdx) => {
-                    const revealed = isRevealed(char);
-                    const isPunctuation = /[^A-Za-z]/.test(char);
-                    const { rotation } = getCharStyle(wIdx, cIdx);
-                    
-                    if (revealed || isPunctuation) {
-                      return (
-                        <div key={cIdx} className="relative group">
-                           <motion.div 
-                             initial={{ scale: 0.8, opacity: 0 }}
-                             animate={{ scale: 1, opacity: 1, rotate: rotation }}
-                             className="w-14 h-20 md:w-20 md:h-28 bg-white dark:bg-stone-800 shadow-[0_4px_12px_rgba(0,0,0,0.08)] rounded-[2px] flex items-center justify-center border border-stone-50 dark:border-white/5"
-                           >
-                              <div className="absolute -top-3 w-8 h-5 bg-rose/20 backdrop-blur-sm -rotate-1"></div>
-                              <span className={`font-serif italic text-3xl md:text-5xl ${vowels.includes(char.toUpperCase()) ? 'text-rose' : 'text-ink dark:text-white'}`}>{char}</span>
-                           </motion.div>
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div key={cIdx} className="w-14 md:w-20 h-20 md:h-28 flex items-end justify-center pb-4">
-                           <div className="w-8 md:w-12 border-b-2 border-dashed border-stone-300 dark:border-stone-600"></div>
-                        </div>
-                      );
-                    }
-                  })}
+          <div className="absolute right-[5%] bottom-[20%] max-w-[200px] hidden xl:block opacity-40">
+            <div className="mb-20 flex justify-center text-rose opacity-20 rotate-12">
+              <Ticket size={80} strokeWidth={0.5} />
+            </div>
+            <motion.div initial={{ rotate: 5 }} animate={{ rotate: 3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
+               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape -rotate-2"></div>
+               <p className="font-hand text-xl text-ink dark:text-white leading-tight">"Every scene is a canvas of light and shadow."</p>
+               <span className="font-mono text-[8px] uppercase tracking-widest block mt-4 text-stone-400">— DP Journal Notes</span>
+            </motion.div>
+          </div>
+
+          {/* Added Movie Posters on Sides - Positioned to avoid overlapping text */}
+          <div className="absolute left-8 lg:left-12 top-[60%] hidden xl:block z-0 opacity-90 pointer-events-none">
+             <motion.div 
+               initial={{ opacity: 0, x: -50, rotate: -4 }}
+               animate={{ opacity: 1, x: 0, rotate: -4 }}
+               transition={{ delay: 0.6, duration: 0.8 }}
+               className="p-3 bg-white dark:bg-stone-800 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm w-48 2xl:w-56"
+             >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm -rotate-2 z-10"></div>
+                <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" 
+                    alt="Cinema Poster 1" 
+                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
                 </div>
-              ))}
-            </div>
-
-            {/* Separator */}
-            <div className="w-full h-px bg-stone-100 dark:bg-white/5 mb-10"></div>
-
-            {/* Keyboard */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl">
-              {consonants.map((letter) => {
-                const isUsed = guessedLetters.has(letter);
-                return (
-                  <button
-                    key={letter}
-                    disabled={isUsed || gameState !== 'playing'}
-                    onClick={() => handleGuess(letter)}
-                    className={`
-                        w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center font-mono text-lg transition-all duration-300
-                        ${isUsed 
-                            ? 'opacity-40 cursor-not-allowed scale-95' 
-                            : 'bg-white dark:bg-stone-800 shadow-sm border border-stone-100 dark:border-white/5 hover:-translate-y-1 hover:shadow-md text-stone-600 dark:text-stone-300 hover:text-rose dark:hover:text-rose'
-                        }
-                    `}
-                  >
-                    {letter}
-                  </button>
-                );
-              })}
-            </div>
+             </motion.div>
           </div>
 
-          {/* End Screens - Responsive & Themed */}
-          <AnimatePresence>
-            {gameState !== 'playing' && (
-              <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-parchment/60 dark:bg-black/70 backdrop-blur-md rounded-[3rem]">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="text-center p-14 bg-white dark:bg-[#222] rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/10 max-w-md w-full relative overflow-hidden"
-                >
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 washi-tape opacity-50 -rotate-2"></div>
-                  
-                  {gameState === 'won' ? (
-                    <>
-                      <motion.div animate={{ rotate: [0, 5, -5, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="w-20 h-20 bg-sage/10 text-sage rounded-full flex items-center justify-center mx-auto mb-8">
-                        <Trophy size={40} />
-                      </motion.div>
-                      <h3 className="text-4xl font-serif italic mb-3 dark:text-white leading-tight">Full House!</h3>
-                      <p className="font-hand text-3xl text-rose mb-12">"Every scene was clear."</p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="w-20 h-20 bg-rose/10 text-rose rounded-full flex items-center justify-center mx-auto mb-8">
-                        <Ghost size={40} />
-                      </div>
-                      <h3 className="text-4xl font-serif italic mb-3 dark:text-white leading-tight">Intermission...</h3>
-                      <p className="font-hand text-3xl text-stone-400 mb-12">"The reel ran out of tape."</p>
-                      <div className="mb-12 p-8 bg-parchment dark:bg-stone-800 rounded-3xl border border-stone-200 dark:border-white/5 relative">
-                        <div className="absolute top-2 left-6 font-mono text-[9px] uppercase tracking-[0.4em] text-stone-400">Hidden Title</div>
-                        <p className="text-3xl font-serif italic dark:text-white leading-tight mt-4">{currentMovie}</p>
-                      </div>
-                    </>
-                  )}
-                  
-                  <button
-                    onClick={startNewGame}
-                    className="w-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 py-5 rounded-2xl font-serif italic text-2xl flex items-center justify-center gap-4 hover:bg-rose hover:text-white transition-all shadow-xl"
-                  >
-                    <RefreshCw size={24} /> Play Another
-                  </button>
-                </motion.div>
+          <div className="absolute right-8 lg:right-12 top-6 hidden xl:block z-0 opacity-90 pointer-events-none">
+             <motion.div 
+               initial={{ opacity: 0, x: 50, rotate: 4 }}
+               animate={{ opacity: 1, x: 0, rotate: 4 }}
+               transition={{ delay: 0.8, duration: 0.8 }}
+               className="p-3 bg-white dark:bg-stone-800 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm w-48 2xl:w-56"
+             >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm rotate-2 z-10"></div>
+                <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" 
+                    alt="Cinema Poster 2" 
+                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
+                </div>
+             </motion.div>
+          </div>
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-rose/5 blur-[160px] pointer-events-none"></div>
+
+          <div className="max-w-5xl w-full relative z-10 flex flex-col items-center">
+            
+            {/* Narrative Context Label */}
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }} 
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 flex flex-col items-center"
+            >
+              <div className="px-5 py-2 border border-stone-200 dark:border-white/10 rounded-full font-mono text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-3 bg-white/40 dark:bg-stone-900/40 backdrop-blur-sm">
+                Scene: 01 / Curation
               </div>
-            )}
-          </AnimatePresence>
+              <div className="font-hand text-2xl md:text-3xl lg:text-4xl text-rose/70 text-center px-4">"Frame the title within the reel..."</div>
+            </motion.div>
+
+            {/* New Game Layout */}
+            <div className="bg-[#fcfbf9] dark:bg-[#1e1e1e] p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
+              
+              {/* Word Display - Optimized for mobile/long words */}
+              <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 md:gap-x-10 md:gap-y-10 mb-10 md:mb-16 w-full">
+                {currentMovie.split(" ").map((word, wIdx) => (
+                  <div key={wIdx} className="flex flex-wrap justify-center gap-1.5 md:gap-4">
+                    {word.split("").map((char, cIdx) => {
+                      const revealed = isRevealed(char);
+                      const isPunctuation = /[^A-Za-z]/.test(char);
+                      const { rotation } = getCharStyle(wIdx, cIdx);
+                      
+                      if (revealed || isPunctuation) {
+                        return (
+                          <div key={cIdx} className="relative group">
+                             <motion.div 
+                               initial={{ scale: 0.8, opacity: 0 }}
+                               animate={{ scale: 1, opacity: 1, rotate: rotation }}
+                               className="w-8 h-12 sm:w-12 sm:h-16 md:w-20 md:h-28 bg-white dark:bg-stone-800 shadow-[0_4px_12px_rgba(0,0,0,0.08)] rounded-[2px] flex items-center justify-center border border-stone-50 dark:border-white/5"
+                             >
+                                <div className="absolute -top-2 md:-top-3 w-5 md:w-8 h-3 md:h-5 bg-rose/20 backdrop-blur-sm -rotate-1"></div>
+                                <span className={`font-serif italic text-xl sm:text-3xl md:text-5xl ${vowels.includes(char.toUpperCase()) ? 'text-rose' : 'text-ink dark:text-white'}`}>{char}</span>
+                             </motion.div>
+                          </div>
+                        );
+                      } else {
+                        return (
+                          <div key={cIdx} className="w-8 h-12 sm:w-12 sm:h-16 md:w-20 md:h-28 flex items-end justify-center pb-2 md:pb-4">
+                             <div className="w-4 md:w-12 border-b-2 border-dashed border-stone-300 dark:border-stone-600"></div>
+                          </div>
+                        );
+                      }
+                    })}
+                  </div>
+                ))}
+              </div>
+
+              {/* Separator */}
+              <div className="w-full h-px bg-stone-100 dark:bg-white/5 mb-8 md:mb-10"></div>
+
+              {/* Keyboard */}
+              <div className="flex flex-wrap justify-center gap-2 md:gap-4 max-w-4xl">
+                {consonants.map((letter) => {
+                  const isUsed = guessedLetters.has(letter);
+                  return (
+                    <button
+                      key={letter}
+                      disabled={isUsed || gameState !== 'playing'}
+                      onClick={() => handleGuess(letter)}
+                      className={`
+                          w-8 h-10 sm:w-10 sm:h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center font-mono text-sm md:text-lg transition-all duration-300
+                          ${isUsed 
+                              ? 'opacity-40 cursor-not-allowed scale-95' 
+                              : 'bg-white dark:bg-stone-800 shadow-sm border border-stone-100 dark:border-white/5 hover:-translate-y-1 hover:shadow-md text-stone-600 dark:text-stone-300 hover:text-rose dark:hover:text-rose'
+                          }
+                      `}
+                    >
+                      {letter}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* End Screens - Responsive & Themed */}
+            <AnimatePresence>
+              {gameState !== 'playing' && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-parchment/60 dark:bg-black/70 backdrop-blur-md rounded-[3rem]">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    className="text-center p-8 md:p-14 bg-white dark:bg-[#222] rounded-[2rem] md:rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/10 max-w-md w-full relative overflow-hidden"
+                  >
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 washi-tape opacity-50 -rotate-2"></div>
+                    
+                    {gameState === 'won' ? (
+                      <>
+                        <motion.div animate={{ rotate: [0, 5, -5, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="w-16 h-16 md:w-20 md:h-20 bg-sage/10 text-sage rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+                          <Trophy className="w-8 h-8 md:w-10 md:h-10" />
+                        </motion.div>
+                        <h3 className="text-3xl md:text-4xl font-serif italic mb-3 dark:text-white leading-tight">Full House!</h3>
+                        <p className="font-hand text-2xl md:text-3xl text-rose mb-8 md:mb-12">"Every scene was clear."</p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-16 h-16 md:w-20 md:h-20 bg-rose/10 text-rose rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+                          <Ghost className="w-8 h-8 md:w-10 md:h-10" />
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-serif italic mb-3 dark:text-white leading-tight">Intermission...</h3>
+                        <p className="font-hand text-2xl md:text-3xl text-stone-400 mb-8 md:mb-12">"The reel ran out of tape."</p>
+                        <div className="mb-8 md:mb-12 p-6 md:p-8 bg-parchment dark:bg-stone-800 rounded-3xl border border-stone-200 dark:border-white/5 relative">
+                          <div className="absolute top-2 left-6 font-mono text-[9px] uppercase tracking-[0.4em] text-stone-400">Hidden Title</div>
+                          <p className="text-2xl md:text-3xl font-serif italic dark:text-white leading-tight mt-4">{currentMovie}</p>
+                        </div>
+                      </>
+                    )}
+                    
+                    <button
+                      onClick={startNewGame}
+                      className="w-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 py-4 md:py-5 rounded-2xl font-serif italic text-xl md:text-2xl flex items-center justify-center gap-4 hover:bg-rose hover:text-white transition-all shadow-xl"
+                    >
+                      <RefreshCw className="w-5 h-5 md:w-6 md:h-6" /> Play Another
+                    </button>
+                  </motion.div>
+                </div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </motion.div>
