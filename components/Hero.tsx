@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { ArrowDownRight, Feather, X, RefreshCw } from 'lucide-react';
@@ -170,7 +171,7 @@ const Hero: React.FC = () => {
   } as const;
 
   return (
-    <section className="relative min-h-[70vh] lg:min-h-screen flex items-center px-6 lg:px-20 pt-8 pb-16 lg:py-0 overflow-hidden">
+    <section id="top" className="relative min-h-[70vh] lg:min-h-screen flex items-center px-6 lg:px-20 pt-8 pb-16 lg:py-0 overflow-hidden">
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
         
         <div className="sm:col-span-1 lg:col-span-8 z-10">
