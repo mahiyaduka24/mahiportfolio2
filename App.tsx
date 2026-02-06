@@ -10,16 +10,11 @@ import Hobbies from './components/Hobbies.tsx';
 import Contact from './components/Contact.tsx';
 import Footer from './components/Footer.tsx';
 import Background from './components/Background.tsx';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (isDark) {
@@ -29,15 +24,32 @@ const App: React.FC = () => {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial calculation
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleDarkMode = () => setIsDark(!isDark);
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen selection:bg-rose selection:text-white relative">
       {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 lg:left-[280px] right-0 h-1 bg-rose z-[100] origin-left"
-        style={{ scaleX }}
-      />
+      <div className="fixed top-0 left-0 lg:left-[280px] right-0 h-1.5 z-[10000] bg-rose/10 backdrop-blur-[1px]">
+        <div
+          className="h-full bg-rose transition-all duration-100 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
       
       <Background />
       <Header isDark={isDark} toggleDarkMode={toggleDarkMode} />

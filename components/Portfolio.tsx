@@ -7,11 +7,11 @@ const projects = [
   {
     id: '01',
     title: 'The Grid & The Grove',
-    category: 'UI/UX Design',
+    category: 'Illustration Design',
     role: 'Lead Designer',
-    tools: ['Figma', 'Adobe XD', 'Prototyping'],
+    tools: ['Procreate', 'Adobe Photoshop', 'Adobe InDesign'],
     outcome: 'Synthesized organic patterns into a digital framework for a local botanical archive.',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/zTjwYLZM/Screenshot-2026-02-06-095652.png?auto=format&fit=crop&q=80&w=800',
     rotation: -3,
     tapeStyle: 'top-left',
     tapeColor: 'bg-rose/40',
@@ -275,7 +275,7 @@ const Portfolio: React.FC = () => {
                 {renderTape(project.tapeStyle, project.tapeColor)}
                 
                 <div className="aspect-[4/3] bg-stone-100 dark:bg-stone-800 overflow-hidden relative">
-                  <img src={project.image} className="w-full h-full object-cover filter contrast-[1.05] brightness-[0.98] grayscale group-hover:grayscale-0 transition-all duration-700" alt={project.title} />
+                  <img src={project.image} className={`w-full h-full object-cover filter contrast-[1.05] brightness-[0.98] grayscale group-hover:grayscale-0 transition-all duration-700 ${project.id === '01' ? 'scale-[1.15] -translate-y-[8%]' : ''}`} alt={project.title} />
                   <div className="absolute top-4 left-4 font-mono text-[9px] bg-white/90 dark:bg-stone-900/90 px-2 py-1 shadow-sm uppercase tracking-widest font-bold dark:text-white">
                     Case Entry #{project.id}
                   </div>
@@ -317,7 +317,7 @@ const Portfolio: React.FC = () => {
               </h3>
            </div>
 
-           <div className="flex flex-wrap justify-center gap-16 lg:gap-24">
+           <div className="flex flex-wrap justify-center gap-8 lg:gap-12 xl:gap-16">
               {assignments.map((item, idx) => (
                 <motion.div 
                   key={item.id}
