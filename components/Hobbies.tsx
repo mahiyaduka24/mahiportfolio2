@@ -170,12 +170,12 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm -rotate-2 z-10"></div>
                 <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
                   <img 
-                    src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" 
+                    src="https://i.ibb.co/VfYfMnJ/MV5-BMTc2-NDQ5-OTIz-Nl5-BMl5-Ban-Bn-Xk-Ft-ZTgw-MTI5-ODUz-Nz-E-V1.jpg?auto=format&fit=crop&q=80&w=600" 
                     alt="Cinema Poster 1" 
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
+                  <div className="absolute top-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
                 </div>
              </motion.div>
           </div>
@@ -190,12 +190,12 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm rotate-2 z-10"></div>
                 <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
                   <img 
-                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" 
+                    src="https://i.ibb.co/k6BBb71w/images.jpg?auto=format&fit=crop&q=80&w=600" 
                     alt="Cinema Poster 2" 
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
+                  <div className="absolute top-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
                 </div>
              </motion.div>
           </div>
@@ -453,14 +453,14 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
 };
 
 const scrapbookPhotos = [
-  { id: '6', url: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -320, y: -100, rotation: -5, width: 270 },
-  { id: '5', url: 'https://images.unsplash.com/photo-1517722014240-2d05d85f9464?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 0, y: -50, rotation: -3, width: 320 },
-  { id: '1', url: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 350, y: -120, rotation: 3, width: 280 },
-  { id: '8', url: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -380, y: 220, rotation: -4, width: 260 },
-  { id: '3', url: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -40, y: 250, rotation: 2, width: 250 },
-  { id: '7', url: 'https://images.unsplash.com/photo-1501854140884-074bf86ee91c?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 340, y: 220, rotation: 5, width: 310 },
-  { id: '2', url: 'https://images.unsplash.com/photo-1493128477673-af01e77ac58a?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -180, y: -280, rotation: -2, width: 300 },
-  { id: '4', url: 'https://images.unsplash.com/photo-1472393365320-dc77242164a8?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 180, y: -280, rotation: 4, width: 320 },
+  { id: '6', url: 'https://i.ibb.co/C3qmqkgG/Whats-App-Image-2026-02-07-at-1-44-55-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -320, y: -100, rotation: -5, width: 270 },
+  { id: '5', url: 'https://i.ibb.co/yccP4Cz7/Whats-App-Image-2026-02-07-at-3-48-36-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 0, y: -50, rotation: -3, width: 320 },
+  { id: '1', url: 'https://i.ibb.co/1GDPbFnt/Whats-App-Image-2026-02-07-at-1-44-56-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 350, y: -120, rotation: 3, width: 280 },
+  { id: '8', url: 'https://i.ibb.co/8gRv6gWF/Whats-App-Image-2026-02-07-at-3-48-38-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -380, y: 220, rotation: -4, width: 260 },
+  { id: '3', url: 'https://i.ibb.co/rXxmSpL/Whats-App-Image-2026-02-07-at-3-48-35-A.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -40, y: 250, rotation: 2, width: 250 },
+  { id: '7', url: 'https://i.ibb.co/N2pBt4KV/Whats-App-Image-2026-02-07-at-1-44-56-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 340, y: 220, rotation: 5, width: 310 },
+  { id: '2', url: 'https://i.ibb.co/mF4Gqr6Z/Whats-App-Image-2026-02-07-at-3-48-34-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -180, y: -280, rotation: -2, width: 300 },
+  { id: '4', url: 'https://i.ibb.co/JjTngWH5/Whats-App-Image-2026-02-07-at-3-48-36.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 180, y: -280, rotation: 4, width: 320 },
 ];
 
 const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) => {
@@ -469,7 +469,7 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
     Object.fromEntries(scrapbookPhotos.map((p, i) => [p.id, i + 10]))
   );
   const [viewfinderDim, setViewfinderDim] = useState({ w: 160, h: 160 });
-  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+  const [enlargedImage, setEnlargedImage] = useState<{url: string, caption: string} | null>(null);
   
   const viewfinderX = useMotionValue(0);
   const viewfinderY = useMotionValue(0);
@@ -564,7 +564,7 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
             dragMomentum={false}
             onDragStart={() => bringToTop(photo.id)}
             onTap={() => bringToTop(photo.id)}
-            onDoubleClick={() => setEnlargedImage(photo.url)}
+            onDoubleClick={() => setEnlargedImage({ url: photo.url, caption: photo.caption })}
             initial={{ opacity: 0, scale: 0.8, x: photo.x, y: photo.y, rotate: photo.rotation }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 + idx * 0.05 }}
@@ -603,8 +603,9 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
       <AnimatePresence>
         {enlargedImage && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setEnlargedImage(null)} className="fixed inset-0 z-[400] bg-ink/95 dark:bg-stone-950/98 backdrop-blur-2xl flex items-center justify-center p-8 cursor-zoom-out">
-            <motion.div initial={{ scale: 0.8, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.8, opacity: 0, y: 20 }} className="relative max-w-full max-h-full">
-              <img src={enlargedImage} className="max-w-[90vw] max-h-[80vh] object-contain shadow-[0_40px_100px_rgba(0,0,0,0.5)] rounded-sm border-8 border-white dark:border-stone-800" style={{ filter: 'none' }} alt="Enlarged view" />
+            <motion.div initial={{ scale: 0.8, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.8, opacity: 0, y: 20 }} className="relative max-w-full max-h-full flex flex-col items-center justify-center">
+              <img src={enlargedImage.url} className="max-w-[90vw] max-h-[80vh] object-contain shadow-[0_40px_100px_rgba(0,0,0,0.5)] rounded-sm border-8 border-white dark:border-stone-800" style={{ filter: 'none' }} alt="Enlarged view" />
+              <p className="mt-6 text-white/90 font-serif italic text-lg tracking-wide">{enlargedImage.caption}</p>
             </motion.div>
           </motion.div>
         )}
