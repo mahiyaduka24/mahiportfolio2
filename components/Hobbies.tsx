@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square } from 'lucide-react';
 
 const movies = [
@@ -453,10 +453,14 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
 };
 
 const scrapbookPhotos = [
-  { id: '1', url: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: -150, y: -80, rotation: -4, width: 280 },
-  { id: '2', url: 'https://images.unsplash.com/photo-1493128477673-af01e77ac58a?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: 180, y: 100, rotation: 6, width: 300 },
-  { id: '3', url: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -80, y: 150, rotation: -8, width: 250 },
-  { id: '4', url: 'https://images.unsplash.com/photo-1472393365320-dc77242164a8?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 140, y: -120, rotation: 3, width: 320 },
+  { id: '6', url: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -320, y: -100, rotation: -5, width: 270 },
+  { id: '5', url: 'https://images.unsplash.com/photo-1517722014240-2d05d85f9464?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 0, y: -50, rotation: -3, width: 320 },
+  { id: '1', url: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 350, y: -120, rotation: 3, width: 280 },
+  { id: '8', url: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -380, y: 220, rotation: -4, width: 260 },
+  { id: '3', url: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -40, y: 250, rotation: 2, width: 250 },
+  { id: '7', url: 'https://images.unsplash.com/photo-1501854140884-074bf86ee91c?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 340, y: 220, rotation: 5, width: 310 },
+  { id: '2', url: 'https://images.unsplash.com/photo-1493128477673-af01e77ac58a?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -180, y: -280, rotation: -2, width: 300 },
+  { id: '4', url: 'https://images.unsplash.com/photo-1472393365320-dc77242164a8?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 180, y: -280, rotation: 4, width: 320 },
 ];
 
 const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) => {
@@ -470,6 +474,9 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
   const viewfinderX = useMotionValue(0);
   const viewfinderY = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Magic Lens Mask - Updates with viewfinder position
+  const maskImage = useMotionTemplate`radial-gradient(circle 120px at calc(50% + ${viewfinderX}px) calc(50% + ${viewfinderY}px), black, transparent)`;
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -535,10 +542,20 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
       </div>
 
       <div ref={containerRef} className="flex-1 relative flex items-center justify-center overflow-hidden w-full h-full bg-[#fdfdfd]/10 dark:bg-black/5">
-        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center gap-2 pointer-events-none select-none opacity-20">
-          <div className="font-mono text-[8px] uppercase tracking-[0.5em] text-stone-300">Observation Deck — Vol. 01</div>
-          <div className="font-hand text-6xl md:text-9xl text-stone-200 dark:text-stone-800 max-w-4xl text-center leading-none italic">"Design is the selective capture of chaos."</div>
+        {/* Background Text - Layer 1 (Base/Faint) */}
+        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center gap-2 pointer-events-none select-none opacity-10 text-stone-300 dark:text-stone-800">
+          <div className="font-mono text-[8px] uppercase tracking-[0.5em]">Observation Deck — Vol. 01</div>
+          <div className="font-hand text-6xl md:text-9xl max-w-4xl text-center leading-none italic">"Design is the selective capture of chaos."</div>
         </div>
+
+        {/* Background Text - Layer 2 (Reveal/High Contrast) */}
+        <motion.div 
+          className="absolute inset-0 z-[5] flex flex-col items-center justify-center gap-2 pointer-events-none select-none text-ink dark:text-white"
+          style={{ maskImage, WebkitMaskImage: maskImage }}
+        >
+          <div className="font-mono text-[8px] uppercase tracking-[0.5em] font-bold">Observation Deck — Vol. 01</div>
+          <div className="font-hand text-6xl md:text-9xl max-w-4xl text-center leading-none italic drop-shadow-lg">"Design is the selective capture of chaos."</div>
+        </motion.div>
         
         {scrapbookPhotos.map((photo, idx) => (
           <motion.div
@@ -554,7 +571,7 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
             className="absolute bg-white dark:bg-stone-800 p-2.5 pb-10 shadow-2xl border border-stone-200 dark:border-white/5 polaroid cursor-grab active:cursor-grabbing select-none"
             style={{ width: photo.width, zIndex: zIndices[photo.id] }}
           >
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 washi-tape opacity-40"></div>
+            {/* Removed Tape */}
             <div className="overflow-hidden rounded-sm bg-stone-100 aspect-square md:aspect-auto pointer-events-none">
               <img src={photo.url} className="w-full h-auto pointer-events-none block" style={{ filter: 'none' }} alt="Scrapbook piece" />
             </div>
