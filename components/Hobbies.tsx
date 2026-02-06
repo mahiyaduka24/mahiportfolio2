@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square } from 'lucide-react';
+import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause } from 'lucide-react';
 
 const movies = [
   "Dilwale Dulhania Le Jayenge",
@@ -175,7 +175,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                  <div className="absolute top-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
+                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
                 </div>
              </motion.div>
           </div>
@@ -195,7 +195,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                  <div className="absolute top-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
+                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
                 </div>
              </motion.div>
           </div>
@@ -614,163 +614,6 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
   );
 };
 
-type GameState = 'start' | 'playing' | 'missed' | 'gameover';
-
-const DanceTheBeatExperience: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  const [gameState, setGameState] = useState<GameState>('start');
-  const [lives, setLives] = useState(3);
-  const [activeIconIndex, setActiveIconIndex] = useState<number | null>(null);
-  const [isBlueBeat, setIsBlueBeat] = useState(false);
-  const [hitEffect, setHitEffect] = useState(false);
-  const [missEffect, setMissEffect] = useState(false);
-  const [dancePose, setDancePose] = useState(0);
-  
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const beatIntervalRef = useRef<number | null>(null);
-  const iconTimeoutRef = useRef<number | null>(null);
-  const activeIconRef = useRef<number | null>(null);
-  const isBlueBeatRef = useRef<boolean>(false);
-
-  const icons = [
-    { id: 0, x: '15%', y: '30%' },
-    { id: 1, x: '85%', y: '30%' },
-    { id: 2, x: '15%', y: '70%' },
-    { id: 3, x: '85%', y: '70%' },
-  ];
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => { 
-      document.body.style.overflow = 'unset';
-      if (beatIntervalRef.current) clearInterval(beatIntervalRef.current);
-      if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current);
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (gameState === 'playing') {
-      const playPromise = audioRef.current?.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Playback interrupted or prevented by browser policy:", error);
-        });
-      }
-      startBeatCycle();
-    } else if (gameState === 'missed') {
-       if (audioRef.current) {
-         audioRef.current.pause();
-       }
-       if (beatIntervalRef.current) clearInterval(beatIntervalRef.current);
-       if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current);
-       const timer = setTimeout(() => {
-         if (lives > 0) setGameState('playing');
-         else setGameState('gameover');
-       }, 1000);
-       return () => clearTimeout(timer);
-    } else {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-      if (beatIntervalRef.current) clearInterval(beatIntervalRef.current);
-      if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current);
-      setActiveIconIndex(null);
-      activeIconRef.current = null;
-    }
-  }, [gameState, lives]);
-
-  const triggerMiss = () => {
-    setMissEffect(true);
-    setLives(prev => Math.max(0, prev - 1));
-    setGameState('missed');
-    setTimeout(() => setMissEffect(false), 500);
-  };
-
-  const startBeatCycle = () => {
-    if (beatIntervalRef.current) clearInterval(beatIntervalRef.current);
-    beatIntervalRef.current = window.setInterval(() => {
-      const isBlue = Math.random() > 0.75; 
-      const nextIdx = Math.floor(Math.random() * icons.length);
-      setActiveIconIndex(nextIdx);
-      activeIconRef.current = nextIdx;
-      setIsBlueBeat(isBlue);
-      isBlueBeatRef.current = isBlue;
-      if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current);
-      iconTimeoutRef.current = window.setTimeout(() => {
-        if (activeIconRef.current !== null && !isBlueBeatRef.current) {
-          triggerMiss();
-        }
-        setActiveIconIndex(null);
-        activeIconRef.current = null;
-      }, 1800);
-      setDancePose(prev => (prev + 1) % 4);
-    }, 2800); 
-  };
-
-  const handleIconClick = (id: number) => {
-    if (gameState !== 'playing' || activeIconIndex === null) return;
-    if (id === activeIconIndex) {
-      if (isBlueBeat) {
-        triggerMiss();
-      } else {
-        setHitEffect(true);
-        setDancePose(Math.floor(Math.random() * 4));
-        setTimeout(() => setHitEffect(false), 300);
-      }
-      setActiveIconIndex(null);
-      activeIconRef.current = null;
-      if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current);
-    }
-  };
-
-  const handleStartGame = () => {
-    setLives(3);
-    setGameState('playing');
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.warn("Audio play error:", error);
-        });
-      }
-    }
-  };
-
-  const getDancerAnimation = () => {
-    if (gameState === 'gameover') return { opacity: 0, scale: 0.5, y: 180 };
-    if (gameState === 'missed' || missEffect) return { x: [0, -35, 35, -20, 0], scale: 0.85, opacity: 0.7, transition: { duration: 0.1 } };
-    return { y: [0, -45, 0], scale: hitEffect ? 1.3 : 1, transition: { duration: 0.6, ease: "easeOut" as const } };
-  };
-
-  return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[1000] bg-[#f5f2ed] dark:bg-stone-950 flex flex-col overflow-hidden">
-      <div className="relative z-[100] flex items-center justify-between px-6 py-4 md:px-12 w-full border-b border-stone-100 dark:border-white/5 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl shadow-sm">
-        <div className="flex items-center gap-4">
-          <div className="p-2.5 bg-rose/10 text-rose rounded-xl shadow-inner"><Music size={20} /></div>
-          <div className="flex gap-2">{[...Array(3)].map((_, i) => (<Heart key={i} size={18} className={i < lives ? "text-rose fill-rose drop-shadow-sm" : "text-stone-300 dark:text-stone-700"} />))}</div>
-        </div>
-        <button onClick={onClose} className="p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl"><X size={20} /></button>
-      </div>
-      <div className="flex-1 relative flex items-center justify-center bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] overflow-hidden" style={{ perspective: '3000px' }}>
-        <motion.div initial={{ rotateX: 55, y: 120 }} animate={{ rotateX: 55, y: 80 }} className="absolute w-[750px] h-[650px] bg-[#dfd6c8] dark:bg-stone-800 rounded-[3.5rem] shadow-[0_100px_200px_rgba(0,0,0,0.6)] border-b-[35px] border-stone-300 dark:border-stone-900 flex items-center justify-center border border-stone-100 dark:border-white/5">
-          <motion.div animate={{ rotate: (gameState === 'playing' || gameState === 'missed') ? 360 : 0 }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }} className="w-[550px] h-[550px] bg-[#111] rounded-full shadow-2xl relative flex items-center justify-center border-[14px] border-[#222]">
-            <div className="w-44 h-44 bg-rose dark:bg-rose-950 rounded-full border-[12px] border-[#222] flex flex-col items-center justify-center text-center p-5 z-10 shadow-inner ring-4 ring-black/20"><p className="font-hand text-4xl text-white leading-none tracking-tight">Mahi's Grooves</p></div>
-            <motion.div style={{ position: 'absolute', top: '-15%', left: '50%', translateX: '-50%', translateZ: 140, rotateX: -55, transformStyle: 'preserve-3d', zIndex: 100 }} animate={{ rotateZ: (gameState === 'playing' || gameState === 'missed') ? -360 : 0 }} transition={{ rotateZ: { duration: 12, repeat: Infinity, ease: "linear" } }} className="w-80 h-[500px] flex items-center justify-center pointer-events-none">
-              <motion.div animate={getDancerAnimation()} className="w-full h-full relative"><svg viewBox="0 0 100 120" className="w-full h-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] filter contrast-[1.2] brightness-[1.1]"><circle cx="50" cy="22" r="18" fill="#e3c2af" /><path d="M 32 20 Q 50 -2 68 20 L 65 32 Q 50 38 35 32 Z" fill="#111" /><path d="M 10 90 Q 50 75 90 90 L 100 55 Q 50 40 0 55 Z" fill="#ff7b80" /></svg></motion.div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-        <div className="absolute inset-0 z-[100] pointer-events-none">{icons.map((icon) => (<motion.button key={icon.id} onClick={() => handleIconClick(icon.id)} style={{ left: icon.x, top: icon.y }} className={`absolute -translate-x-1/2 -translate-y-1/2 p-8 rounded-full transition-all group pointer-events-auto ${activeIconIndex === icon.id ? 'scale-110 opacity-100 z-50' : 'scale-100 opacity-0 z-10 pointer-events-none'}`}><div className={`w-32 h-32 md:w-44 md:h-44 rounded-full border-4 flex items-center justify-center shadow-2xl backdrop-blur-md transition-all duration-500 ${isBlueBeat ? 'bg-blue-50/80 dark:bg-blue-900/30 border-blue-400' : 'bg-white/80 dark:bg-stone-800/80 border-rose'}`}><Activity size={56} className={isBlueBeat ? "text-blue-500" : "text-rose"} /></div></motion.button>))}</div>
-      </div>
-      <AnimatePresence>{gameState === 'start' && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-[200] bg-ink/70 backdrop-blur-xl flex items-center justify-center p-6 text-center"><div className="bg-white dark:bg-[#2a2a2a] p-12 rounded-[3.5rem] shadow-2xl max-md w-full border-t-[14px] border-rose"><h3 className="text-4xl font-serif italic mb-8 dark:text-white">Kinetic Rhythms</h3><button onClick={handleStartGame} className="w-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 py-6 rounded-2xl font-serif italic text-2xl hover:bg-rose hover:text-white transition-all shadow-xl">Start the Dance</button></div></motion.div>)}</AnimatePresence>
-      <audio ref={audioRef} loop preload="auto" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" />
-    </motion.div>
-  );
-};
-
 const hobbies = [
   { 
     name: 'Photography', 
@@ -780,11 +623,11 @@ const hobbies = [
     interactive: true 
   },
   { 
-    name: 'Dance the Beat', 
+    name: 'Music Tiles', 
     icon: <Music size={24} />, 
     bgColor: 'bg-[#fdf1f1] dark:bg-[#ff9fa2]/15', 
-    description: 'A playful rhythm experience exploring synchronized motion.', 
-    interactive: true 
+    description: 'A rhythmic challenge of timing and focus.', 
+    interactive: false 
   },
   { 
     name: 'Finding Design in the Ordinary', 
@@ -812,7 +655,6 @@ const Hobbies: React.FC = () => {
       </div>
       <AnimatePresence>
         {activeInteraction === 'Photography' && (<PhotographyScrapbook onClose={() => setActiveInteraction(null)} />)}
-        {activeInteraction === 'Dance the Beat' && (<DanceTheBeatExperience onClose={() => setActiveInteraction(null)} />)}
         {activeInteraction === 'Finding Design in the Ordinary' && (<OrdinaryDesignBingo onClose={() => setActiveInteraction(null)} />)}
         {activeInteraction === 'Visual Narratives' && (<GuessTheMovieGame onClose={() => setActiveInteraction(null)} />)}
       </AnimatePresence>
