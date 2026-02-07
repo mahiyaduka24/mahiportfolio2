@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Mail, Linkedin, Instagram, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
@@ -43,12 +44,12 @@ const Contact: React.FC = () => {
     }
   };
 
-  const inputClasses = "w-full px-0 py-4 bg-transparent border-b border-stone-200 dark:border-stone-700 focus:border-rose transition-all outline-none text-lg placeholder:text-stone-300 dark:placeholder:text-stone-500 dark:text-white";
+  const inputClasses = "w-full px-0 py-3 bg-transparent border-b border-stone-200 dark:border-stone-700 focus:border-rose transition-all outline-none text-lg placeholder:text-stone-300 dark:placeholder:text-stone-500 dark:text-white";
 
   return (
     <section id="contact" ref={sectionRef} className="py-24 px-6 relative transition-colors duration-500 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           <motion.div
             style={{ y: textY }}
@@ -56,14 +57,14 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="flex flex-col justify-between"
+            className="flex flex-col gap-12"
           >
             <div>
               <span className="text-rose font-medium uppercase tracking-[0.3em] text-xs mb-6 block">Get in Touch</span>
               <h2 className="text-6xl md:text-7xl font-serif font-bold mb-8 leading-tight dark:text-white">
                 Let's start <br /> something <span className="italic font-normal text-rose">new</span>.
               </h2>
-              <p className="text-xl text-stone-500 dark:text-stone-300 mb-12 max-w-sm leading-relaxed">
+              <p className="text-xl text-stone-500 dark:text-stone-300 mb-0 max-w-sm leading-relaxed">
                 I'm always looking for interesting collaborations and creative opportunities. 
               </p>
             </div>
@@ -109,9 +110,9 @@ const Contact: React.FC = () => {
                   key="form"
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="bg-white dark:bg-[#3a3a3a] p-8 md:p-12 rounded-[2.5rem] shadow-2xl shadow-stone-200/50 dark:shadow-black/30 border border-stone-100 dark:border-stone-700 transition-colors duration-500"
+                  className="bg-white dark:bg-[#3a3a3a] p-8 rounded-[2rem] shadow-2xl shadow-stone-200/50 dark:shadow-black/30 border border-stone-100 dark:border-stone-700 transition-colors duration-500"
                 >
-                  <form className="space-y-8" onSubmit={handleSubmit}>
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-widest text-stone-400 dark:text-stone-400">Your Name</label>
                       <input 
@@ -144,7 +145,7 @@ const Contact: React.FC = () => {
                       <label className="text-xs font-bold uppercase tracking-widest text-stone-400 dark:text-stone-400">Your Message</label>
                       <textarea 
                         name="message"
-                        rows={5} 
+                        rows={4} 
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -157,7 +158,7 @@ const Contact: React.FC = () => {
                     <button 
                       type="submit"
                       disabled={isLoading}
-                      className="group w-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 py-6 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all hover:bg-rose dark:hover:bg-rose dark:hover:text-white disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group w-full bg-stone-900 dark:bg-white text-white dark:text-stone-900 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all hover:bg-rose dark:hover:bg-rose dark:hover:text-white disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isLoading ? (
                         <>
@@ -178,7 +179,7 @@ const Contact: React.FC = () => {
                   key="success"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-white dark:bg-[#3a3a3a] p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center space-y-6 h-full min-h-[500px] border border-stone-100 dark:border-stone-700 transition-colors duration-500"
+                  className="bg-white dark:bg-[#3a3a3a] p-12 rounded-[2rem] flex flex-col items-center justify-center text-center space-y-6 h-full min-h-[400px] border border-stone-100 dark:border-stone-700 transition-colors duration-500"
                 >
                   <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center mb-4">
                     <CheckCircle size={40} />

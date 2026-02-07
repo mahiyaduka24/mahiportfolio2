@@ -42,7 +42,7 @@ const Skills: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="max-w-xl"
           >
-            <span className="text-4xl font-serif italic text-rose dark:text-rose-light opacity-30 block mb-4">02.</span>
+            <span className="text-4xl font-serif italic text-rose dark:text-rose-light opacity-50 block mb-4">02.</span>
             <h2 className="text-6xl lg:text-8xl font-serif font-bold tracking-tighter mb-6 text-ink dark:text-white leading-none">Expertise</h2>
             <p className="text-xl lg:text-2xl text-stone-500 dark:text-stone-200 leading-relaxed italic">
               Bridging traditional communication principles with <span className="text-ink dark:text-white font-medium">contemporary digital craft</span>.
