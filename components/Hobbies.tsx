@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2 } from 'lucide-react';
+import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2, Bus } from 'lucide-react';
 
 const movies = [
   "Dilwale Dulhania Le Jayenge",
@@ -332,18 +332,21 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 };
 
 const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  const [marked, setMarked] = useState<boolean[]>(new Array(9).fill(false));
+  const [marked, setMarked] = useState<boolean[]>(new Array(12).fill(false));
 
   const items = [
-    { text: "Morning light hitting a coffee cup", note: "Chiaroscuro in the everyday." },
-    { text: "Unintentional color palettes in a market", note: "Chaos has its own color theory." },
-    { text: "Weathered textures of an old brick wall", note: "Time is the best designer." },
-    { text: "Rhythm of shadows on a moving train", note: "Linear patterns in transit." },
-    { text: "Hand-painted signs with imperfect kerning", note: "Imperfection is human." },
-    { text: "Gradient of a sunset reflected in glass", note: "Nature's variable fonts." },
-    { text: "Symmetry found in overhead cables", note: "Urban geometry." },
-    { text: "A single leaf resting on concrete", note: "Organic meet man-made." },
-    { text: "The silence between two city noises", note: "Negative space in sound." }
+    { icon: <Bus size={20} />, text: "Watched city lights from a moving bus", note: "Motion blur memories.", color: "bg-[#fdf6f6]" },
+    { icon: <Coffee size={20} />, text: "Sat alone at a café just observing people", note: "The art of being invisible.", color: "bg-[#fcfbf9]" },
+    { icon: <CloudRain size={20} />, text: "Got caught in unexpected rain", note: "Nature's unplanned texture.", color: "bg-[#f4f8fa]" },
+    { icon: <Layers size={20} />, text: "Noticed textures on old walls", note: "History in peeling paint.", color: "bg-[#fcfbf9]" },
+    { icon: <Footprints size={20} />, text: "Walked without a destination", note: "Drifting as a method.", color: "bg-[#fdf6f6]" },
+    { icon: <Clock size={20} />, text: "Waited somewhere unfamiliar", note: "Time feels different here.", color: "bg-[#fafbf6]" },
+    { icon: <User size={20} />, text: "Saw your reflection in shop glass", note: "A ghost in the window.", color: "bg-[#fcfbf9]" },
+    { icon: <Radio size={20} />, text: "Heard unfamiliar street sounds", note: "The city's raw soundtrack.", color: "bg-[#f4f8fa]" },
+    { icon: <Sunrise size={20} />, text: "Watched a sunset from a random spot", note: "Light changes everything.", color: "bg-[#fdf6f6]" },
+    { icon: <Pause size={20} />, text: "Sat quietly in a public place", note: "Stillness in chaos.", color: "bg-[#fafbf6]" },
+    { icon: <Smartphone size={20} />, text: "Checked your phone just to look busy in a new place", note: "Digital shield.", color: "bg-[#fcfbf9]" },
+    { icon: <Headphones size={20} />, text: "Put on music and pretended you were in a movie scene", note: "Main character energy.", color: "bg-[#f4f8fa]" }
   ];
 
   const score = marked.filter(Boolean).length;
@@ -364,43 +367,97 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }} 
-      className="fixed inset-0 z-[1000] bg-ink/40 dark:bg-black/60 backdrop-blur-md flex items-center justify-center p-4"
+      className="fixed inset-0 z-[1000] bg-ink/60 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
     >
       <motion.div 
-        initial={{ y: 20, scale: 0.95 }}
+        initial={{ y: 20, scale: 0.98 }}
         animate={{ y: 0, scale: 1 }}
-        className="bg-parchment dark:bg-[#1e1e1e] p-8 md:p-12 rounded-[2.5rem] max-w-2xl w-full shadow-2xl relative border border-stone-200 dark:border-white/10 transition-colors duration-500"
+        className="bg-[#fcfbf9] dark:bg-[#1e1e1e] p-6 md:p-12 rounded-[2px] max-w-5xl w-full shadow-[0_20px_50px_rgba(0,0,0,0.2)] relative border border-stone-200 dark:border-white/10 transition-colors duration-500 my-auto overflow-hidden"
       >
-        <button onClick={onClose} className="absolute top-6 right-6 p-2 text-stone-400 hover:text-rose transition-colors">
+        {/* Paper texture overlay */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]"></div>
+
+        {/* --- Background Doodles & Quotes --- */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+           {/* Plane sketch */}
+           <div className="absolute top-10 right-10 opacity-10 rotate-12 text-rose">
+              <Plane size={120} strokeWidth={0.8} />
+              <div className="absolute -bottom-4 left-0 font-hand text-sm text-ink dark:text-white -rotate-6">Let's go somewhere</div>
+           </div>
+           
+           {/* Globe sketch */}
+           <div className="absolute bottom-20 left-6 opacity-10 -rotate-12 text-sage">
+              <Globe size={140} strokeWidth={0.6} />
+           </div>
+
+           {/* Camera sketch */}
+           <div className="absolute bottom-10 right-10 opacity-10 rotate-6 text-stone-600">
+              <Camera size={100} strokeWidth={0.6} />
+           </div>
+
+           {/* Map sketch */}
+           <div className="absolute top-40 -left-10 opacity-5 rotate-45 text-ink dark:text-white">
+              <MapIcon size={180} strokeWidth={0.4} />
+           </div>
+
+           {/* Handwritten Quotes */}
+           <div className="absolute top-20 left-8 max-w-[150px] font-hand text-xl text-stone-400 -rotate-6 opacity-60 hidden md:block">
+              "To travel is to discover that everyone is wrong about other countries."
+           </div>
+           
+           <div className="absolute bottom-32 right-24 max-w-[150px] font-hand text-xl text-stone-400 rotate-3 opacity-60 hidden md:block text-right">
+              "I haven't been everywhere, but it's on my list."
+           </div>
+
+           {/* Stamp Effect */}
+           <div className="absolute top-6 left-1/2 -translate-x-1/2 opacity-20 rotate-[-5deg]">
+              <div className="w-32 h-12 border-2 border-rose rounded-sm flex items-center justify-center">
+                 <span className="font-mono text-xs text-rose uppercase tracking-widest font-bold">Observation Log</span>
+              </div>
+           </div>
+        </div>
+
+        {/* Tape */}
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-40 h-10 bg-rose/30 backdrop-blur-sm rotate-1 shadow-sm z-20"></div>
+
+        <button onClick={onClose} className="absolute top-4 right-4 p-2 text-stone-400 hover:text-rose transition-colors z-30">
           <X size={24} />
         </button>
 
-        <div className="mb-10 text-center">
-          <div className="font-hand text-3xl text-rose mb-2">Finding Design in the Ordinary</div>
-          <p className="font-serif italic text-lg text-stone-500 dark:text-stone-300">Everyday moments shape how I see and design.</p>
+        <div className="mb-10 text-center relative z-10 mt-4">
+          <h2 className="font-serif italic text-4xl md:text-5xl text-ink dark:text-white mb-2">Finding Design in the Ordinary</h2>
+          <p className="font-hand text-xl md:text-2xl text-stone-500 dark:text-stone-300">"Everyday moments shape how I see and design."</p>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 md:gap-5 mb-10 relative">
-          {/* Subtle Pencil Doodles */}
-          <div className="absolute -top-10 -left-10 opacity-10 dark:opacity-20 pointer-events-none rotate-[-15deg]">
-            <Compass size={80} strokeWidth={0.5} />
-          </div>
-          <div className="absolute -bottom-10 -right-10 opacity-10 dark:opacity-20 pointer-events-none rotate-[15deg]">
-            <Scissors size={80} strokeWidth={0.5} />
-          </div>
-
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8 relative z-10">
           {items.map((item, i) => (
-            <button 
+            <motion.button 
               key={i} 
+              whileHover={{ scale: 1.03, rotate: Math.random() * 2 - 1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => toggle(i)} 
-              className={`group aspect-square p-3 md:p-5 flex flex-col items-center justify-center text-center relative rounded-2xl transition-all duration-500 border ${
-                marked[i] 
-                  ? 'bg-white dark:bg-stone-800 border-rose shadow-inner' 
-                  : 'bg-white/50 dark:bg-[#2a2a2a] border-stone-100 dark:border-white/5 hover:border-rose/30'
-              }`}
+              className={`
+                aspect-square p-4 flex flex-col items-center justify-between text-center relative transition-all duration-300 shadow-sm hover:shadow-lg group overflow-hidden
+                ${marked[i] ? 'bg-white dark:bg-[#252525]' : item.color + ' dark:bg-[#2a2a2a]'}
+              `}
+              style={{
+                transform: `rotate(${Math.random() * 2 - 1}deg)`,
+                borderRadius: '2px',
+                border: marked[i] ? '2px solid #d4a3a3' : '1px solid rgba(0,0,0,0.05)'
+              }}
             >
-              <div className={`transition-all duration-500 ${marked[i] ? 'opacity-20 blur-[1px]' : 'opacity-100'}`}>
-                <p className="text-[10px] md:text-xs font-serif italic text-stone-500 dark:text-stone-300 leading-tight">
+              {/* Corner tapes for some items */}
+              {i % 3 === 0 && !marked[i] && <div className="absolute -top-3 -left-8 w-20 h-5 bg-stone-200/60 dark:bg-white/10 -rotate-45 pointer-events-none"></div>}
+              {i % 5 === 0 && !marked[i] && <div className="absolute -bottom-3 -right-8 w-20 h-5 bg-rose/10 dark:bg-rose/10 rotate-45 pointer-events-none"></div>}
+              
+              {/* Thumbtack for others */}
+              {i % 2 !== 0 && i % 3 !== 0 && <div className="absolute top-2 w-3 h-3 rounded-full bg-stone-300 dark:bg-stone-600 shadow-inner mx-auto left-0 right-0"></div>}
+
+              <div className={`transition-all duration-500 flex flex-col items-center justify-center flex-1 w-full gap-3 h-full ${marked[i] ? 'opacity-20 blur-[1px] grayscale' : 'opacity-100'}`}>
+                <div className="text-stone-400 dark:text-stone-400 group-hover:text-rose dark:group-hover:text-rose-light group-hover:scale-110 transition-all duration-300">
+                    {item.icon}
+                </div>
+                <p className="text-[11px] md:text-[13px] font-serif text-stone-600 dark:text-stone-300 leading-snug">
                   {item.text}
                 </p>
               </div>
@@ -408,43 +465,37 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
               <AnimatePresence>
                 {marked[i] && (
                   <motion.div 
-                    initial={{ opacity: 0, scale: 0.8 }} 
-                    animate={{ opacity: 1, scale: 1 }} 
-                    className="absolute inset-0 flex flex-col items-center justify-center p-3"
+                    initial={{ opacity: 0, scale: 1.2, rotate: Math.random() * 10 - 5 }} 
+                    animate={{ opacity: 1, scale: 1, rotate: Math.random() * 6 - 3 }} 
+                    className="absolute inset-0 flex flex-col items-center justify-center p-3 z-10"
                   >
-                    <CheckCircle2 size={24} className="text-rose mb-2" />
-                    <p className="font-hand text-lg text-ink dark:text-white leading-none">
+                    <div className="border-2 border-rose rounded-full w-12 h-12 flex items-center justify-center mb-2 bg-rose/10 backdrop-blur-sm">
+                        <Check size={24} strokeWidth={3} className="text-rose" />
+                    </div>
+                    <p className="font-hand text-lg md:text-xl text-ink dark:text-white leading-tight font-bold rotate-[-2deg] drop-shadow-sm">
                       {item.note}
                     </p>
                   </motion.div>
                 )}
               </AnimatePresence>
-
-              {/* Checkmark indicator */}
-              {!marked[i] && (
-                <div className="absolute top-2 right-2 opacity-10 group-hover:opacity-30">
-                  <Square size={12} />
-                </div>
-              )}
-            </button>
+            </motion.button>
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-stone-100 dark:border-white/5 pt-8">
-          <div className="flex items-center gap-4">
-             <div className="w-16 h-16 rounded-full border-2 border-rose flex items-center justify-center">
-                <span className="text-2xl font-serif italic text-rose">{score}/9</span>
-             </div>
-             <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400">Awareness Meter</p>
-                <p className="font-hand text-xl text-stone-500">“Your score reflects awareness, not achievement.”</p>
-             </div>
+        <div className="flex flex-col items-center gap-4 border-t-2 border-dashed border-stone-200 dark:border-white/10 pt-6 relative z-10">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-stone-400 bg-white/50 dark:bg-black/20 px-4 py-1 rounded-full backdrop-blur-sm">
+             <span>Awareness Score</span>
+             <span className="w-8 h-[1px] bg-stone-300 dark:bg-white/20"></span>
+             <span className="text-xl text-rose font-serif italic font-bold">{score} / 12</span>
           </div>
+          <p className="font-hand text-lg text-stone-500 dark:text-stone-400">
+            "Your score reflects awareness, not achievement."
+          </p>
           <button 
             onClick={onClose}
-            className="px-8 py-3 bg-stone-900 dark:bg-white text-white dark:text-stone-900 rounded-full font-serif italic text-lg hover:bg-rose hover:text-white transition-all shadow-lg"
+            className="mt-2 px-6 py-2 bg-ink text-white dark:bg-white dark:text-ink hover:bg-rose dark:hover:bg-rose hover:text-white transition-all rounded-full font-serif italic text-sm shadow-md"
           >
-            Continue Journaling
+            Close Journal
           </button>
         </div>
       </motion.div>
