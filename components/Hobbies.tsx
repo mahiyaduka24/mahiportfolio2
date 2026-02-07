@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause } from 'lucide-react';
+import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2 } from 'lucide-react';
 
 const movies = [
   "Dilwale Dulhania Le Jayenge",
@@ -170,7 +170,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm -rotate-2 z-10"></div>
                 <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
                   <img 
-                    src="https://i.ibb.co/VfYfMnJ/MV5-BMTc2-NDQ5-OTIz-Nl5-BMl5-Ban-Bn-Xk-Ft-ZTgw-MTI5-ODUz-Nz-E-V1.jpg?auto=format&fit=crop&q=80&w=600" 
+                    src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" 
                     alt="Cinema Poster 1" 
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
                   />
@@ -190,7 +190,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm rotate-2 z-10"></div>
                 <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
                   <img 
-                    src="https://i.ibb.co/k6BBb71w/images.jpg?auto=format&fit=crop&q=80&w=600" 
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" 
                     alt="Cinema Poster 2" 
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
                   />
@@ -614,6 +614,196 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
   );
 };
 
+type Mood = 'Happy' | 'Sad' | 'Calm';
+type Situation = 'Traveling' | 'At Home' | 'With Friends';
+
+const playlistData: Record<Mood, Record<Situation, { song: string, movie: string, lyric: string, color: string }>> = {
+  Happy: {
+    Traveling: { song: "Ilahi", movie: "Yeh Jawaani Hai Deewani", lyric: "Mera falsafa kandhe pe mera basta...", color: "bg-amber-100 dark:bg-amber-900/20" },
+    "At Home": { song: "Love You Zindagi", movie: "Dear Zindagi", lyric: "Jo dil se lage, use keh do hi...", color: "bg-sky-100 dark:bg-sky-900/20" },
+    "With Friends": { song: "Sooraj Dooba Hain", movie: "Roy", lyric: "Matalbi ho ja zara matlabi...", color: "bg-rose-100 dark:bg-rose-900/20" },
+  },
+  Sad: {
+    Traveling: { song: "Kabira", movie: "Yeh Jawaani Hai Deewani", lyric: "Bann thann ke bata kidhar...", color: "bg-slate-200 dark:bg-slate-800" },
+    "At Home": { song: "Agar Tum Saath Ho", movie: "Tamasha", lyric: "Teri nazron mein hai tere sapne...", color: "bg-indigo-100 dark:bg-indigo-900/20" },
+    "With Friends": { song: "Channa Mereya", movie: "Ae Dil Hai Mushkil", lyric: "Accha chalta hoon, duaon mein yaad rakhna...", color: "bg-gray-200 dark:bg-gray-800" },
+  },
+  Calm: {
+    Traveling: { song: "Safarnama", movie: "Tamasha", lyric: "Sawaalon ki tarah, jawaabon ki tarah...", color: "bg-emerald-100 dark:bg-emerald-900/20" },
+    "At Home": { song: "Iktara", movie: "Wake Up Sid", lyric: "Goonja sa hai koi iktara...", color: "bg-teal-100 dark:bg-teal-900/20" },
+    "With Friends": { song: "Sham", movie: "Aisha", lyric: "Sham bhi koi jaise hai nadi...", color: "bg-purple-100 dark:bg-purple-900/20" },
+  }
+};
+
+const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  const [mood, setMood] = useState<Mood | null>(null);
+  const [situation, setSituation] = useState<Situation | null>(null);
+  
+  const moodRef = useRef<HTMLDivElement>(null);
+  const situationRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, []);
+
+  const handleMoodSelect = (selectedMood: Mood) => {
+    setMood(selectedMood);
+    setSituation(null);
+    setTimeout(() => {
+      situationRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const handleSituationSelect = (selectedSituation: Situation) => {
+    setSituation(selectedSituation);
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  };
+
+  const currentResult = mood && situation ? playlistData[mood][situation] : null;
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }} 
+      className="fixed inset-0 z-[1000] bg-parchment dark:bg-stone-950 flex flex-col"
+    >
+      {/* Header */}
+      <div className="fixed top-0 left-0 right-0 z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full bg-white/70 dark:bg-[#1a1a1a]/80 backdrop-blur-xl border-b border-stone-200 dark:border-white/10">
+        <div className="flex items-center gap-4">
+           <div className="p-2 bg-rose/10 text-rose rounded-lg"><Music2 size={20} /></div>
+           <div>
+             <h2 className="text-xl font-serif italic text-ink dark:text-white leading-none">Playlist Builder</h2>
+             <p className="text-[10px] font-mono text-stone-400 uppercase tracking-widest mt-1">Bollywood Edition</p>
+           </div>
+        </div>
+        <button onClick={onClose} className="p-3 bg-stone-100 dark:bg-stone-800 rounded-full hover:bg-rose hover:text-white transition-colors dark:text-white"><X size={20} /></button>
+      </div>
+
+      <div className="flex-1 overflow-y-auto custom-scrollbar scroll-smooth pt-20">
+        <div className="max-w-3xl mx-auto px-6 pb-24">
+          
+          {/* Section 1: Mood */}
+          <div ref={moodRef} className="min-h-[80vh] flex flex-col justify-center py-12">
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-center mb-16"
+            >
+               <h1 className="text-5xl md:text-7xl font-serif font-bold text-ink dark:text-white mb-6">Build Your <br/><span className="italic text-rose">Bollywood Playlist</span></h1>
+               <p className="font-mono text-sm text-stone-500 dark:text-stone-400 uppercase tracking-[0.2em]">Scroll and choose your vibe</p>
+               <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="mt-8 flex justify-center opacity-30">
+                 <ChevronDown size={32} />
+               </motion.div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+               {(['Happy', 'Sad', 'Calm'] as Mood[]).map((m) => (
+                 <motion.button
+                   key={m}
+                   whileHover={{ scale: 1.05, y: -5 }}
+                   whileTap={{ scale: 0.95 }}
+                   onClick={() => handleMoodSelect(m)}
+                   className={`p-8 md:p-12 rounded-[2rem] text-center border-2 transition-all duration-300 ${mood === m ? 'bg-rose text-white border-rose shadow-xl' : 'bg-white dark:bg-[#222] border-stone-100 dark:border-white/10 hover:border-rose/50 dark:hover:border-rose/50'}`}
+                 >
+                   <div className="text-3xl font-serif italic mb-2 dark:text-white">{m}</div>
+                   <div className="w-8 h-1 bg-current opacity-20 mx-auto rounded-full"></div>
+                 </motion.button>
+               ))}
+            </div>
+          </div>
+
+          {/* Section 2: Situation */}
+          <AnimatePresence>
+            {mood && (
+              <motion.div 
+                ref={situationRef}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="min-h-[80vh] flex flex-col justify-center py-12 border-t border-stone-200 dark:border-white/5"
+              >
+                <div className="text-center mb-16">
+                   <h3 className="text-4xl md:text-5xl font-serif italic text-ink dark:text-white mb-4">What's the setting?</h3>
+                   <p className="text-stone-500 dark:text-stone-400">Context matters.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                   {(['Traveling', 'At Home', 'With Friends'] as Situation[]).map((s) => (
+                     <motion.button
+                       key={s}
+                       whileHover={{ scale: 1.05, y: -5 }}
+                       whileTap={{ scale: 0.95 }}
+                       onClick={() => handleSituationSelect(s)}
+                       className={`p-8 md:p-10 rounded-[2rem] text-center border-2 transition-all duration-300 ${situation === s ? 'bg-ink dark:bg-white text-white dark:text-ink border-ink dark:border-white shadow-xl' : 'bg-white dark:bg-[#222] border-stone-100 dark:border-white/10 hover:border-ink/20 dark:hover:border-white/20'}`}
+                     >
+                       <div className="text-2xl font-serif italic dark:text-white dark:group-hover:text-ink">{s}</div>
+                     </motion.button>
+                   ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Section 3: Result */}
+          <AnimatePresence>
+             {mood && situation && currentResult && (
+               <motion.div 
+                 ref={resultRef}
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 exit={{ opacity: 0, scale: 0.9 }}
+                 className="min-h-[60vh] flex items-center justify-center py-12"
+               >
+                 <div className={`relative p-10 md:p-16 rounded-[3rem] w-full max-w-xl text-center shadow-2xl border border-white/20 ${currentResult.color}`}>
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 washi-tape opacity-60 rotate-2"></div>
+                    
+                    <div className="mb-8">
+                       <span className="inline-block px-4 py-1 rounded-full bg-white/40 border border-white/20 text-xs font-mono uppercase tracking-widest backdrop-blur-sm mb-6">
+                          Your Soundtrack
+                       </span>
+                       <h2 className="text-4xl md:text-6xl font-serif font-bold text-ink dark:text-white mb-2 leading-tight">
+                         "{currentResult.song}"
+                       </h2>
+                       <p className="text-xl font-serif italic text-stone-600 dark:text-stone-200">
+                         from {currentResult.movie}
+                       </p>
+                    </div>
+
+                    <div className="relative py-8 px-4">
+                       <Quote size={24} className="absolute top-0 left-0 text-ink/20 dark:text-white/20" />
+                       <p className="font-hand text-2xl md:text-3xl text-ink dark:text-white leading-relaxed">
+                         {currentResult.lyric}
+                       </p>
+                       <Quote size={24} className="absolute bottom-0 right-0 text-ink/20 dark:text-white/20 rotate-180" />
+                    </div>
+
+                    <button 
+                      onClick={() => {
+                        setMood(null);
+                        setSituation(null);
+                        setTimeout(() => moodRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
+                      }}
+                      className="mt-10 px-8 py-3 bg-white dark:bg-[#333] rounded-full text-sm font-bold uppercase tracking-widest hover:bg-ink hover:text-white dark:hover:bg-white dark:hover:text-ink transition-all shadow-lg"
+                    >
+                      Start Over
+                    </button>
+                 </div>
+               </motion.div>
+             )}
+          </AnimatePresence>
+          
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const hobbies = [
   { 
     name: 'Photography', 
@@ -623,11 +813,11 @@ const hobbies = [
     interactive: true 
   },
   { 
-    name: 'Music Tiles', 
+    name: 'Bollywood Playlist', 
     icon: <Music size={24} />, 
     bgColor: 'bg-[#fdf1f1] dark:bg-[#ff9fa2]/15', 
-    description: 'A rhythmic challenge of timing and focus.', 
-    interactive: false 
+    description: 'Curate your cinematic soundtrack.', 
+    interactive: true 
   },
   { 
     name: 'Finding Design in the Ordinary', 
@@ -655,6 +845,7 @@ const Hobbies: React.FC = () => {
       </div>
       <AnimatePresence>
         {activeInteraction === 'Photography' && (<PhotographyScrapbook onClose={() => setActiveInteraction(null)} />)}
+        {activeInteraction === 'Bollywood Playlist' && (<BollywoodPlaylistBuilder onClose={() => setActiveInteraction(null)} />)}
         {activeInteraction === 'Finding Design in the Ordinary' && (<OrdinaryDesignBingo onClose={() => setActiveInteraction(null)} />)}
         {activeInteraction === 'Visual Narratives' && (<GuessTheMovieGame onClose={() => setActiveInteraction(null)} />)}
       </AnimatePresence>
