@@ -90,10 +90,10 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[1000] bg-parchment dark:bg-[#1a1a1a] flex flex-col overflow-hidden"
+      className="fixed inset-0 z-[1000] bg-parchment dark:bg-[#1e1e1e] flex flex-col overflow-hidden transition-colors duration-500"
     >
       {/* Header */}
-      <div className="relative z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full border-b border-stone-200 dark:border-white/10 bg-white/70 dark:bg-[#1a1a1a]/80 backdrop-blur-xl transition-colors duration-500">
+      <div className="relative z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full border-b border-stone-200 dark:border-white/10 bg-white/70 dark:bg-[#1e1e1e]/80 backdrop-blur-xl transition-colors duration-500">
         <div className="flex items-center gap-4">
           <div className="p-2 bg-rose/10 text-rose rounded-lg border border-rose/20">
             <ClapperIcon size={20} />
@@ -124,7 +124,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
       </div>
 
-      <div className="flex-1 relative w-full bg-[#f9f7f2] dark:bg-[#1a1a1a] overflow-y-auto custom-scrollbar">
+      <div className="flex-1 relative w-full bg-[#f9f7f2] dark:bg-[#1e1e1e] overflow-y-auto custom-scrollbar transition-colors duration-500">
         <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-6 pb-20">
           {/* Cinematic Backdrop - Enhanced film strip motif */}
           <div className="absolute inset-0 pointer-events-none flex flex-col justify-between opacity-[0.05] dark:opacity-[0.03]">
@@ -217,7 +217,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </motion.div>
 
             {/* New Game Layout */}
-            <div className="bg-[#fcfbf9] dark:bg-[#1e1e1e] p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
+            <div className="bg-[#fcfbf9] dark:bg-[#2a2a2a] p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
               
               {/* Word Display - Optimized for mobile/long words */}
               <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 md:gap-x-10 md:gap-y-10 mb-10 md:mb-16 w-full">
@@ -369,7 +369,7 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
       <motion.div 
         initial={{ y: 20, scale: 0.95 }}
         animate={{ y: 0, scale: 1 }}
-        className="bg-parchment dark:bg-[#222] p-8 md:p-12 rounded-[2.5rem] max-w-2xl w-full shadow-2xl relative border border-stone-200 dark:border-white/10"
+        className="bg-parchment dark:bg-[#1e1e1e] p-8 md:p-12 rounded-[2.5rem] max-w-2xl w-full shadow-2xl relative border border-stone-200 dark:border-white/10 transition-colors duration-500"
       >
         <button onClick={onClose} className="absolute top-6 right-6 p-2 text-stone-400 hover:text-rose transition-colors">
           <X size={24} />
@@ -396,7 +396,7 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
               className={`group aspect-square p-3 md:p-5 flex flex-col items-center justify-center text-center relative rounded-2xl transition-all duration-500 border ${
                 marked[i] 
                   ? 'bg-white dark:bg-stone-800 border-rose shadow-inner' 
-                  : 'bg-white/50 dark:bg-stone-800/30 border-stone-100 dark:border-white/5 hover:border-rose/30'
+                  : 'bg-white/50 dark:bg-[#2a2a2a] border-stone-100 dark:border-white/5 hover:border-rose/30'
               }`}
             >
               <div className={`transition-all duration-500 ${marked[i] ? 'opacity-20 blur-[1px]' : 'opacity-100'}`}>
@@ -528,10 +528,10 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[1000] bg-parchment dark:bg-stone-950 flex flex-col overflow-hidden transition-colors duration-500"
+      className="fixed inset-0 z-[1000] bg-parchment dark:bg-[#1e1e1e] flex flex-col overflow-hidden transition-colors duration-500"
     >
       {/* Header */}
-      <div className="relative z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full border-b border-stone-100 dark:border-white/5 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl shadow-sm transition-colors duration-500">
+      <div className="relative z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full border-b border-stone-100 dark:border-white/5 bg-white/70 dark:bg-[#1e1e1e]/70 backdrop-blur-xl shadow-sm transition-colors duration-500">
         <div className="border-l-2 border-rose pl-4">
           <h2 className="text-xl md:text-2xl font-serif italic text-ink dark:text-white leading-tight">Framing the Everyday</h2>
           <p className="font-hand text-sm md:text-base text-rose dark:text-rose-light">“I train my eye by framing moments before capturing them.”</p>
@@ -670,10 +670,10 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }} 
-      className="fixed inset-0 z-[1000] bg-parchment dark:bg-stone-950 flex flex-col"
+      className="fixed inset-0 z-[1000] bg-parchment dark:bg-[#1e1e1e] flex flex-col transition-colors duration-500"
     >
       {/* Header */}
-      <div className="fixed top-0 left-0 right-0 z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full bg-white/70 dark:bg-[#1a1a1a]/80 backdrop-blur-xl border-b border-stone-200 dark:border-white/10">
+      <div className="fixed top-0 left-0 right-0 z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full bg-white/70 dark:bg-[#1e1e1e]/80 backdrop-blur-xl border-b border-stone-200 dark:border-white/10 transition-colors duration-500">
         <div className="flex items-center gap-4">
            <div className="p-2 bg-rose/10 text-rose rounded-lg"><Music2 size={20} /></div>
            <div>
@@ -709,7 +709,7 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
                    whileHover={{ scale: 1.05, y: -5 }}
                    whileTap={{ scale: 0.95 }}
                    onClick={() => handleMoodSelect(m)}
-                   className={`p-8 md:p-12 rounded-[2rem] text-center border-2 transition-all duration-300 ${mood === m ? 'bg-rose text-white border-rose shadow-xl' : 'bg-white dark:bg-[#222] border-stone-100 dark:border-white/10 hover:border-rose/50 dark:hover:border-rose/50'}`}
+                   className={`p-8 md:p-12 rounded-[2rem] text-center border-2 transition-all duration-300 ${mood === m ? 'bg-rose text-white border-rose shadow-xl' : 'bg-white dark:bg-[#2a2a2a] border-stone-100 dark:border-white/10 hover:border-rose/50 dark:hover:border-rose/50'}`}
                  >
                    <div className="text-3xl font-serif italic mb-2 dark:text-white">{m}</div>
                    <div className="w-8 h-1 bg-current opacity-20 mx-auto rounded-full"></div>
@@ -740,9 +740,9 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
                        whileHover={{ scale: 1.05, y: -5 }}
                        whileTap={{ scale: 0.95 }}
                        onClick={() => handleSituationSelect(s)}
-                       className={`p-8 md:p-10 rounded-[2rem] text-center border-2 transition-all duration-300 ${situation === s ? 'bg-ink dark:bg-white text-white dark:text-ink border-ink dark:border-white shadow-xl' : 'bg-white dark:bg-[#222] border-stone-100 dark:border-white/10 hover:border-ink/20 dark:hover:border-white/20'}`}
+                       className={`p-8 md:p-10 rounded-[2rem] text-center border-2 transition-all duration-300 ${situation === s ? 'bg-ink dark:bg-white text-white dark:text-ink border-ink dark:border-white shadow-xl' : 'bg-white dark:bg-[#2a2a2a] text-stone-600 dark:text-white border-stone-100 dark:border-white/10 hover:border-ink/20 dark:hover:border-white/20'}`}
                      >
-                       <div className="text-2xl font-serif italic dark:text-white dark:group-hover:text-ink">{s}</div>
+                       <div className="text-2xl font-serif italic">{s}</div>
                      </motion.button>
                    ))}
                 </div>
