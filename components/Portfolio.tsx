@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, PanInfo } from 'framer-motion';
 import { Paperclip, Briefcase, Wrench, Trophy, X, ChevronRight, ChevronLeft, Eye, BookOpen, ZoomIn, ZoomOut, Maximize2, LayoutGrid, Bookmark, Pin, Star, Scissors, RotateCcw, PenTool } from 'lucide-react';
 
 const projects = [
@@ -11,7 +11,7 @@ const projects = [
     role: 'Lead Designer',
     tools: ['Figma', 'Adobe XD', 'Prototyping'],
     outcome: 'Synthesized organic patterns into a digital framework for a local botanical archive.',
-    image: 'https://i.ibb.co/zTjwYLZM/Screenshot-2026-02-06-095652.png?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
     rotation: -2,
     tapeStyle: 'top-left',
     tapeColor: 'bg-rose/40',
@@ -20,11 +20,11 @@ const projects = [
     process: [
       { image: 'https://images.unsplash.com/photo-1581291518062-c9a79e7e9f33?auto=format&fit=crop&q=80&w=800', note: 'Initial field studies in the local gardens.' },
       { image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800', note: 'Translating stem patterns into wireframe grids.' },
-      { image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' }
+      { image: 'https://images.unsplash.com/photo-1516961642265-531546e84af2?auto=format&fit=crop&q=80&w=800', note: 'Typography selection process.' },
     ],
     final: [
-      'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1581291518062-c9a79e7e9f33?auto=format&fit=crop&q=80&w=1200'
+      'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1581291518062-c9a79e7e9f33?auto=format&fit=crop&q=80&w=1600'
     ]
   },
   {
@@ -45,7 +45,7 @@ const projects = [
       { image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200'
+      'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1600'
     ]
   },
   {
@@ -66,7 +66,7 @@ const projects = [
       { image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=800', note: 'Iteration #04: Exploring frame rates and friction.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200'
+      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1600'
     ]
   },
   {
@@ -86,7 +86,7 @@ const projects = [
       { image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1200'
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600'
     ]
   }
 ];
@@ -131,6 +131,299 @@ const renderTape = (style: string, color: string) => {
     );
     default: return <div className={`absolute -top-5 left-1/2 -translate-x-1/2 w-32 h-8 washi-tape opacity-50 z-30 ${color} rotate-1`}></div>;
   }
+};
+
+const ImageLightbox: React.FC<{ images: string[]; initialIndex: number; onClose: () => void }> = ({ images, initialIndex, onClose }) => {
+  const [index, setIndex] = useState(initialIndex);
+  const [scale, setScale] = useState(1);
+  const [direction, setDirection] = useState(0);
+
+  const handleZoomIn = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setScale(s => Math.min(s + 0.5, 3));
+  };
+  
+  const handleZoomOut = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setScale(s => Math.max(s - 0.5, 1));
+  };
+
+  const navigate = (newIndex: number) => {
+    setDirection(newIndex > index ? 1 : -1);
+    setIndex(newIndex);
+    setScale(1);
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (index < images.length - 1) navigate(index + 1);
+  };
+
+  const handlePrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (index > 0) navigate(index - 1);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [index, images.length]);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[1200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden"
+      onClick={onClose}
+    >
+       {/* Controls */}
+       <div className="absolute top-6 right-6 flex gap-4 z-50">
+          <button onClick={handleZoomOut} className="p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-colors"><ZoomOut size={24}/></button>
+          <button onClick={handleZoomIn} className="p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-colors"><ZoomIn size={24}/></button>
+          <button onClick={onClose} className="p-4 bg-rose text-white rounded-full hover:bg-rose/80 transition-colors"><X size={24}/></button>
+       </div>
+
+       {/* Navigation Buttons */}
+       {index > 0 && (
+         <button onClick={handlePrev} className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-colors z-50 hover:scale-110">
+           <ChevronLeft size={32} />
+         </button>
+       )}
+       {index < images.length - 1 && (
+         <button onClick={handleNext} className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-colors z-50 hover:scale-110">
+           <ChevronRight size={32} />
+         </button>
+       )}
+
+       <div className="w-full h-full overflow-hidden flex items-center justify-center p-4 relative" onClick={(e) => e.stopPropagation()}>
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.img 
+              key={index}
+              src={images[index]} 
+              custom={direction}
+              variants={{
+                enter: (direction: number) => ({
+                  x: direction > 0 ? 1000 : -1000,
+                  opacity: 0,
+                  scale: 0.8
+                }),
+                center: {
+                  zIndex: 1,
+                  x: 0,
+                  opacity: 1,
+                  scale: scale
+                },
+                exit: (direction: number) => ({
+                  zIndex: 0,
+                  x: direction < 0 ? 1000 : -1000,
+                  opacity: 0,
+                  scale: 0.8
+                })
+              }}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              // Only enable drag for panning when zoomed in. Use drag="x" for swipe detection when zoomed out.
+              drag={scale > 1 ? true : "x"}
+              dragConstraints={scale > 1 ? { left: -1000, right: 1000, top: -800, bottom: 800 } : { left: 0, right: 0 }}
+              dragElastic={scale > 1 ? 0.1 : 0.8}
+              onDragEnd={(e, { offset, velocity }) => {
+                if (scale === 1) {
+                  const swipeThreshold = 50;
+                  const swipeVelocity = 0.2;
+                  if (offset.x > swipeThreshold || velocity.x > swipeVelocity) {
+                    handlePrev();
+                  } else if (offset.x < -swipeThreshold || velocity.x < -swipeVelocity) {
+                    handleNext();
+                  }
+                }
+              }}
+              className="max-w-[95vw] max-h-[90vh] object-contain shadow-2xl touch-none"
+              style={{ cursor: scale > 1 ? 'grab' : 'default' }}
+            />
+          </AnimatePresence>
+       </div>
+       
+       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/40 font-mono text-[10px] uppercase tracking-[0.3em] pointer-events-none select-none bg-black/20 px-4 py-2 rounded-full backdrop-blur-md">
+          {index + 1} / {images.length} • Swipe to navigate • Buttons to Zoom
+       </div>
+    </motion.div>
+  )
+}
+
+const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project, onClose }) => {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, []);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[1000] bg-stone-900/80 backdrop-blur-md flex items-center justify-center p-4 lg:p-10"
+      onClick={onClose}
+    >
+       <motion.div 
+        initial={{ y: 50, opacity: 0, scale: 0.98 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        exit={{ y: 50, opacity: 0, scale: 0.98 }}
+        className="bg-[#fcfbf9] dark:bg-[#1a1a1a] w-full max-w-[95vw] h-full lg:h-[90vh] rounded-lg shadow-2xl relative flex flex-col lg:flex-row overflow-hidden border border-white/50 dark:border-white/5"
+        onClick={e => e.stopPropagation()}
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 z-[60] p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl hover:bg-rose/90">
+          <X size={20} strokeWidth={2.5} />
+        </button>
+
+        {/* --- Left Panel: Details (Fixed Sidebar) --- */}
+        <div className="w-full lg:w-[28%] lg:min-w-[320px] h-full overflow-y-auto border-b lg:border-b-0 lg:border-r border-stone-200 dark:border-white/10 bg-white/60 dark:bg-black/20 p-8 lg:p-12 relative">
+          
+          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-rose mb-8 block">
+            Folder {project.id}
+          </div>
+
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl lg:text-5xl font-serif italic text-ink dark:text-white mb-4 leading-[1.1]"
+          >
+            {project.title}
+          </motion.h2>
+
+          <p className="font-hand text-2xl text-stone-400 dark:text-stone-500 mb-12">
+            {project.category}
+          </p>
+
+          <div className="space-y-8">
+             <div className="flex flex-col gap-2">
+                <h4 className="font-mono text-[9px] uppercase tracking-widest text-stone-400 font-bold">Role</h4>
+                <p className="font-serif text-lg text-ink dark:text-stone-200">{project.role}</p>
+             </div>
+
+             <div className="flex flex-col gap-2">
+                <h4 className="font-mono text-[9px] uppercase tracking-widest text-stone-400 font-bold">Outcome</h4>
+                <p className="font-serif text-lg leading-relaxed text-ink dark:text-stone-200 opacity-80">
+                  {project.outcome}
+                </p>
+             </div>
+
+             <div className="flex flex-col gap-3 pt-4 border-t border-stone-100 dark:border-white/5">
+                <h4 className="font-mono text-[9px] uppercase tracking-widest text-stone-400 font-bold">Tools Used</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools?.map((t: string) => (
+                    <span key={t} className="px-3 py-1 bg-white dark:bg-stone-800 border border-stone-100 dark:border-white/10 rounded-full text-[10px] uppercase tracking-wider text-stone-500 dark:text-stone-400">{t}</span>
+                  ))}
+                </div>
+             </div>
+          </div>
+        </div>
+
+        {/* --- Right Panel: Content (Scrollable) --- */}
+        <div className="flex-1 h-full overflow-y-auto custom-scrollbar bg-[url('https://www.transparenttextures.com/patterns/dust.png')] bg-[#f4f4f0] dark:bg-[#222]">
+           <div className="p-8 lg:p-16 max-w-5xl mx-auto">
+              
+              {/* Section 1: The Process */}
+              <div className="mb-24 relative">
+                 <div className="flex items-baseline gap-4 mb-10 border-b border-stone-200 dark:border-white/10 pb-4">
+                    <h3 className="text-3xl font-serif font-bold text-ink dark:text-white">The Process</h3>
+                    <span className="font-hand text-xl text-stone-400 dark:text-stone-500">Sketches & Iterations</span>
+                 </div>
+                 
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    {project.process?.map((proc: any, idx: number) => (
+                       <motion.div 
+                         key={idx}
+                         initial={{ opacity: 0, y: 20 }}
+                         animate={{ opacity: 1, y: 0 }}
+                         transition={{ delay: 0.1 * idx }}
+                         className={`relative bg-white dark:bg-[#333] p-4 pb-12 shadow-lg rotate-${idx % 2 === 0 ? '1' : '-1'} hover:rotate-0 transition-transform duration-500`}
+                       >
+                          {/* Tape */}
+                          <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-stone-200/50 dark:bg-stone-700/50 washi-tape ${idx % 2 === 0 ? '-rotate-2' : 'rotate-1'}`}></div>
+                          
+                          <div className="bg-stone-100 dark:bg-black/20 overflow-hidden mb-4">
+                             <img src={proc.image} alt="Process" className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                          </div>
+                          
+                          <p className="font-hand text-xl text-stone-500 dark:text-stone-300 leading-tight text-center px-4">
+                            "{proc.note}"
+                          </p>
+                       </motion.div>
+                    ))}
+                 </div>
+              </div>
+
+              {/* Section 2: Final Outcome */}
+              <div className="relative">
+                 <div className="flex items-baseline gap-4 mb-10 border-b border-stone-200 dark:border-white/10 pb-4">
+                    <h3 className="text-3xl font-serif font-bold text-ink dark:text-white">Final Outcome</h3>
+                    <span className="font-hand text-xl text-stone-400 dark:text-stone-500">Polished Result</span>
+                 </div>
+
+                 <div className="space-y-16">
+                    {project.final?.map((img: string, idx: number) => (
+                       <motion.div 
+                         key={idx}
+                         initial={{ opacity: 0, scale: 0.98 }}
+                         animate={{ opacity: 1, scale: 1 }}
+                         transition={{ delay: 0.2 }}
+                         className="relative group cursor-zoom-in"
+                         onDoubleClick={() => setLightboxIndex(idx)}
+                       >
+                          <div className="absolute -inset-1 bg-stone-200 dark:bg-stone-700/50 rounded-sm rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
+                          <div className="relative bg-white dark:bg-black shadow-2xl p-2 rounded-sm overflow-hidden">
+                             <img src={img} alt="Final Outcome" className="w-full h-auto object-cover" />
+                             
+                             {/* Hint Overlay */}
+                             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div className="bg-white/90 dark:bg-black/80 backdrop-blur-md px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                                   <Maximize2 size={16} className="text-rose" />
+                                   <span className="font-mono text-[10px] uppercase tracking-widest text-ink dark:text-white font-bold">Double Click to Expand</span>
+                                </div>
+                             </div>
+                          </div>
+                          
+                          {/* Corner Tape */}
+                          <div className="absolute -top-3 -right-3 w-32 h-8 bg-rose/40 washi-tape rotate-[30deg] shadow-sm"></div>
+                          <div className="absolute -bottom-3 -left-3 w-32 h-8 bg-rose/40 washi-tape rotate-[30deg] shadow-sm"></div>
+                       </motion.div>
+                    ))}
+                 </div>
+              </div>
+
+              <div className="mt-24 pt-12 border-t border-dashed border-stone-300 dark:border-white/10 text-center">
+                 <p className="font-hand text-2xl text-stone-400 dark:text-stone-500">"End of Folder {project.id}"</p>
+                 <button onClick={onClose} className="mt-6 text-xs font-mono uppercase tracking-widest text-rose hover:underline">Close Project</button>
+              </div>
+           </div>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <ImageLightbox 
+            images={project.final} 
+            initialIndex={lightboxIndex} 
+            onClose={() => setLightboxIndex(null)} 
+          />
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
 };
 
 const ProjectItem: React.FC<{ project: any; index: number; setSelectedProject: (p: any) => void }> = ({ project, index, setSelectedProject }) => {
@@ -247,87 +540,6 @@ const ProjectItem: React.FC<{ project: any; index: number; setSelectedProject: (
          </div>
       </motion.div>
 
-    </motion.div>
-  );
-};
-
-const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project, onClose }) => {
-  const [activeTab, setActiveTab] = useState<'process' | 'final'>('process');
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const images = activeTab === 'process' 
-    ? project.process 
-    : project.final.map((img: string) => ({ image: img, note: 'Final Outcome' }));
-  
-  const totalPages = images.length;
-
-  return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[1000] bg-ink/70 dark:bg-stone-950/80 backdrop-blur-md flex items-center justify-center p-4 lg:p-12 overflow-y-auto"
-      onClick={onClose}
-    >
-       <motion.div 
-        initial={{ y: 50, opacity: 0, scale: 0.95 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
-        exit={{ y: 50, opacity: 0, scale: 0.95 }}
-        className="bg-parchment dark:bg-[#2a2a2a] w-full max-w-6xl rounded-sm overflow-hidden shadow-2xl relative flex flex-col lg:flex-row min-h-[70vh] border border-stone-200 dark:border-white/10"
-        onClick={e => e.stopPropagation()}
-      >
-        <button onClick={onClose} className="absolute top-6 right-6 z-50 p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-lg">
-          <X size={20} />
-        </button>
-
-        <div className="lg:w-3/5 bg-stone-900 relative overflow-hidden flex items-center justify-center h-[400px] lg:h-auto">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={activeTab + currentPage}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              src={images[currentPage].image || images[currentPage]} 
-              className="w-full h-full object-cover" 
-              alt="Project detail"
-            />
-          </AnimatePresence>
-          
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-40">
-            <button onClick={() => setCurrentPage(p => (p - 1 + totalPages) % totalPages)} className="p-3 bg-white/90 rounded-full shadow-lg hover:bg-rose hover:text-white transition-all"><ChevronLeft size={18} /></button>
-            <div className="px-4 py-2 bg-white/90 rounded-full text-xs font-mono tracking-widest">{currentPage + 1} / {totalPages}</div>
-            <button onClick={() => setCurrentPage(p => (p + 1) % totalPages)} className="p-3 bg-white/90 rounded-full shadow-lg hover:bg-rose hover:text-white transition-all"><ChevronRight size={18} /></button>
-          </div>
-        </div>
-
-        <div className="lg:w-2/5 p-8 lg:p-12 bg-white dark:bg-[#2a2a2a] overflow-y-auto custom-scrollbar">
-          <div className="mb-8">
-            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-2">{project.category}</div>
-            <h3 className="text-4xl font-serif italic mb-6 dark:text-white leading-tight">"{project.title}"</h3>
-            <p className="text-lg text-stone-500 dark:text-stone-300 italic mb-10 leading-relaxed">{project.outcome}</p>
-          </div>
-
-          <div className="flex gap-2 mb-10">
-            <button onClick={() => { setActiveTab('process'); setCurrentPage(0); }} className={`flex-1 py-3 font-mono text-[10px] uppercase tracking-widest transition-all rounded-sm ${activeTab === 'process' ? 'bg-rose text-white' : 'bg-stone-50 text-stone-400'}`}>Process</button>
-            <button onClick={() => { setActiveTab('final'); setCurrentPage(0); }} className={`flex-1 py-3 font-mono text-[10px] uppercase tracking-widest transition-all rounded-sm ${activeTab === 'final' ? 'bg-rose text-white' : 'bg-stone-50 text-stone-400'}`}>Outcome</button>
-          </div>
-
-          <div className="space-y-6">
-            <div className="p-6 bg-parchment dark:bg-stone-800 border-l-4 border-rose italic font-serif">
-              <h5 className="font-hand text-2xl text-rose mb-2">Designer's Log</h5>
-              <p className="text-stone-600 dark:text-stone-300 leading-relaxed">
-                Documentation of the iterative cycle. Every sketch informs the final digital architecture. Sincerity lies in the process.
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap gap-2 pt-4">
-              {project.tools?.map((t: string) => (
-                <span key={t} className="px-3 py-1 bg-stone-50 dark:bg-stone-800 rounded-full text-[10px] uppercase tracking-wider dark:text-stone-400">{t}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.div>
     </motion.div>
   );
 };

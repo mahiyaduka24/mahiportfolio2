@@ -217,12 +217,12 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </motion.div>
 
             {/* New Game Layout */}
-            <div className="bg-[#fcfbf9] dark:bg-[#2a2a2a] p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
+            <div className="bg-[#fcfbf9] dark:bg-[#2a2a2a] p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
               
               {/* Word Display - Optimized for mobile/long words */}
-              <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 md:gap-x-10 md:gap-y-10 mb-10 md:mb-16 w-full">
+              <div className="flex flex-wrap justify-center gap-x-3 gap-y-4 md:gap-x-8 md:gap-y-8 mb-8 md:mb-12 w-full max-w-7xl">
                 {currentMovie.split(" ").map((word, wIdx) => (
-                  <div key={wIdx} className="flex flex-wrap justify-center gap-1.5 md:gap-4">
+                  <div key={wIdx} className="flex flex-wrap justify-center gap-1 md:gap-2">
                     {word.split("").map((char, cIdx) => {
                       const revealed = isRevealed(char);
                       const isPunctuation = /[^A-Za-z]/.test(char);
@@ -234,17 +234,17 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                              <motion.div 
                                initial={{ scale: 0.8, opacity: 0 }}
                                animate={{ scale: 1, opacity: 1, rotate: rotation }}
-                               className="w-8 h-12 sm:w-12 sm:h-16 md:w-20 md:h-28 bg-white dark:bg-stone-800 shadow-[0_4px_12px_rgba(0,0,0,0.08)] rounded-[2px] flex items-center justify-center border border-stone-50 dark:border-white/5"
+                               className="w-6 h-8 sm:w-10 sm:h-14 md:w-14 md:h-20 bg-white dark:bg-stone-800 shadow-[0_2px_8px_rgba(0,0,0,0.08)] rounded-[2px] flex items-center justify-center border border-stone-50 dark:border-white/5"
                              >
-                                <div className="absolute -top-2 md:-top-3 w-5 md:w-8 h-3 md:h-5 bg-rose/20 backdrop-blur-sm -rotate-1"></div>
-                                <span className={`font-serif italic text-xl sm:text-3xl md:text-5xl ${vowels.includes(char.toUpperCase()) ? 'text-rose' : 'text-ink dark:text-white'}`}>{char}</span>
+                                <div className="absolute -top-1.5 md:-top-2 w-4 md:w-6 h-2 md:h-4 bg-rose/20 backdrop-blur-sm -rotate-1"></div>
+                                <span className={`font-serif italic text-lg sm:text-2xl md:text-4xl ${vowels.includes(char.toUpperCase()) ? 'text-rose' : 'text-ink dark:text-white'}`}>{char}</span>
                              </motion.div>
                           </div>
                         );
                       } else {
                         return (
-                          <div key={cIdx} className="w-8 h-12 sm:w-12 sm:h-16 md:w-20 md:h-28 flex items-end justify-center pb-2 md:pb-4">
-                             <div className="w-4 md:w-12 border-b-2 border-dashed border-stone-300 dark:border-stone-600"></div>
+                          <div key={cIdx} className="w-6 h-8 sm:w-10 sm:h-14 md:w-14 md:h-20 flex items-end justify-center pb-2 md:pb-3">
+                             <div className="w-3 md:w-8 border-b-2 border-dashed border-stone-300 dark:border-stone-600"></div>
                           </div>
                         );
                       }
@@ -257,7 +257,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="w-full h-px bg-stone-100 dark:bg-white/5 mb-8 md:mb-10"></div>
 
               {/* Keyboard */}
-              <div className="flex flex-wrap justify-center gap-2 md:gap-4 max-w-4xl">
+              <div className="flex flex-wrap justify-center gap-1.5 md:gap-3 max-w-3xl">
                 {consonants.map((letter) => {
                   const isUsed = guessedLetters.has(letter);
                   return (
@@ -266,7 +266,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                       disabled={isUsed || gameState !== 'playing'}
                       onClick={() => handleGuess(letter)}
                       className={`
-                          w-8 h-10 sm:w-10 sm:h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center font-mono text-sm md:text-lg transition-all duration-300
+                          w-8 h-10 sm:w-10 sm:h-12 md:w-12 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center font-mono text-xs md:text-base transition-all duration-300
                           ${isUsed 
                               ? 'opacity-40 cursor-not-allowed scale-95' 
                               : 'bg-white dark:bg-stone-800 shadow-sm border border-stone-100 dark:border-white/5 hover:-translate-y-1 hover:shadow-md text-stone-600 dark:text-stone-300 hover:text-rose dark:hover:text-rose'
