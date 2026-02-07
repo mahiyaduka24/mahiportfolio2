@@ -333,7 +333,7 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
         </div>
 
         {/* --- Right Panel: Content (Scrollable) --- */}
-        <div className="flex-1 h-full overflow-y-auto custom-scrollbar bg-[url('https://www.transparenttextures.com/patterns/dust.png')] bg-[#f4f4f0] dark:bg-[#222]">
+        <div className="flex-1 h-full overflow-y-auto custom-scrollbar bg-[url('https://www.transparenttextures.com/patterns/dust.png')] dark:bg-none bg-[#f4f4f0] dark:bg-[#222]">
            <div className="p-8 lg:p-16 max-w-5xl mx-auto">
               
               {/* Section 1: The Process */}
@@ -371,7 +371,7 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
               <div className="relative">
                  <div className="flex items-baseline gap-4 mb-10 border-b border-stone-200 dark:border-white/10 pb-4">
                     <h3 className="text-3xl font-serif font-bold text-ink dark:text-white">Final Outcome</h3>
-                    <span className="font-hand text-xl text-stone-400 dark:text-stone-500">Polished Result</span>
+                    <span className="font-hand text-xl text-stone-400 dark:text-stone-400">Polished Result</span>
                  </div>
 
                  <div className="space-y-16">
@@ -502,7 +502,7 @@ const ProjectItem: React.FC<{ project: any; index: number; setSelectedProject: (
       >
          <div 
             onClick={() => setSelectedProject(project)}
-            className="relative bg-[#fbfbf9] dark:bg-[#2a2a2a] p-8 lg:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-stone-100 dark:border-white/5 rotate-1 cursor-pointer hover:-translate-y-2 transition-transform duration-300 group"
+            className="relative bg-[#fbfbf9] dark:bg-[#333333] p-8 lg:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-stone-100 dark:border-white/5 rotate-1 cursor-pointer hover:-translate-y-2 transition-transform duration-300 group"
          >
             {/* Pin Graphic */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2">
@@ -556,9 +556,9 @@ const Portfolio: React.FC = () => {
   };
 
   return (
-    <section id="works" className="py-24 px-6 lg:px-20 relative overflow-visible bg-parchment dark:bg-parchment-dark bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] dark:bg-none transition-colors duration-500">
+    <section id="works" className="py-24 px-6 lg:px-20 relative overflow-visible bg-parchment dark:bg-transparent bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] dark:bg-none transition-colors duration-500">
       {/* Subtle blend overlay for dark mode to ensure perfect seamless transition */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-parchment-dark to-transparent opacity-0 dark:opacity-100 pointer-events-none z-0"></div>
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-parchment-dark to-transparent opacity-0 pointer-events-none z-0"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
