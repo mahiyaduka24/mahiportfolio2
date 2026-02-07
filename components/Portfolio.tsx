@@ -34,7 +34,7 @@ const projects = [
     role: 'Visual Designer',
     tools: ['Illustrator', 'InDesign', 'Typography'],
     outcome: 'Established a sonic-visual brand language for urban markets.',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/zTYN6hqh/Screenshot-2026-02-07-043217.png',
     rotation: 2,
     tapeStyle: 'bottom-right',
     tapeColor: 'bg-sage/30',
@@ -455,7 +455,7 @@ const Portfolio: React.FC = () => {
               </h3>
            </div>
 
-           <div className="flex flex-wrap justify-center gap-8 lg:gap-12 xl:gap-16">
+           <div className="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8 lg:gap-8 xl:gap-12">
               {assignments.map((item, idx) => (
                 <motion.div 
                   key={item.id}
@@ -464,7 +464,7 @@ const Portfolio: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   onClick={() => setSelectedProject({ ...item, process: [{ image: item.image, note: item.outcome }], final: [item.image] })}
-                  className="group cursor-pointer relative bg-white dark:bg-[#333] p-6 pb-12 shadow-xl hover:shadow-2xl transition-all duration-500 w-full md:w-[320px] polaroid"
+                  className="group cursor-pointer relative bg-white dark:bg-[#333] p-6 pb-12 shadow-xl hover:shadow-2xl transition-all duration-500 w-full lg:flex-1 lg:max-w-[380px] polaroid"
                 >
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-stone-100 dark:bg-stone-800 washi-tape rotate-2 opacity-50"></div>
                   
@@ -478,7 +478,7 @@ const Portfolio: React.FC = () => {
                   </div>
                   
                   <div className="font-mono text-[8px] uppercase tracking-widest text-stone-400 dark:text-stone-500 mb-2">{item.category}</div>
-                  <h4 className="text-2xl font-serif italic dark:text-white leading-tight mb-4">"{item.title}"</h4>
+                  <h4 className="text-xl font-serif italic dark:text-white leading-tight mb-4 whitespace-nowrap">"{item.title}"</h4>
                   <p className="text-sm font-serif italic text-stone-500 dark:text-stone-400 leading-relaxed">
                     {item.outcome}
                   </p>
