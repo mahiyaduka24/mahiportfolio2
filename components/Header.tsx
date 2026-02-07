@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, Instagram, Linkedin, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -65,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleDarkMode }) => {
           <motion.div 
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="mb-20"
+            className="mb-10"
           >
             <h1 className="text-3xl font-serif font-light tracking-tight leading-none italic dark:text-white">
               Mahi <br /><span className="text-rose font-hand text-4xl block mt-1">Yaduka</span>
@@ -73,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleDarkMode }) => {
             <p className="font-mono text-[11px] uppercase tracking-[0.3em] mt-4 opacity-40 dark:text-white">Portfolio Volume I</p>
           </motion.div>
 
-          <nav className="flex flex-col gap-6">
+          <nav className="flex flex-col gap-5">
             {navLinks.map((link, idx) => {
               const isActive = activeSection === link.id;
               return (
