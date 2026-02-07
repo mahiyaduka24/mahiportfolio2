@@ -32,14 +32,48 @@ const DoodleGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     setIsXNext(false);
   };
 
-  // AI Opponent
+  // AI Opponent - Enhanced Difficulty
   useEffect(() => {
     if (!isXNext && !winner && board.includes(null)) {
       const timer = setTimeout(() => {
         const availableIndices = board.map((val, idx) => (val === null ? idx : null)).filter((val) => val !== null) as number[];
-        const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+        
+        let moveIndex = -1;
+
+        // Strategy 1: Check for winning move
+        for (let i of availableIndices) {
+          const tempBoard = [...board];
+          tempBoard[i] = 'O';
+          if (calculateWinner(tempBoard) === 'O') {
+            moveIndex = i;
+            break;
+          }
+        }
+
+        // Strategy 2: Block opponent's winning move
+        if (moveIndex === -1) {
+          for (let i of availableIndices) {
+            const tempBoard = [...board];
+            tempBoard[i] = 'X';
+            if (calculateWinner(tempBoard) === 'X') {
+              moveIndex = i;
+              break;
+            }
+          }
+        }
+
+        // Strategy 3: Take center if available
+        if (moveIndex === -1 && availableIndices.includes(4)) {
+          moveIndex = 4;
+        }
+
+        // Strategy 4: Random move
+        if (moveIndex === -1) {
+          moveIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+        }
+
         const nextBoard = [...board];
-        nextBoard[randomIndex] = 'O';
+        nextBoard[moveIndex] = 'O';
         setBoard(nextBoard);
         setIsXNext(true);
       }, 600);
@@ -82,7 +116,7 @@ const DoodleGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
         <div className="text-center mb-6">
           <h4 className="font-serif italic text-2xl dark:text-white mb-1">Journal Margin Game</h4>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400">Tic-Tac-Toe vs AI</p>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400">Tic-Tac-Toe vs Smart AI</p>
         </div>
 
         <div className="grid grid-cols-3 gap-2 bg-stone-100 dark:bg-stone-800 p-2 rounded-md">
