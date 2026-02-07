@@ -659,7 +659,7 @@ const Portfolio: React.FC = () => {
            </div>
 
            <div className="flex flex-col items-center mb-16 relative z-10">
-              <span className="font-hand text-3xl text-rose mb-2 bg-parchment dark:bg-parchment-dark px-6">Class Notes & Records</span>
+              <span className="font-hand text-3xl text-rose mb-2 px-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Class Notes & Records</span>
               <h3 className="text-5xl lg:text-7xl font-serif italic text-ink dark:text-white flex items-center gap-6">
                 <div className="h-px w-10 lg:w-20 bg-stone-200 dark:bg-stone-800"></div>
                 Academic Pursuits
