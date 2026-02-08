@@ -148,7 +148,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleDarkMode }) => {
             exit={{ opacity: 0, x: '100%' }}
             className="fixed inset-0 bg-parchment dark:bg-[#1e1e1e] z-[100] p-10 flex flex-col justify-center items-center text-center gap-8 transition-colors duration-500"
           >
-            <button onClick={() => setMobileMenuOpen(false)} className="absolute top-10 right-10 dark:text-white p-2">
+            <button onClick={() => setMobileMenuOpen(false)} className="absolute top-10 right-10 dark:text-white p-2 hover:rotate-90 transition-transform duration-300">
               <X size={24} />
             </button>
             {navLinks.map((link) => (

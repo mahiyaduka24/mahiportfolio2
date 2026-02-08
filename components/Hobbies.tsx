@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2, Bus, Gamepad2 } from 'lucide-react';
+import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2, Bus, Gamepad2, ArrowRight, LayoutGrid } from 'lucide-react';
 
 const movies = [
   "Dilwale Dulhania Le Jayenge",
@@ -118,15 +118,16 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               </motion.div>
             ))}
           </div>
-          <button onClick={onClose} className="p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl">
+          <button onClick={onClose} className="p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl duration-300">
             <X size={20} />
           </button>
         </div>
       </div>
 
       <div className="flex-1 relative w-full bg-[#f9f7f2] dark:bg-[#1e1e1e] overflow-y-auto custom-scrollbar transition-colors duration-500">
+        {/* Game Content */}
         <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-6 pb-20">
-          {/* Cinematic Backdrop - Enhanced film strip motif */}
+          {/* ... existing game content structure ... */}
           <div className="absolute inset-0 pointer-events-none flex flex-col justify-between opacity-[0.05] dark:opacity-[0.03]">
              <div className="h-28 border-b-12 border-dashed border-ink dark:border-white w-full flex items-center px-10 gap-20">
                {[...Array(10)].map((_, i) => <div key={i} className="w-8 h-10 border-2 border-ink dark:border-white rounded-sm opacity-20"></div>)}
@@ -136,7 +137,6 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
              </div>
           </div>
         
-          {/* Floating Decorative Film Quotes & Elements */}
           <div className="absolute left-[5%] top-[25%] max-w-[200px] hidden xl:block opacity-40">
             <motion.div initial={{ rotate: -5 }} animate={{ rotate: -3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape rotate-2"></div>
@@ -159,52 +159,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </motion.div>
           </div>
 
-          {/* Added Movie Posters on Sides - Positioned to avoid overlapping text */}
-          <div className="absolute left-8 lg:left-12 top-[60%] hidden xl:block z-0 opacity-90 pointer-events-none">
-             <motion.div 
-               initial={{ opacity: 0, x: -50, rotate: -4 }}
-               animate={{ opacity: 1, x: 0, rotate: -4 }}
-               transition={{ delay: 0.6, duration: 0.8 }}
-               className="p-3 bg-white dark:bg-stone-800 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm w-48 2xl:w-56"
-             >
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm -rotate-2 z-10"></div>
-                <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" 
-                    alt="Cinema Poster 1" 
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">The Classics</div>
-                </div>
-             </motion.div>
-          </div>
-
-          <div className="absolute right-8 lg:right-12 top-6 hidden xl:block z-0 opacity-90 pointer-events-none">
-             <motion.div 
-               initial={{ opacity: 0, x: 50, rotate: 4 }}
-               animate={{ opacity: 1, x: 0, rotate: 4 }}
-               transition={{ delay: 0.8, duration: 0.8 }}
-               className="p-3 bg-white dark:bg-stone-800 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm w-48 2xl:w-56"
-             >
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 backdrop-blur-sm rotate-2 z-10"></div>
-                <div className="aspect-[2/3] overflow-hidden bg-stone-100 dark:bg-stone-900 relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" 
-                    alt="Cinema Poster 2" 
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-                  <div className="absolute bottom-4 left-0 right-0 text-center text-white font-serif italic text-xl">Now Playing</div>
-                </div>
-             </motion.div>
-          </div>
-
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-rose/5 blur-[160px] pointer-events-none"></div>
-
           <div className="max-w-5xl w-full relative z-10 flex flex-col items-center">
-            
-            {/* Narrative Context Label */}
             <motion.div 
               initial={{ opacity: 0, y: -10 }} 
               animate={{ opacity: 1, y: 0 }}
@@ -216,10 +171,7 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="font-hand text-2xl md:text-3xl lg:text-4xl text-rose/70 text-center px-4">"Frame the title within the reel..."</div>
             </motion.div>
 
-            {/* New Game Layout */}
             <div className="bg-[#fcfbf9] dark:bg-[#2a2a2a] p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 dark:border-white/5 w-full flex flex-col items-center relative transition-colors duration-500">
-              
-              {/* Word Display - Optimized for mobile/long words */}
               <div className="flex flex-wrap justify-center gap-x-3 gap-y-4 md:gap-x-8 md:gap-y-8 mb-8 md:mb-12 w-full max-w-7xl">
                 {currentMovie.split(" ").map((word, wIdx) => (
                   <div key={wIdx} className="flex flex-wrap justify-center gap-1 md:gap-2">
@@ -253,10 +205,8 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 ))}
               </div>
 
-              {/* Separator */}
               <div className="w-full h-px bg-stone-100 dark:bg-white/5 mb-8 md:mb-10"></div>
 
-              {/* Keyboard */}
               <div className="flex flex-wrap justify-center gap-1.5 md:gap-3 max-w-3xl">
                 {consonants.map((letter) => {
                   const isUsed = guessedLetters.has(letter);
@@ -280,7 +230,6 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               </div>
             </div>
 
-            {/* End Screens - Responsive & Themed */}
             <AnimatePresence>
               {gameState !== 'playing' && (
                 <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-parchment/60 dark:bg-black/70 backdrop-blur-md rounded-[3rem]">
@@ -374,61 +323,41 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
         animate={{ y: 0, scale: 1 }}
         className="bg-[#fcfbf9] dark:bg-[#1e1e1e] p-6 md:p-12 rounded-[2px] max-w-5xl w-full shadow-[0_20px_50px_rgba(0,0,0,0.2)] relative border border-stone-200 dark:border-white/10 transition-colors duration-500 my-auto overflow-hidden"
       >
-        {/* Paper texture overlay */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]"></div>
-
-        {/* --- Background Doodles & Quotes --- */}
         <div className="absolute inset-0 pointer-events-none z-0">
-           {/* Plane sketch */}
            <div className="absolute top-10 right-10 opacity-10 rotate-12 text-rose">
               <Plane size={120} strokeWidth={0.8} />
               <div className="absolute -bottom-4 left-0 font-hand text-sm text-ink dark:text-white -rotate-6">Let's go somewhere</div>
            </div>
-           
-           {/* Globe sketch */}
            <div className="absolute bottom-20 left-6 opacity-10 -rotate-12 text-sage">
               <Globe size={140} strokeWidth={0.6} />
            </div>
-
-           {/* Camera sketch */}
            <div className="absolute bottom-10 right-10 opacity-10 rotate-6 text-stone-600">
               <Camera size={100} strokeWidth={0.6} />
            </div>
-
-           {/* Map sketch */}
            <div className="absolute top-40 -left-10 opacity-5 rotate-45 text-ink dark:text-white">
               <MapIcon size={180} strokeWidth={0.4} />
            </div>
-
-           {/* Handwritten Quotes */}
            <div className="absolute top-20 left-8 max-w-[150px] font-hand text-xl text-stone-400 -rotate-6 opacity-60 hidden md:block">
               "To travel is to discover that everyone is wrong about other countries."
            </div>
-           
            <div className="absolute bottom-32 right-24 max-w-[150px] font-hand text-xl text-stone-400 rotate-3 opacity-60 hidden md:block text-right">
               "I haven't been everywhere, but it's on my list."
            </div>
-
-           {/* Stamp Effect */}
            <div className="absolute top-6 left-1/2 -translate-x-1/2 opacity-20 rotate-[-5deg]">
               <div className="w-32 h-12 border-2 border-rose rounded-sm flex items-center justify-center">
                  <span className="font-mono text-xs text-rose uppercase tracking-widest font-bold">Observation Log</span>
               </div>
            </div>
         </div>
-
-        {/* Tape */}
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-40 h-10 bg-rose/30 backdrop-blur-sm rotate-1 shadow-sm z-20"></div>
-
-        <button onClick={onClose} className="absolute top-4 right-4 p-2 text-stone-400 hover:text-rose transition-colors z-30">
+        <button onClick={onClose} className="absolute top-4 right-4 p-2 text-stone-400 hover:text-rose hover:rotate-90 transition-all duration-300 z-30">
           <X size={24} />
         </button>
-
         <div className="mb-10 text-center relative z-10 mt-4">
           <h2 className="font-serif italic text-4xl md:text-5xl text-ink dark:text-white mb-2">Finding Design in the Ordinary</h2>
           <p className="font-hand text-xl md:text-2xl text-stone-500 dark:text-stone-300">"Everyday moments shape how I see and design."</p>
         </div>
-
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8 relative z-10">
           {items.map((item, i) => (
             <motion.button 
@@ -446,13 +375,9 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
                 border: marked[i] ? '2px solid #d4a3a3' : '1px solid rgba(0,0,0,0.05)'
               }}
             >
-              {/* Corner tapes for some items */}
               {i % 3 === 0 && !marked[i] && <div className="absolute -top-3 -left-8 w-20 h-5 bg-stone-200/60 dark:bg-white/10 -rotate-45 pointer-events-none"></div>}
               {i % 5 === 0 && !marked[i] && <div className="absolute -bottom-3 -right-8 w-20 h-5 bg-rose/10 dark:bg-rose/10 rotate-45 pointer-events-none"></div>}
-              
-              {/* Thumbtack for others */}
               {i % 2 !== 0 && i % 3 !== 0 && <div className="absolute top-2 w-3 h-3 rounded-full bg-stone-300 dark:bg-stone-600 shadow-inner mx-auto left-0 right-0"></div>}
-
               <div className={`transition-all duration-500 flex flex-col items-center justify-center flex-1 w-full gap-3 h-full ${marked[i] ? 'opacity-20 blur-[1px] grayscale' : 'opacity-100'}`}>
                 <div className="text-stone-400 dark:text-stone-400 group-hover:text-rose dark:group-hover:text-rose-light group-hover:scale-110 transition-all duration-300">
                     {item.icon}
@@ -461,7 +386,6 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
                   {item.text}
                 </p>
               </div>
-              
               <AnimatePresence>
                 {marked[i] && (
                   <motion.div 
@@ -481,7 +405,6 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
             </motion.button>
           ))}
         </div>
-
         <div className="flex flex-col items-center gap-4 border-t-2 border-dashed border-stone-200 dark:border-white/10 pt-6 relative z-10">
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-stone-400 bg-white/50 dark:bg-black/20 px-4 py-1 rounded-full backdrop-blur-sm">
              <span>Awareness Score</span>
@@ -504,14 +427,17 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
 };
 
 const scrapbookPhotos = [
-  { id: '6', url: 'https://i.ibb.co/C3qmqkgG/Whats-App-Image-2026-02-07-at-1-44-55-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -320, y: -100, rotation: -5, width: 270 },
-  { id: '5', url: 'https://i.ibb.co/yccP4Cz7/Whats-App-Image-2026-02-07-at-3-48-36-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 0, y: -50, rotation: -3, width: 320 },
-  { id: '1', url: 'https://i.ibb.co/1GDPbFnt/Whats-App-Image-2026-02-07-at-1-44-56-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 350, y: -120, rotation: 3, width: 280 },
-  { id: '8', url: 'https://i.ibb.co/8gRv6gWF/Whats-App-Image-2026-02-07-at-3-48-38-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -380, y: 220, rotation: -4, width: 260 },
-  { id: '3', url: 'https://i.ibb.co/rXxmSpL/Whats-App-Image-2026-02-07-at-3-48-35-A.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -40, y: 250, rotation: 2, width: 250 },
-  { id: '7', url: 'https://i.ibb.co/N2pBt4KV/Whats-App-Image-2026-02-07-at-1-44-56-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 340, y: 220, rotation: 5, width: 310 },
-  { id: '2', url: 'https://i.ibb.co/mF4Gqr6Z/Whats-App-Image-2026-02-07-at-3-48-34-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -180, y: -280, rotation: -2, width: 300 },
-  { id: '4', url: 'https://i.ibb.co/JjTngWH5/Whats-App-Image-2026-02-07-at-3-48-36.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 180, y: -280, rotation: 4, width: 320 },
+  { id: '6', url: 'https://i.ibb.co/C3qmqkgG/Whats-App-Image-2026-02-07-at-1-44-55-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -280, y: -80, rotation: -5, width: 220 },
+  { id: '5', url: 'https://i.ibb.co/yccP4Cz7/Whats-App-Image-2026-02-07-at-3-48-36-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 20, y: -40, rotation: -3, width: 250 },
+  { id: '1', url: 'https://i.ibb.co/1GDPbFnt/Whats-App-Image-2026-02-07-at-1-44-56-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 300, y: -100, rotation: 3, width: 230 },
+  { id: '8', url: 'https://i.ibb.co/8gRv6gWF/Whats-App-Image-2026-02-07-at-3-48-38-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -320, y: 180, rotation: -4, width: 210 },
+  { id: '3', url: 'https://i.ibb.co/rXxmSpL/Whats-App-Image-2026-02-07-at-3-48-35-A.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -20, y: 200, rotation: 2, width: 200 },
+  { id: '7', url: 'https://i.ibb.co/N2pBt4KV/Whats-App-Image-2026-02-07-at-1-44-56-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 280, y: 180, rotation: 5, width: 240 },
+  { id: '2', url: 'https://i.ibb.co/SXBT11gW/Whats-App-Image-2026-02-09-at-12-42-29-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -150, y: -240, rotation: -2, width: 230 },
+  { id: '4', url: 'https://i.ibb.co/JjTngWH5/Whats-App-Image-2026-02-07-at-3-48-36.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 150, y: -240, rotation: 4, width: 260 },
+  { id: '9', url: 'https://i.ibb.co/6cJ8yd2S/Whats-App-Image-2026-02-09-at-12-42-30-AM-2.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Texture Study', tip: 'Surfaces tell a history.', x: 400, y: 50, rotation: -6, width: 215 },
+  { id: '10', url: 'https://i.ibb.co/vCDD1PcC/Whats-App-Image-2026-02-09-at-12-42-30-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Minimalist Void', tip: 'Negative space is powerful.', x: -400, y: 50, rotation: 4, width: 225 },
+  { id: '11', url: 'https://i.ibb.co/tPFTxZ6v/Whats-App-Image-2026-02-09-at-12-42-30-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Abstract Light', tip: 'Light paints the world.', x: 0, y: 380, rotation: -1, width: 245 },
 ];
 
 const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) => {
@@ -526,7 +452,6 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
   const viewfinderY = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Magic Lens Mask - Updates with viewfinder position
   const maskImage = useMotionTemplate`radial-gradient(circle 120px at calc(50% + ${viewfinderX}px) calc(50% + ${viewfinderY}px), black, transparent)`;
 
   useEffect(() => {
@@ -581,25 +506,20 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[1000] bg-parchment dark:bg-[#1e1e1e] flex flex-col overflow-hidden transition-colors duration-500"
     >
-      {/* Header */}
       <div className="relative z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full border-b border-stone-100 dark:border-white/5 bg-white/70 dark:bg-[#1e1e1e]/70 backdrop-blur-xl shadow-sm transition-colors duration-500">
         <div className="border-l-2 border-rose pl-4">
           <h2 className="text-xl md:text-2xl font-serif italic text-ink dark:text-white leading-tight">Framing the Everyday</h2>
           <p className="font-hand text-sm md:text-base text-rose dark:text-rose-light">“I train my eye by framing moments before capturing them.”</p>
         </div>
-        <button onClick={onClose} className="p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl">
+        <button onClick={onClose} className="p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl duration-300">
           <X size={20} />
         </button>
       </div>
-
       <div ref={containerRef} className="flex-1 relative flex items-center justify-center overflow-hidden w-full h-full bg-[#fdfdfd]/10 dark:bg-black/5">
-        {/* Background Text - Layer 1 (Base/Faint) */}
         <div className="absolute inset-0 z-0 flex flex-col items-center justify-center gap-2 pointer-events-none select-none opacity-10 text-stone-300 dark:text-stone-800">
           <div className="font-mono text-[8px] uppercase tracking-[0.5em]">Observation Deck — Vol. 01</div>
           <div className="font-hand text-6xl md:text-9xl max-w-4xl text-center leading-none italic">"Design is the selective capture of chaos."</div>
         </div>
-
-        {/* Background Text - Layer 2 (Reveal/High Contrast) */}
         <motion.div 
           className="absolute inset-0 z-[5] flex flex-col items-center justify-center gap-2 pointer-events-none select-none text-ink dark:text-white"
           style={{ maskImage, WebkitMaskImage: maskImage }}
@@ -607,7 +527,6 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
           <div className="font-mono text-[8px] uppercase tracking-[0.5em] font-bold">Observation Deck — Vol. 01</div>
           <div className="font-hand text-6xl md:text-9xl max-w-4xl text-center leading-none italic drop-shadow-lg">"Design is the selective capture of chaos."</div>
         </motion.div>
-        
         {scrapbookPhotos.map((photo, idx) => (
           <motion.div
             key={photo.id}
@@ -622,7 +541,6 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
             className="absolute bg-white dark:bg-stone-800 p-2.5 pb-10 shadow-2xl border border-stone-200 dark:border-white/5 polaroid cursor-grab active:cursor-grabbing select-none"
             style={{ width: photo.width, zIndex: zIndices[photo.id] }}
           >
-            {/* Removed Tape */}
             <div className="overflow-hidden rounded-sm bg-stone-100 aspect-square md:aspect-auto pointer-events-none">
               <img src={photo.url} className="w-full h-auto pointer-events-none block" style={{ filter: 'none' }} alt="Scrapbook piece" />
             </div>
@@ -631,7 +549,6 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
             </div>
           </motion.div>
         ))}
-
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[200]">
           <motion.div
             drag
@@ -650,7 +567,6 @@ const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) =>
           </motion.div>
         </div>
       </div>
-
       <AnimatePresence>
         {enlargedImage && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setEnlargedImage(null)} className="fixed inset-0 z-[400] bg-ink/95 dark:bg-stone-950/98 backdrop-blur-2xl flex items-center justify-center p-8 cursor-zoom-out">
@@ -680,7 +596,7 @@ const playlistData: Record<Mood, Record<Situation, { song: string, movie: string
     "With Friends": { song: "Channa Mereya", movie: "Ae Dil Hai Mushkil", lyric: "Accha chalta hoon, duaon mein yaad rakhna...", color: "bg-gray-200 dark:bg-gray-800" },
   },
   Calm: {
-    Traveling: { song: "Safarnama", movie: "Tamasha", lyric: "Sawaalon ki tarah, jawaabon ki tarah...", color: "bg-emerald-100 dark:bg-emerald-900/20" },
+    Traveling: { song: "Safarnama", movie: "Tamasha", lyric: "O Safarnama, Sawaalon ka safarnama...", color: "bg-emerald-100 dark:bg-emerald-900/20" },
     "At Home": { song: "Iktara", movie: "Wake Up Sid", lyric: "Goonja sa hai koi iktara...", color: "bg-teal-100 dark:bg-teal-900/20" },
     "With Friends": { song: "Sham", movie: "Aisha", lyric: "Sham bhi koi jaise hai nadi...", color: "bg-purple-100 dark:bg-purple-900/20" },
   }
@@ -723,7 +639,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
       exit={{ opacity: 0 }} 
       className="fixed inset-0 z-[1000] bg-parchment dark:bg-[#1e1e1e] flex flex-col transition-colors duration-500"
     >
-      {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-[110] flex items-center justify-between px-6 py-4 md:px-12 w-full bg-white/70 dark:bg-[#1e1e1e]/80 backdrop-blur-xl border-b border-stone-200 dark:border-white/10 transition-colors duration-500">
         <div className="flex items-center gap-4">
            <div className="p-2 bg-rose/10 text-rose rounded-lg"><Music2 size={20} /></div>
@@ -732,13 +647,11 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
              <p className="text-[10px] font-mono text-stone-400 uppercase tracking-widest mt-1">Bollywood Edition</p>
            </div>
         </div>
-        <button onClick={onClose} className="p-3 bg-stone-100 dark:bg-stone-800 rounded-full hover:bg-rose hover:text-white transition-colors dark:text-white"><X size={20} /></button>
+        <button onClick={onClose} className="p-3 bg-stone-100 dark:bg-stone-800 rounded-full hover:bg-rose hover:text-white transition-all duration-300 hover:rotate-90 dark:text-white"><X size={20} /></button>
       </div>
 
       <div className="flex-1 overflow-y-auto custom-scrollbar scroll-smooth pt-20">
         <div className="max-w-3xl mx-auto px-6 pb-24">
-          
-          {/* Section 1: Mood */}
           <div ref={moodRef} className="min-h-[80vh] flex flex-col justify-center py-12">
             <motion.div 
               initial={{ y: 20, opacity: 0 }}
@@ -769,7 +682,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
             </div>
           </div>
 
-          {/* Section 2: Situation */}
           <AnimatePresence>
             {mood && (
               <motion.div 
@@ -783,7 +695,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
                    <h3 className="text-4xl md:text-5xl font-serif italic text-ink dark:text-white mb-4">What's the setting?</h3>
                    <p className="text-stone-500 dark:text-stone-400">Context matters.</p>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                    {(['Traveling', 'At Home', 'With Friends'] as Situation[]).map((s) => (
                      <motion.button
@@ -801,7 +712,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
             )}
           </AnimatePresence>
 
-          {/* Section 3: Result */}
           <AnimatePresence>
              {mood && situation && currentResult && (
                <motion.div 
@@ -813,7 +723,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
                >
                  <div className={`relative p-10 md:p-16 rounded-[3rem] w-full max-w-xl text-center shadow-2xl border border-white/20 ${currentResult.color}`}>
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 washi-tape opacity-60 rotate-2"></div>
-                    
                     <div className="mb-8">
                        <span className="inline-block px-4 py-1 rounded-full bg-white/40 border border-white/20 text-xs font-mono uppercase tracking-widest backdrop-blur-sm mb-6">
                           Your Soundtrack
@@ -825,7 +734,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
                          from {currentResult.movie}
                        </p>
                     </div>
-
                     <div className="relative py-8 px-4">
                        <Quote size={24} className="absolute top-0 left-0 text-ink/20 dark:text-white/20" />
                        <p className="font-hand text-2xl md:text-3xl text-ink dark:text-white leading-relaxed">
@@ -833,7 +741,6 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
                        </p>
                        <Quote size={24} className="absolute bottom-0 right-0 text-ink/20 dark:text-white/20 rotate-180" />
                     </div>
-
                     <button 
                       onClick={() => {
                         setMood(null);
@@ -858,14 +765,14 @@ const BollywoodPlaylistBuilder: React.FC<{ onClose: () => void }> = ({ onClose }
 const hobbies = [
   { 
     name: 'Photography', 
-    icon: <Camera size={24} />, 
+    icon: <CameraIconLucide size={24} />, 
     bgColor: 'bg-[#f1f5fd] dark:bg-blue-400/15', 
     description: 'Focusing on composition and visual observation in the wild.', 
     interactive: true 
   },
   { 
     name: 'Bollywood Playlist', 
-    icon: <Music size={24} />, 
+    icon: <Music2 size={24} />, 
     bgColor: 'bg-[#fdf1f1] dark:bg-[#ff9fa2]/15', 
     description: 'Curate your cinematic soundtrack.', 
     interactive: true 
@@ -889,7 +796,7 @@ const hobbies = [
 const Hobbies: React.FC = () => {
   const [activeInteraction, setActiveInteraction] = useState<string | null>(null);
   return (
-    <section id="hobbies" className="py-24 px-6 lg:px-20 relative overflow-hidden">
+    <section id="hobbies" className="py-24 px-6 lg:px-20 relative overflow-hidden bg-parchment dark:bg-[#1a1a1a] transition-colors duration-500">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <motion.div 
@@ -897,37 +804,11 @@ const Hobbies: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true }}
           >
-            <span className="font-hand text-2xl text-rose dark:text-rose-light mb-2 block">Beyond the Grid</span>
-            <h2 className="text-5xl lg:text-7xl font-serif italic dark:text-white">The Ephemera</h2>
+            <span className="font-hand text-2xl text-rose dark:text-rose-light mb-2 block">Play & Explore</span>
+            <h2 className="text-5xl lg:text-7xl font-serif italic dark:text-white">Ephemera <br/> Collection</h2>
             <p className="mt-4 text-lg font-serif text-stone-500 dark:text-stone-400 max-w-lg leading-relaxed italic opacity-80">
-              A collection of hobby-inspired games, each hiding a small interactive experience.
+              "Design is serious play. Here are some interactive experiments and collections from my daily observations."
             </p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="hidden md:flex flex-col items-center gap-3 relative pb-2"
-          >
-             <div className="relative group cursor-default">
-                <motion.div 
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-4 border border-dashed border-stone-300 dark:border-white/20 rounded-full"
-                />
-                <div className="w-12 h-12 bg-white dark:bg-[#333] rounded-full border border-stone-100 dark:border-white/10 shadow-sm flex items-center justify-center text-rose group-hover:scale-110 transition-transform duration-300">
-                   <Gamepad2 size={22} />
-                </div>
-                <motion.div 
-                   animate={{ scale: [1, 1.2, 1] }}
-                   transition={{ repeat: Infinity, duration: 2 }}
-                   className="absolute -top-1 -right-1 w-3 h-3 bg-rose rounded-full border-2 border-white dark:border-[#333]"
-                />
-             </div>
-             <div className="text-center">
-               <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400 block">Play Zone</span>
-             </div>
           </motion.div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

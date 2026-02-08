@@ -34,7 +34,7 @@ const projects = [
     role: 'Visual Designer',
     tools: ['Illustrator', 'InDesign', 'Typography'],
     outcome: 'Established a sonic-visual brand language for urban markets.',
-    image: 'https://i.ibb.co/zTYN6hqh/Screenshot-2026-02-07-043217.png',
+    image: 'https://i.ibb.co/b5T81FSw/Screenshot-2026-02-07-212626.png',
     rotation: 2,
     tapeStyle: 'bottom-right',
     tapeColor: 'bg-sage/30',

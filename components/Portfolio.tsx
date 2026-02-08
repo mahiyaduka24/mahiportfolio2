@@ -186,7 +186,7 @@ const ImageLightbox: React.FC<{ images: string[]; initialIndex: number; onClose:
        <div className="absolute top-6 right-6 flex gap-4 z-50">
           <button onClick={handleZoomOut} className="p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-colors"><ZoomOut size={24}/></button>
           <button onClick={handleZoomIn} className="p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-colors"><ZoomIn size={24}/></button>
-          <button onClick={onClose} className="p-4 bg-rose text-white rounded-full hover:bg-rose/80 transition-colors"><X size={24}/></button>
+          <button onClick={onClose} className="p-4 bg-rose text-white rounded-full hover:bg-rose/80 transition-all duration-300 hover:rotate-90"><X size={24}/></button>
        </div>
 
        {/* Navigation Buttons */}
@@ -285,7 +285,7 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
         className="bg-[#fcfbf9] dark:bg-[#1a1a1a] w-full max-w-[95vw] h-full lg:h-[90vh] rounded-lg shadow-2xl relative flex flex-col lg:flex-row overflow-hidden border border-white/50 dark:border-white/5"
         onClick={e => e.stopPropagation()}
       >
-        <button onClick={onClose} className="absolute top-4 right-4 z-[60] p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all shadow-xl hover:bg-rose/90">
+        <button onClick={onClose} className="absolute top-4 right-4 z-[60] p-3 bg-rose text-white rounded-full hover:rotate-90 transition-all duration-300 shadow-xl hover:bg-rose/90">
           <X size={20} strokeWidth={2.5} />
         </button>
 
@@ -426,6 +426,7 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
   );
 };
 
+// ... (Rest of the file remains unchanged)
 const ProjectItem: React.FC<{ project: any; index: number; setSelectedProject: (p: any) => void }> = ({ project, index, setSelectedProject }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({

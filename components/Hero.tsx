@@ -110,7 +110,7 @@ const DoodleGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 washi-tape opacity-60"></div>
-        <button onClick={onClose} className="absolute top-2 right-2 text-stone-400 hover:text-rose transition-colors">
+        <button onClick={onClose} className="absolute top-2 right-2 p-2 text-stone-400 hover:text-rose transition-all duration-300 hover:rotate-90">
           <X size={20} />
         </button>
 
