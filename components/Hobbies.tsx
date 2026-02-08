@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2, Bus } from 'lucide-react';
+import { Camera, Music, Compass, Film, X, Maximize2, Volume2, Heart, Activity, ZoomOut, Maximize, Search, Map, Sparkles, CheckCircle2, Info, Eye, MapPin, Ticket, Bookmark, History, Briefcase, Zap, Gift, Sun, Book, Camera as CameraIconLucide, Check, Coffee, CloudRain, Clock, Radio, Sunrise, User, Layers, Wind, Footprints, Smartphone, Headphones, Send, Globe, Plane, Anchor, Map as MapIcon, Scissors, Star, Tag, MousePointer2, Clapperboard, RefreshCw, Trophy, Ghost, Clapperboard as ClapperIcon, Quote, Square, Play, Pause, ChevronDown, Music2, Bus, Gamepad2 } from 'lucide-react';
 
 const movies = [
   "Dilwale Dulhania Le Jayenge",
@@ -891,7 +891,7 @@ const Hobbies: React.FC = () => {
   return (
     <section id="hobbies" className="py-24 px-6 lg:px-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <motion.div 
             initial={{ opacity: 0, x: -20 }} 
             whileInView={{ opacity: 1, x: 0 }} 
@@ -902,6 +902,32 @@ const Hobbies: React.FC = () => {
             <p className="mt-4 text-lg font-serif text-stone-500 dark:text-stone-400 max-w-lg leading-relaxed italic opacity-80">
               A collection of hobby-inspired games, each hiding a small interactive experience.
             </p>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="hidden md:flex flex-col items-center gap-3 relative pb-2"
+          >
+             <div className="relative group cursor-default">
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                  className="absolute -inset-4 border border-dashed border-stone-300 dark:border-white/20 rounded-full"
+                />
+                <div className="w-12 h-12 bg-white dark:bg-[#333] rounded-full border border-stone-100 dark:border-white/10 shadow-sm flex items-center justify-center text-rose group-hover:scale-110 transition-transform duration-300">
+                   <Gamepad2 size={22} />
+                </div>
+                <motion.div 
+                   animate={{ scale: [1, 1.2, 1] }}
+                   transition={{ repeat: Infinity, duration: 2 }}
+                   className="absolute -top-1 -right-1 w-3 h-3 bg-rose rounded-full border-2 border-white dark:border-[#333]"
+                />
+             </div>
+             <div className="text-center">
+               <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-stone-400 block">Play Zone</span>
+             </div>
           </motion.div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
