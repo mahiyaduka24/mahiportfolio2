@@ -127,7 +127,6 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       <div className="flex-1 relative w-full bg-[#f9f7f2] dark:bg-[#1e1e1e] overflow-y-auto custom-scrollbar transition-colors duration-500">
         {/* Game Content */}
         <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-6 pb-20">
-          {/* ... existing game content structure ... */}
           <div className="absolute inset-0 pointer-events-none flex flex-col justify-between opacity-[0.05] dark:opacity-[0.03]">
              <div className="h-28 border-b-12 border-dashed border-ink dark:border-white w-full flex items-center px-10 gap-20">
                {[...Array(10)].map((_, i) => <div key={i} className="w-8 h-10 border-2 border-ink dark:border-white rounded-sm opacity-20"></div>)}
@@ -137,25 +136,53 @@ const GuessTheMovieGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
              </div>
           </div>
         
-          <div className="absolute left-[5%] top-[25%] max-w-[200px] hidden xl:block opacity-40">
-            <motion.div initial={{ rotate: -5 }} animate={{ rotate: -3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
-               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape rotate-2"></div>
-               <p className="font-hand text-xl text-ink dark:text-white leading-tight">"Cinema is a matter of what's in the frame and what's out."</p>
-               <span className="font-mono text-[8px] uppercase tracking-widest block mt-4 text-stone-400">— Martin Scorsese</span>
+          {/* Left Side Decor: Quote + Small Poster */}
+          <div className="absolute left-[2%] top-[15%] hidden xl:flex flex-col gap-6 pointer-events-none opacity-90 z-0">
+             <motion.div 
+               initial={{ rotate: -3 }}
+               className="p-4 bg-[#fcfbf9] dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 max-w-[200px] relative"
+             >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-rose/20 washi-tape -rotate-1"></div>
+                <p className="font-hand text-xl text-stone-600 dark:text-stone-300 leading-tight mb-2">"Cinema is a matter of what's in the frame and what's out."</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400">— Martin Scorsese</p>
+             </motion.div>
+
+             <motion.div 
+              initial={{ rotate: -6 }} 
+              animate={{ rotate: -4 }} 
+              transition={{ repeat: Infinity, repeatType: "reverse", duration: 4 }}
+              className="p-2 bg-white dark:bg-stone-800 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm relative max-w-[160px] self-end mr-4"
+            >
+               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape rotate-2 z-10 bg-rose/40"></div>
+               <div className="aspect-[2/3] w-full bg-stone-200 dark:bg-stone-700 overflow-hidden relative">
+                  <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover sepia-[.3]" alt="Cinema Poster" />
+               </div>
+               <div className="mt-2 font-hand text-center text-sm text-ink dark:text-white">"The Grand Illusion"</div>
             </motion.div>
-            <div className="mt-20 flex justify-center text-rose opacity-20">
-              <Film size={80} strokeWidth={0.5} />
-            </div>
           </div>
 
-          <div className="absolute right-[5%] bottom-[20%] max-w-[200px] hidden xl:block opacity-40">
-            <div className="mb-20 flex justify-center text-rose opacity-20 rotate-12">
-              <Ticket size={80} strokeWidth={0.5} />
-            </div>
-            <motion.div initial={{ rotate: 5 }} animate={{ rotate: 3 }} className="p-4 bg-white dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 rounded-sm relative">
-               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape -rotate-2"></div>
-               <p className="font-hand text-xl text-ink dark:text-white leading-tight">"Every scene is a canvas of light and shadow."</p>
-               <span className="font-mono text-[8px] uppercase tracking-widest block mt-4 text-stone-400">— DP Journal Notes</span>
+          {/* Right Side Decor: Quote + Small Poster */}
+          <div className="absolute right-[2%] bottom-[15%] hidden xl:flex flex-col-reverse gap-8 pointer-events-none opacity-90 z-0">
+             <motion.div 
+               initial={{ rotate: 2 }}
+               className="p-4 bg-[#fcfbf9] dark:bg-stone-800 shadow-lg border border-stone-100 dark:border-white/5 max-w-[200px] relative self-start ml-4"
+             >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-sage/20 washi-tape rotate-1"></div>
+                <p className="font-hand text-xl text-stone-600 dark:text-stone-300 leading-tight mb-2">"Every scene is a canvas of light and shadow."</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400">— DP Journal Notes</p>
+             </motion.div>
+
+            <motion.div 
+              initial={{ rotate: 6 }} 
+              animate={{ rotate: 4 }} 
+              transition={{ repeat: Infinity, repeatType: "reverse", duration: 5 }}
+              className="p-2 bg-white dark:bg-stone-800 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border border-stone-100 dark:border-white/5 rounded-sm relative max-w-[160px]"
+            >
+               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 washi-tape -rotate-3 z-10 bg-sage/40"></div>
+               <div className="aspect-[2/3] w-full bg-stone-200 dark:bg-stone-700 overflow-hidden relative">
+                  <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover sepia-[.3]" alt="Cinema Poster" />
+               </div>
+               <div className="mt-2 font-hand text-center text-sm text-ink dark:text-white">"Midnight in Paris"</div>
             </motion.div>
           </div>
 
