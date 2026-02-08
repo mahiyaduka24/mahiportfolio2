@@ -832,7 +832,7 @@ const Hobbies: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="font-hand text-2xl text-rose dark:text-rose-light mb-2 block">Play & Explore</span>
-            <h2 className="text-5xl lg:text-7xl font-serif italic dark:text-white">Ephemera <br/> Collection</h2>
+            <h2 className="text-5xl lg:text-7xl font-serif italic dark:text-white">Ephemera Collection</h2>
             <p className="mt-4 text-lg font-serif text-stone-500 dark:text-stone-400 max-w-lg leading-relaxed italic opacity-80">
               "Design is serious play. Here are some interactive experiments and collections from my daily observations."
             </p>
