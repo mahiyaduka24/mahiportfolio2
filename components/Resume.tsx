@@ -57,7 +57,7 @@ const Resume: React.FC = () => {
     "Adobe Illustrator",
     "Adobe Photoshop",
     "Adobe InDesign",
-    "Google Ai Studios"
+    "Google Ai Studios",
     "Procreate"
   ];
 
