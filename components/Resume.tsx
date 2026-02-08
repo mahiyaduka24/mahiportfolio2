@@ -57,7 +57,8 @@ const Resume: React.FC = () => {
     "Adobe Illustrator",
     "Adobe Photoshop",
     "Adobe InDesign",
-    "Figma"
+    "Google Ai Studios"
+    "Procreate"
   ];
 
   const projectFocus = [
@@ -158,7 +159,7 @@ const Resume: React.FC = () => {
                   </div>
                   <div className="space-y-2 pl-8 border-l border-stone-100 dark:border-white/10">
                     <div className="flex flex-col md:flex-row md:justify-between items-baseline">
-                      <h5 className="text-lg font-serif font-bold dark:text-white italic">B.Des Communication Design</h5>
+                      <h5 className="text-lg font-serif font-bold dark:text-white italic">B.Des (Hons.) in Communication Design</h5>
                       <span className="font-mono text-[10px] text-stone-500 dark:text-stone-300">2024 — 2028</span>
                     </div>
                     <p className="text-rose dark:text-rose-light font-medium text-sm">Unitedworld Institute of Design (UID), Gandhinagar</p>
