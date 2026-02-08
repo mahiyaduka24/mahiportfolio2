@@ -796,7 +796,7 @@ const hobbies = [
 const Hobbies: React.FC = () => {
   const [activeInteraction, setActiveInteraction] = useState<string | null>(null);
   return (
-    <section id="hobbies" className="py-24 px-6 lg:px-20 relative overflow-hidden bg-parchment dark:bg-[#1a1a1a] transition-colors duration-500">
+    <section id="hobbies" className="py-24 px-6 lg:px-20 relative overflow-hidden transition-colors duration-500">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <motion.div 
