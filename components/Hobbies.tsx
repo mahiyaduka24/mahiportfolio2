@@ -891,8 +891,42 @@ const Hobbies: React.FC = () => {
   return (
     <section id="hobbies" className="py-24 px-6 lg:px-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4"><motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}><span className="font-hand text-2xl text-rose dark:text-rose-light mb-2 block">Beyond the Grid</span><h2 className="text-5xl lg:text-7xl font-serif italic dark:text-white">The Ephemera</h2></motion.div></div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{hobbies.map((hobby, i) => (<motion.div key={hobby.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} whileHover={{ y: -5 }} onClick={() => hobby.interactive && setActiveInteraction(hobby.name)} className={`p-8 bg-white dark:bg-[#333333] rounded-3xl border border-stone-100 dark:border-white/5 shadow-sm transition-all group ${hobby.interactive ? 'cursor-pointer hover:border-rose/50' : 'cursor-default'}`}><div className={`w-14 h-14 ${hobby.bgColor} rounded-2xl flex items-center justify-center text-rose dark:text-rose-light mb-6 group-hover:scale-110 transition-transform`}>{hobby.icon}</div><div className="flex items-center justify-between mb-3"><h3 className="text-2xl font-serif font-bold dark:text-white">{hobby.name}</h3>{hobby.interactive && (<Maximize2 size={14} className="text-rose opacity-0 group-hover:opacity-100 transition-opacity" />)}</div><p className="text-stone-500 dark:text-stone-200 font-serif italic leading-relaxed">{hobby.description}</p></motion.div>))}</div>
+        <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true }}
+          >
+            <span className="font-hand text-2xl text-rose dark:text-rose-light mb-2 block">Beyond the Grid</span>
+            <h2 className="text-5xl lg:text-7xl font-serif italic dark:text-white">The Ephemera</h2>
+            <p className="mt-4 text-lg font-serif text-stone-500 dark:text-stone-400 max-w-lg leading-relaxed italic opacity-80">
+              A collection of hobby-inspired games, each hiding a small interactive experience.
+            </p>
+          </motion.div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {hobbies.map((hobby, i) => (
+            <motion.div 
+              key={hobby.name} 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ delay: i * 0.1 }} 
+              whileHover={{ y: -5 }} 
+              onClick={() => hobby.interactive && setActiveInteraction(hobby.name)} 
+              className={`p-8 bg-white dark:bg-[#333333] rounded-3xl border border-stone-100 dark:border-white/5 shadow-sm transition-all group ${hobby.interactive ? 'cursor-pointer hover:border-rose/50' : 'cursor-default'}`}
+            >
+              <div className={`w-14 h-14 ${hobby.bgColor} rounded-2xl flex items-center justify-center text-rose dark:text-rose-light mb-6 group-hover:scale-110 transition-transform`}>
+                {hobby.icon}
+              </div>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-2xl font-serif font-bold dark:text-white">{hobby.name}</h3>
+                {hobby.interactive && (<Maximize2 size={14} className="text-rose opacity-0 group-hover:opacity-100 transition-opacity" />)}
+              </div>
+              <p className="text-stone-500 dark:text-stone-200 font-serif italic leading-relaxed">{hobby.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
       <AnimatePresence>
         {activeInteraction === 'Photography' && (<PhotographyScrapbook onClose={() => setActiveInteraction(null)} />)}
