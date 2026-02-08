@@ -55,7 +55,7 @@ const projects = [
     role: 'Motion Designer',
     tools: ['After Effects', 'Cinema 4D'],
     outcome: 'Created a series of educational loops for design students.',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/ccDpykJf/Screenshot-2026-02-09-042408.png?auto=format&fit=crop&q=80&w=800',
     rotation: -1,
     tapeStyle: 'center-top',
     tapeColor: 'bg-rose/20',
@@ -66,7 +66,19 @@ const projects = [
       { image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=800', note: 'Iteration #04: Exploring frame rates and friction.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1600'
+      'https://i.ibb.co/Kxp2FW7C/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/b5c9DL0K/The-Fortune-of-Fair-Fountain-pages2.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/JWgPszRG/The-Fortune-of-Fair-Fountain-pages3.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/BKttnf91/The-Fortune-of-Fair-Fountain-pages4.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/Nn3rw8s3/The-Fortune-of-Fair-Fountain-pages5.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/wZCjJPS2/The-Fortune-of-Fair-Fountain-pages6.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/6ctCS2g0/The-Fortune-of-Fair-Fountain-pages7.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/whrhkV61/The-Fortune-of-Fair-Fountain-pages8.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/tpPyd244/The-Fortune-of-Fair-Fountain-pages9.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/hR3XjDzB/The-Fortune-of-Fair-Fountain-pages10.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/wFNTgh5q/The-Fortune-of-Fair-Fountain-pages11.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/ZzVbgzxB/The-Fortune-of-Fair-Fountain-pages12.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/yn0pt6PQ/The-Fortune-of-Fair-Fountain-pages13.png?auto=format&fit=crop&q=80&w=1200'
     ]
   },
   {
