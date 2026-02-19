@@ -38,13 +38,15 @@ const Resume: React.FC = () => {
 
     // @ts-ignore
     html2pdf()
-      .from(element)
       .set({
         margin: 0,
         filename: "Mahi-Yaduka-CV.pdf",
-        html2canvas: { scale: 2 },
-        jsPDF: { format: "a4", orientation: "portrait" }
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: { scale: 3, useCORS: true },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        pagebreak: { mode: "avoid-all" }
       })
+      .from(element)
       .save();
   };
 
