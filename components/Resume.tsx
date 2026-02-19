@@ -2,6 +2,8 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Download, FileText, GraduationCap, Briefcase, Award, User, PenTool, Camera, Star, Layers, Palette } from 'lucide-react';
+// @ts-ignore
+import html2pdf from 'html2pdf.js';
 
 const Resume: React.FC = () => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -16,9 +18,6 @@ const Resume: React.FC = () => {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [3, -3]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-3, 3]);
   
-  const sheenOpacity = useTransform(mouseYSpring, [-0.5, 0, 0.5], [0.15, 0.05, 0.15]);
-  const sheenX = useTransform(mouseXSpring, [-0.5, 0.5], ["-25%", "25%"]);
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -31,6 +30,22 @@ const Resume: React.FC = () => {
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+  };
+
+  const handleDownload = () => {
+    const element = document.getElementById("cv-section");
+    if (!element) return;
+
+    // @ts-ignore
+    html2pdf()
+      .from(element)
+      .set({
+        margin: 0,
+        filename: "Mahi-Yaduka-CV.pdf",
+        html2canvas: { scale: 2 },
+        jsPDF: { format: "a4", orientation: "portrait" }
+      })
+      .save();
   };
 
   const experiences = [
@@ -73,25 +88,26 @@ const Resume: React.FC = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           
-          <div className="lg:w-1/3 sticky top-32">
+          <div className="lg:w-1/3 sticky top-32 z-30 resume-sidebar-content">
             <span className="font-hand text-2xl text-rose dark:text-rose-light block mb-4">The Credentials</span>
             <h2 className="text-5xl lg:text-6xl font-serif italic mb-8 dark:text-white leading-tight">Professional <br/>Records</h2>
             <p className="text-stone-500 dark:text-stone-300 mb-10 leading-relaxed italic text-lg">
               Summation of academic pursuits and professional milestones documenting my growth.
             </p>
             
-            <motion.a 
-              href="#" 
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-4 px-8 py-4 bg-ink dark:bg-white text-white dark:text-ink rounded-full font-mono text-xs uppercase tracking-widest hover:bg-rose dark:hover:bg-rose-light dark:hover:text-ink transition-all shadow-md"
+            <button 
+              onClick={handleDownload}
+              type="button"
+              className="resume-download-btn inline-flex items-center gap-4 px-8 py-4 bg-ink dark:bg-white text-white dark:text-ink rounded-full font-mono text-xs uppercase tracking-widest hover:bg-rose dark:hover:bg-rose-light dark:hover:text-ink transition-all shadow-md group cursor-pointer z-50"
             >
-              <Download size={16} />
+              <Download size={16} className="group-hover:translate-y-1 transition-transform" />
               Download Full CV
-            </motion.a>
+            </button>
           </div>
 
           <div className="lg:w-2/3 w-full" style={{ perspective: "1500px" }}>
             <motion.div 
+              id="cv-section"
               ref={cardRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -99,7 +115,7 @@ const Resume: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-[#333333] shadow-2xl p-8 md:p-12 lg:p-16 rounded-sm border border-stone-100 dark:border-white/5 relative overflow-hidden transition-colors duration-500 cursor-default will-change-transform"
+              className="resume-card bg-white dark:bg-[#333333] shadow-2xl p-8 md:p-12 lg:p-16 rounded-sm border border-stone-100 dark:border-white/5 relative overflow-hidden transition-colors duration-500 cursor-default will-change-transform z-20"
             >
               {/* Thick paper edge / inner shadow effect */}
               <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none z-[50]"></div>
@@ -232,28 +248,12 @@ const Resume: React.FC = () => {
                       <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Achievements</h4>
                     </div>
                     <div className="pl-8 border-l border-stone-300 dark:border-white/30">
-                      <p className="text-stone-600 dark:text-stone-300 text-sm">Recognized in school-level art competitions during early schooling.</p>
+                      <p className="text-stone-600 dark:text-stone-300 text-sm">UID Academic Merit (Semesters 1-2)</p>
                     </div>
                   </div>
                 </div>
 
               </div>
-
-              
-
-              {/* OVERLAYS: Placed last to sit on top of everything */}
-              
-              {/* Dynamic Sheen / Light reflection */}
-              <motion.div 
-                className="absolute inset-0 z-[60] pointer-events-none bg-gradient-to-tr from-transparent via-white/30 to-transparent dark:via-white/5"
-                style={{ opacity: sheenOpacity, x: sheenX }}
-              />
-
-              {/* Consistent Paper Texture Overlay */}
-              <div 
-                className="absolute inset-0 z-[70] pointer-events-none opacity-[0.12] dark:opacity-[0.1] bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] mix-blend-multiply dark:mix-blend-overlay"
-                style={{ backgroundSize: '200px' }}
-              ></div>
             </motion.div>
           </div>
         </div>
