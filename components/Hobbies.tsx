@@ -454,17 +454,17 @@ const OrdinaryDesignBingo: React.FC<{ onClose: () => void }> = ({ onClose }) => 
 };
 
 const scrapbookPhotos = [
-  { id: '6', url: 'https://i.ibb.co/C3qmqkgG/Whats-App-Image-2026-02-07-at-1-44-55-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -280, y: -80, rotation: -5, width: 220 },
-  { id: '5', url: 'https://i.ibb.co/yccP4Cz7/Whats-App-Image-2026-02-07-at-3-48-36-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 20, y: -40, rotation: -3, width: 250 },
-  { id: '1', url: 'https://i.ibb.co/1GDPbFnt/Whats-App-Image-2026-02-07-at-1-44-56-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 300, y: -100, rotation: 3, width: 230 },
-  { id: '8', url: 'https://i.ibb.co/8gRv6gWF/Whats-App-Image-2026-02-07-at-3-48-38-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -320, y: 180, rotation: -4, width: 210 },
-  { id: '3', url: 'https://i.ibb.co/rXxmSpL/Whats-App-Image-2026-02-07-at-3-48-35-A.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -20, y: 200, rotation: 2, width: 200 },
-  { id: '7', url: 'https://i.ibb.co/N2pBt4KV/Whats-App-Image-2026-02-07-at-1-44-56-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 280, y: 180, rotation: 5, width: 240 },
-  { id: '2', url: 'https://i.ibb.co/SXBT11gW/Whats-App-Image-2026-02-09-at-12-42-29-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -150, y: -240, rotation: -2, width: 230 },
-  { id: '4', url: 'https://i.ibb.co/JjTngWH5/Whats-App-Image-2026-02-07-at-3-48-36.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 150, y: -240, rotation: 4, width: 260 },
-  { id: '9', url: 'https://i.ibb.co/6cJ8yd2S/Whats-App-Image-2026-02-09-at-12-42-30-AM-2.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Texture Study', tip: 'Surfaces tell a history.', x: 400, y: 50, rotation: -6, width: 215 },
-  { id: '10', url: 'https://i.ibb.co/vCDD1PcC/Whats-App-Image-2026-02-09-at-12-42-30-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Minimalist Void', tip: 'Negative space is powerful.', x: -400, y: 50, rotation: 4, width: 225 },
-  { id: '11', url: 'https://i.ibb.co/tPFTxZ6v/Whats-App-Image-2026-02-09-at-12-42-30-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Abstract Light', tip: 'Light paints the world.', x: 0, y: 380, rotation: -1, width: 245 },
+  { id: '6', url: 'https://i.ibb.co/DZWrjNw/Whats-App-Image-2026-02-07-at-1-44-55-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Shadow and geometry', tip: 'Look for patterns in architecture.', x: -280, y: -80, rotation: -5, width: 220 },
+  { id: '5', url: 'https://i.ibb.co/kg61LLSv/fish.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Street narratives', tip: 'Capturing the decisive moment.', x: 20, y: -40, rotation: -3, width: 250 },
+  { id: '1', url: 'https://i.ibb.co/y24GRNj/Whats-App-Image-2026-02-07-at-1-44-56-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Kolkata, 2024', tip: 'Leading lines in the city.', x: 300, y: -100, rotation: 3, width: 230 },
+  { id: '8', url: 'https://i.ibb.co/Gv6xdyJX/Whats-App-Image-2026-02-07-at-1-44-56-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Vantage point', tip: 'Change your perspective.', x: -320, y: 180, rotation: -4, width: 210 },
+  { id: '3', url: 'https://i.ibb.co/mFNLjMSd/Whats-App-Image-2026-02-09-at-12-42-29-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Design in macro', tip: 'Details tell the story.', x: -20, y: 200, rotation: 2, width: 200 },
+  { id: '7', url: 'https://i.ibb.co/7JBHMstj/Whats-App-Image-2026-02-09-at-12-42-30-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Natural framing', tip: 'Using environment as a frame.', x: 280, y: 180, rotation: 5, width: 240 },
+  { id: '2', url: 'https://i.ibb.co/9kw8Q4Y8/Whats-App-Image-2026-02-09-at-12-42-30-AM-2.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Ahmedabad Shadows', tip: 'High contrast at noon.', x: -150, y: -240, rotation: -2, width: 230 },
+  { id: '4', url: 'https://i.ibb.co/G3dGWFZ8/Whats-App-Image-2026-02-07-at-3-48-36.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Morning Stillness', tip: 'Minimalist compositions.', x: 150, y: -240, rotation: 4, width: 260 },
+  { id: '9', url: 'https://i.ibb.co/YT0bdMJ4/Whats-App-Image-2026-02-07-at-3-48-36-AM.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Texture Study', tip: 'Surfaces tell a history.', x: 400, y: 50, rotation: -6, width: 215 },
+  { id: '10', url: 'https://i.ibb.co/QvHkSVYq/Whats-App-Image-2026-02-09-at-12-42-30-AM-1.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Minimalist Void', tip: 'Negative space is powerful.', x: -400, y: 50, rotation: 4, width: 225 },
+  { id: '11', url: 'https://i.ibb.co/99ktQGKZ/Whats-App-Image-2026-02-07-at-3-48-35-A.jpg?auto=format&fit=crop&q=80&w=800', caption: 'Abstract Light', tip: 'Light paints the world.', x: 0, y: 380, rotation: -1, width: 245 },
 ];
 
 const PhotographyScrapbook: React.FC<{ onClose: () => void }> = ({ onClose }) => {

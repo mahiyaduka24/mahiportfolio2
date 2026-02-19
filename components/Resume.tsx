@@ -40,7 +40,7 @@ const Resume: React.FC = () => {
       details: 'Developing projects across editorial layout, typography, illustrated storytelling, and icon-based digital explorations as part of academic coursework.'
     },
     {
-      period: '2023 — Present',
+      period: '2017 — Present',
       role: 'Event & Family Function Design Support',
       details: 'Designed invitation layouts and small visual materials, building early experience in composition, type hierarchy, and layout balance.'
     }
