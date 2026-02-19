@@ -20,9 +20,9 @@ const projects = [
     process: [
       { image: 'https://i.ibb.co/GfbfrcFq/Whats-App-Image-2026-02-19-at-10-29-56-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Initial field studies in the local gardens.' },
       { image: 'https://i.ibb.co/bjG4JTY0/Whats-App-Image-2026-02-19-at-10-30-05-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Translating stem patterns into wireframe grids.' },
-      { image: 'https://i.ibb.co/5gJWv2Kd/Whats-App-Image-2026-02-19-at-10-30-13-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' }
-      { image: 'https://i.ibb.co/27z4J4vt/Whats-App-Image-2026-02-19-at-10-30-20-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' }
-      { image: 'https://i.ibb.co/G4sVbx1d/Whats-App-Image-2026-02-19-at-10-30-27-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' }
+      { image: 'https://i.ibb.co/5gJWv2Kd/Whats-App-Image-2026-02-19-at-10-30-13-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' },
+      { image: 'https://i.ibb.co/27z4J4vt/Whats-App-Image-2026-02-19-at-10-30-20-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' },
+      { image: 'https://i.ibb.co/G4sVbx1d/Whats-App-Image-2026-02-19-at-10-30-27-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' },
       { image: 'https://i.ibb.co/QvYpvWtW/Whats-App-Image-2026-02-19-at-10-30-33-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' }
     ],
     final: [
