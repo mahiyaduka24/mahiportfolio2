@@ -39,7 +39,7 @@ const Resume: React.FC = () => {
     // @ts-ignore
     html2pdf()
       .set({
-        margin: 10,
+        margin: 0,
         filename: "Mahi-Yaduka-CV.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 3, useCORS: true },
