@@ -9,7 +9,7 @@ const projects = [
     title: 'The Grid & The Grove',
     category: 'UI/UX Design',
     role: 'Lead Designer',
-    tools: ['Figma', 'Adobe XD', 'Prototyping'],
+    tools: ['Adobe InDesign', 'Adobe Illustrator', 'Adobe Photophop', 'Procreate'],
     outcome: 'Synthesized organic patterns into a digital framework for a local botanical archive.',
     image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
     rotation: -2,
@@ -18,9 +18,12 @@ const projects = [
     colSpan: 'lg:col-span-7',
     note: "Field study meets digital interface.",
     process: [
-      { image: 'https://images.unsplash.com/photo-1581291518062-c9a79e7e9f33?auto=format&fit=crop&q=80&w=800', note: 'Initial field studies in the local gardens.' },
-      { image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800', note: 'Translating stem patterns into wireframe grids.' },
-      { image: 'https://images.unsplash.com/photo-1516961642265-531546e84af2?auto=format&fit=crop&q=80&w=800', note: 'Typography selection process.' },
+      { image: 'https://i.ibb.co/GfbfrcFq/Whats-App-Image-2026-02-19-at-10-29-56-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Initial field studies in the local gardens.' },
+      { image: 'https://i.ibb.co/bjG4JTY0/Whats-App-Image-2026-02-19-at-10-30-05-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Translating stem patterns into wireframe grids.' },
+      { image: 'https://i.ibb.co/5gJWv2Kd/Whats-App-Image-2026-02-19-at-10-30-13-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Typography selection process.' },
+      { image: 'https://i.ibb.co/27z4J4vt/Whats-App-Image-2026-02-19-at-10-30-20-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Developing the underlying grid system.' },
+      { image: 'https://i.ibb.co/G4sVbx1d/Whats-App-Image-2026-02-19-at-10-30-27-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Texture mapping and material selection.' },
+      { image: 'https://i.ibb.co/QvYpvWtW/Whats-App-Image-2026-02-19-at-10-30-33-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Finalizing interface composition.' }
     ],
     final: [
       'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1600',
@@ -245,7 +248,6 @@ const ImageLightbox: React.FC<{ images: string[]; initialIndex: number; onClose:
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              // Only enable drag for panning when zoomed in. Use drag="x" for swipe detection when zoomed out.
               drag={scale > 1 ? true : "x"}
               dragConstraints={scale > 1 ? { left: -1000, right: 1000, top: -800, bottom: 800 } : { left: 0, right: 0 }}
               dragElastic={scale > 1 ? 0.1 : 0.8}
