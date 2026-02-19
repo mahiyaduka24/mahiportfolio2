@@ -75,7 +75,7 @@ const projects = [
     role: 'Illustration Designer',
     tools: ['Procreate', 'Adobe Photoshop'],
     outcome: 'Created a series of educational loops for design students.',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/V00jz4Dk/cover-otu.jpg?auto=format&fit=crop&q=80&w=800',
     rotation: -1.5,
     tapeStyle: 'center-top',
     tapeColor: 'bg-rose/20',
@@ -92,9 +92,8 @@ const projects = [
       { image: 'https://i.ibb.co/ynLTHqL8/Whats-App-Image-2026-02-20-at-1-48-14-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200'
+      'https://i.ibb.co/PZpYRJtW/paperboat-concept-note-page-0001.jpg?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/nM5pp3qf/packaging.png?auto=format&fit=crop&q=80&w=1200'
     ]
   },
   {
