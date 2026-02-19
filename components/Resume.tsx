@@ -122,7 +122,7 @@ const Resume: React.FC = () => {
                     <User size={18} className="text-rose dark:text-rose-light" />
                     <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Profile</h4>
                   </div>
-                  <div className="pl-8 border-l border-stone-100 dark:border-white/10 text-stone-600 dark:text-stone-300 space-y-4 text-base leading-relaxed">
+                  <div className="pl-8 border-l border-stone-300 dark:border-white/30 text-stone-600 dark:text-stone-300 space-y-4 text-base leading-relaxed">
                     <p>
                       Communication Design student at Unitedworld Institute of Design, Gandhinagar, with a strong interest in layout, typography, and structured visual composition. My work focuses on creating clear, balanced, and visually engaging designs through editorial layouts, illustrated narratives, and digital explorations.
                     </p>
@@ -138,7 +138,7 @@ const Resume: React.FC = () => {
                     <Briefcase size={18} className="text-rose dark:text-rose-light" />
                     <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Experience</h4>
                   </div>
-                  <div className="space-y-8 pl-8 border-l border-stone-100 dark:border-white/10">
+                  <div className="space-y-8 pl-8 border-l border-stone-300 dark:border-white/30">
                     {experiences.map((exp, i) => (
                       <div key={i} className="relative">
                         <div className="flex flex-col md:flex-row md:justify-between items-baseline mb-2">
@@ -157,7 +157,7 @@ const Resume: React.FC = () => {
                     <GraduationCap size={18} className="text-rose dark:text-rose-light" />
                     <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Education</h4>
                   </div>
-                  <div className="space-y-2 pl-8 border-l border-stone-100 dark:border-white/10">
+                  <div className="space-y-2 pl-8 border-l border-stone-300 dark:border-white/30">
                     <div className="flex flex-col md:flex-row md:justify-between items-baseline">
                       <h5 className="text-lg font-serif font-bold dark:text-white italic">B.Des (Hons.) in Communication Design</h5>
                       <span className="font-mono text-[10px] text-stone-500 dark:text-stone-300">2024 — 2028</span>
@@ -175,7 +175,7 @@ const Resume: React.FC = () => {
                       <Star size={18} className="text-rose dark:text-rose-light" />
                       <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Skills</h4>
                     </div>
-                    <ul className="pl-8 border-l border-stone-100 dark:border-white/10 space-y-2">
+                    <ul className="pl-8 border-l border-stone-300 dark:border-white/30 space-y-2">
                       {skills.map(s => (
                         <li key={s} className="text-stone-600 dark:text-stone-300 text-sm font-serif">{s}</li>
                       ))}
@@ -188,7 +188,7 @@ const Resume: React.FC = () => {
                       <PenTool size={18} className="text-rose dark:text-rose-light" />
                       <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Tools</h4>
                     </div>
-                    <div className="pl-8 border-l border-stone-100 dark:border-white/10 flex flex-wrap gap-2">
+                    <div className="pl-8 border-l border-stone-300 dark:border-white/30 flex flex-wrap gap-2">
                       {tools.map(t => (
                         <span key={t} className="px-3 py-1 bg-stone-50 dark:bg-stone-700/50 rounded-sm border border-stone-100 dark:border-white/5 text-[11px] font-mono text-stone-600 dark:text-stone-300 uppercase tracking-wide">
                           {t}
@@ -204,7 +204,7 @@ const Resume: React.FC = () => {
                     <Layers size={18} className="text-rose dark:text-rose-light" />
                     <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Project Focus</h4>
                   </div>
-                  <ul className="pl-8 border-l border-stone-100 dark:border-white/10 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+                  <ul className="pl-8 border-l border-stone-300 dark:border-white/30 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
                     {projectFocus.map(p => (
                       <li key={p} className="text-stone-600 dark:text-stone-300 text-sm flex items-start gap-2">
                         <span className="text-rose mt-1.5 w-1 h-1 rounded-full bg-rose block"></span>
@@ -221,7 +221,7 @@ const Resume: React.FC = () => {
                       <Camera size={18} className="text-rose dark:text-rose-light" />
                       <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Supporting Practice</h4>
                     </div>
-                    <div className="pl-8 border-l border-stone-100 dark:border-white/10">
+                    <div className="pl-8 border-l border-stone-300 dark:border-white/30">
                       <p className="text-stone-600 dark:text-stone-300 text-sm">Photography (composition & visual observation)</p>
                     </div>
                   </div>
@@ -231,7 +231,7 @@ const Resume: React.FC = () => {
                       <Award size={18} className="text-rose dark:text-rose-light" />
                       <h4 className="font-mono text-xs uppercase tracking-[0.2em] font-bold dark:text-white">Achievements</h4>
                     </div>
-                    <div className="pl-8 border-l border-stone-100 dark:border-white/10">
+                    <div className="pl-8 border-l border-stone-300 dark:border-white/30">
                       <p className="text-stone-600 dark:text-stone-300 text-sm">Recognized in school-level art competitions during early schooling.</p>
                     </div>
                   </div>
