@@ -15,9 +15,9 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleDarkMode }) => {
   const navLinks = [
     { name: 'Introduction', href: '#top', id: 'top' },
     { name: 'Memoirs', href: '#about', id: 'about' },
-    { name: 'Essays', href: '#skills', id: 'skills' },
-    { name: 'Records', href: '#resume', id: 'resume' },
+    { name: 'Expertise', href: '#skills', id: 'skills' },
     { name: 'Curations', href: '#works', id: 'works' },
+    { name: 'Records', href: '#resume', id: 'resume' },
     { name: 'Ephemera', href: '#hobbies', id: 'hobbies' },
     { name: 'Correspondence', href: '#contact', id: 'contact' },
   ];

@@ -59,8 +59,8 @@ const App: React.FC = () => {
         <div className="border-t border-parchment-dark/10 dark:border-ink-light/10">
           <About />
           <Skills />
-          <Resume />
           <Portfolio />
+          <Resume />
           <Hobbies />
           <Contact />
           <Footer />
