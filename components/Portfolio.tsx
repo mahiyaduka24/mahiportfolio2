@@ -162,7 +162,7 @@ const assignments = [
     title: 'Design Research',
     category: 'Assignment: Type Design',
     outcome: 'Deconstructing classical serifs to understand structural anatomy.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/q3pF80nm/The-effects-of-AI-tools-on-Design-students-creativity.png?auto=format&fit=crop&q=80&w=800',
     rotation: -3,
     process: [
       { image: 'https://i.ibb.co/n81C6KCR/Screenshot-2025-08-24-134704.png?auto=format&fit=crop&q=80&w=800', note: 'Analyzing stroke contrast.' },
@@ -174,16 +174,25 @@ const assignments = [
   },
   {
     id: 'S3',
-    title: 'Semiotic Mapping',
+    title: 'Symbol Making',
     category: 'Assignment: Visual Language',
     outcome: 'A photographic journey mapping the symbols found in local transit systems.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/MySGJvhP/Screenshot-2026-04-28-213159.png?auto=format&fit=crop&q=80&w=800',
     rotation: 1.5,
     process: [
-      { image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' }
+      { image: 'https://i.ibb.co/MySGJvhP/Screenshot-2026-04-28-213159.png?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' },
+      { image: 'https://i.ibb.co/j9YmDttR/Screenshot-2026-04-28-213225.png?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' },
+      { image: 'https://i.ibb.co/s9ZkdfXb/Screenshot-2026-04-28-213244.png?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' },
+      { image: 'https://i.ibb.co/ZzyTyXWY/Screenshot-2026-04-28-213314.png?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' },
+      { image: 'https://i.ibb.co/Y7mMLxV9/Screenshot-2026-04-28-213328.png?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' },
+      { image: 'https://i.ibb.co/bjNB701Q/Screenshot-2026-04-28-213344.png?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200'
+      'https://i.ibb.co/WrgsHGj/Screenshot-2026-04-28-213405.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/v6v0r6t5/Screenshot-2026-04-28-213426.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/LXtqC3Sw/Screenshot-2026-04-28-213443.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/20fcH94Q/Screenshot-2026-04-28-213454.png?auto=format&fit=crop&q=80&w=1200',
+      'https://i.ibb.co/W4jHX57y/Screenshot-2026-04-28-213510.png?auto=format&fit=crop&q=80&w=1200'
     ]
   }
 ];
