@@ -146,7 +146,7 @@ const assignments = [
   {
     id: 'S1',
     title: 'Illustrated Typography',
-    category: 'Assignment: Color Theory',
+    category: 'Assignment: Type Design',
     outcome: 'An exploration of relative color perception through manual pigment mixing.',
     image: 'https://i.ibb.co/bgmfcM9F/hazo-ai-poster.png?auto=format&fit=crop&q=80&w=800',
     rotation: 2,
@@ -160,7 +160,7 @@ const assignments = [
   {
     id: 'S2',
     title: 'Design Research',
-    category: 'Assignment: Type Design',
+    category: 'Assignment: Research',
     outcome: 'Deconstructing classical serifs to understand structural anatomy.',
     image: 'https://i.ibb.co/q3pF80nm/The-effects-of-AI-tools-on-Design-students-creativity.png?auto=format&fit=crop&q=80&w=800',
     rotation: -3,
