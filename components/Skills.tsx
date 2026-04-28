@@ -5,7 +5,7 @@ import { Type, PenTool, Printer } from 'lucide-react';
 
 const skills = [
   {
-    title: 'Typography',
+    title: 'Basics of Typography',
     description: 'Expertise in font pairing, custom lettering, and hierarchical layouts to ensure readability and aesthetic impact.',
     icon: <Type size={32} />,
     color: 'bg-white dark:bg-[#333333]',
@@ -67,17 +67,17 @@ const Skills: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`p-10 lg:p-14 ${skill.color} border-stone-100 dark:border-white/5 md:border-r last:border-r-0 group hover:bg-rose dark:hover:bg-rose transition-all duration-500 ease-in-out cursor-default relative`}
+              className={`px-10 py-6 lg:px-14 lg:py-8 ${skill.color} border-stone-100 dark:border-white/5 md:border-r last:border-r-0 group hover:bg-rose dark:hover:bg-rose transition-all duration-500 ease-in-out cursor-default relative`}
             >
-              <div className="flex justify-between items-start mb-10 lg:mb-14 relative z-10">
-                <div className="p-4 bg-stone-50 dark:bg-white/5 rounded-2xl group-hover:bg-white group-hover:text-rose transition-all text-rose dark:text-rose-light shadow-sm">
+              <div className="flex justify-between items-start mb-6 lg:mb-8 relative z-10">
+                <div className="p-3 lg:p-4 bg-stone-50 dark:bg-white/5 rounded-2xl group-hover:bg-white group-hover:text-rose transition-all text-rose dark:text-rose-light shadow-sm">
                   {skill.icon}
                 </div>
                 <span className="font-mono text-[14px] text-stone-300 dark:text-stone-200 group-hover:text-white/40">{skill.index}</span>
               </div>
               
-              <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-6 group-hover:text-white dark:text-white transition-colors relative z-10">{skill.title}</h3>
-              <p className="text-stone-500 dark:text-stone-100 group-hover:text-white/90 mb-10 leading-relaxed text-lg italic font-serif transition-colors relative z-10">
+              <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4 group-hover:text-white dark:text-white transition-colors relative z-10">{skill.title}</h3>
+              <p className="text-stone-500 dark:text-stone-100 group-hover:text-white/90 mb-8 leading-relaxed text-base lg:text-lg italic font-serif transition-colors relative z-10">
                 {skill.description}
               </p>
               
