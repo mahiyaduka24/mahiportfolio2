@@ -145,7 +145,7 @@ const projects = [
 const assignments = [
   {
     id: 'S1',
-    title: 'Chromatophores Study',
+    title: 'Illustrated Typography',
     category: 'Assignment: Color Theory',
     outcome: 'An exploration of relative color perception through manual pigment mixing.',
     image: 'https://i.ibb.co/bgmfcM9F/hazo-ai-poster.png?auto=format&fit=crop&q=80&w=800',
@@ -159,16 +159,17 @@ const assignments = [
   },
   {
     id: 'S2',
-    title: 'Typographic Deconstruction',
+    title: 'Design Research',
     category: 'Assignment: Type Design',
     outcome: 'Deconstructing classical serifs to understand structural anatomy.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800',
     rotation: -3,
     process: [
-      { image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800', note: 'Analyzing stroke contrast.' }
+      { image: 'https://i.ibb.co/n81C6KCR/Screenshot-2025-08-24-134704.png?auto=format&fit=crop&q=80&w=800', note: 'Analyzing stroke contrast.' },
+      { image: 'https://i.ibb.co/9mwndbFy/Screenshot-2025-08-24-134727.png?auto=format&fit=crop&q=80&w=800', note: 'Analyzing stroke contrast.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1200'
+      'https://i.ibb.co/0R1YfwDT/DR-SCROLL-page-0001.jpg?auto=format&fit=crop&q=80&w=1200'
     ]
   },
   {
