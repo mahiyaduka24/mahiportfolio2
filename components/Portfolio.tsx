@@ -98,10 +98,10 @@ const projects = [
   },
   {
     id: '04',
-    title: 'Urban Pulse Campaign',
-    category: 'Campaign Strategy',
-    role: 'Creative Strategist',
-    tools: ['Copywriting', 'Layout Design', 'Print Media'],
+    title: 'The Fountain of Fair Fortune',
+    category: 'Illustration Kids Book',
+    role: 'Illustrator',
+    tools: ['Copywriting', 'Procreate', 'InDesign'],
     outcome: 'Directed a city-wide social awareness campaign.',
     image: 'https://i.ibb.co/qFsQWv2x/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=800',
     rotation: 3,
@@ -110,7 +110,19 @@ const projects = [
     colSpan: 'lg:col-span-6',
     note: "The rhythm of the streets.",
     process: [
-      { image: 'https://i.ibb.co/qFsQWv2x/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' }
+      { image: 'https://i.ibb.co/RGy1RhNm/Whats-App-Image-2026-04-28-at-9-06-13-PM-10.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/chvrTzfT/Whats-App-Image-2026-04-28-at-9-06-13-PM-11.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/Q7Mk0RBV/Whats-App-Image-2026-04-28-at-9-06-13-PM-12.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/BVD501KF/Whats-App-Image-2026-04-28-at-9-06-13-PM-9.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/hRXvYHr0/Whats-App-Image-2026-04-28-at-9-06-13-PM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/1GQ2wNkC/Whats-App-Image-2026-04-28-at-9-06-13-PM-1.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/j9hpwxbV/Whats-App-Image-2026-04-28-at-9-06-13-PM-2.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/NdRjD8s2/Whats-App-Image-2026-04-28-at-9-06-13-PM-3.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/Fbk8sS5Z/Whats-App-Image-2026-04-28-at-9-06-13-PM-4.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/NBkhHsM/Whats-App-Image-2026-04-28-at-9-06-13-PM-5.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/M59ZHqwV/Whats-App-Image-2026-04-28-at-9-06-13-PM-6.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/cKPtRtxs/Whats-App-Image-2026-04-28-at-9-06-13-PM-7.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' },
+      { image: 'https://i.ibb.co/LzGXSVnJ/Whats-App-Image-2026-04-28-at-9-06-13-PM-8.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' }
     ],
     final: [
       'https://i.ibb.co/qFsQWv2x/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=1600',
@@ -136,8 +148,14 @@ const assignments = [
     title: 'Chromatophores Study',
     category: 'Assignment: Color Theory',
     outcome: 'An exploration of relative color perception through manual pigment mixing.',
-    image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/bgmfcM9F/hazo-ai-poster.png?auto=format&fit=crop&q=80&w=800',
     rotation: 2,
+    process: [
+      { image: 'https://i.ibb.co/prvFf3k6/Baobab-Tree.png?auto=format&fit=crop&q=80&w=800', note: 'Initial pigment studies.' }
+    ],
+    final: [
+      'https://i.ibb.co/bgmfcM9F/hazo-ai-poster.png?auto=format&fit=crop&q=80&w=1200'
+    ]
   },
   {
     id: 'S2',
@@ -146,6 +164,12 @@ const assignments = [
     outcome: 'Deconstructing classical serifs to understand structural anatomy.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800',
     rotation: -3,
+    process: [
+      { image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800', note: 'Analyzing stroke contrast.' }
+    ],
+    final: [
+      'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1200'
+    ]
   },
   {
     id: 'S3',
@@ -154,23 +178,32 @@ const assignments = [
     outcome: 'A photographic journey mapping the symbols found in local transit systems.',
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
     rotation: 1.5,
+    process: [
+      { image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800', note: 'Field research in transit hubs.' }
+    ],
+    final: [
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200'
+    ]
   }
 ];
 
 const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project, onClose }) => {
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'unset'; };
   }, []);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[1000] bg-stone-900/80 backdrop-blur-md flex items-center justify-center p-4 lg:p-10"
-      onClick={onClose}
-    >
+    <>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[1000] bg-stone-900/80 backdrop-blur-md flex items-center justify-center p-4 lg:p-10"
+        onClick={onClose}
+      >
        <motion.div 
         initial={{ y: 50, opacity: 0, scale: 0.98 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -233,7 +266,12 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
               <div className="mb-20 relative transform rotate-1">
                  <div className="absolute -top-4 -right-4 w-32 h-8 bg-rose/30 washi-tape rotate-45 z-20"></div>
                  <div className="bg-white dark:bg-black p-2 shadow-xl">
-                    <img src={project.image} alt="Hero" className="w-full h-auto object-cover grayscale-[0.2]" />
+                    <img 
+                      src={project.image} 
+                      alt="Hero" 
+                      className="w-full h-auto object-cover grayscale-[0.2] cursor-zoom-in" 
+                      onDoubleClick={() => setExpandedImage(project.image)}
+                    />
                  </div>
               </div>
 
@@ -257,7 +295,12 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
                           <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-stone-200/50 dark:bg-stone-700/50 washi-tape ${idx % 2 === 0 ? '-rotate-2' : 'rotate-1'}`}></div>
                           
                           <div className="bg-stone-100 dark:bg-black/20 overflow-hidden mb-6">
-                             <img src={proc.image} alt="Process" className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                             <img 
+                               src={proc.image} 
+                               alt="Process" 
+                               className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-zoom-in" 
+                               onDoubleClick={() => setExpandedImage(proc.image)}
+                             />
                           </div>
                           
                           <p className="font-hand text-2xl text-stone-500 dark:text-stone-300 leading-tight text-center px-4">
@@ -286,7 +329,12 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
                        >
                           <div className="absolute -inset-1 bg-stone-200 dark:bg-stone-700/50 rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
                           <div className="relative bg-white dark:bg-black shadow-2xl p-3">
-                             <img src={img} alt="Final Outcome" className="w-full h-auto object-cover" />
+                             <img 
+                               src={img} 
+                               alt="Final Outcome" 
+                               className="w-full h-auto object-cover cursor-zoom-in" 
+                               onDoubleClick={() => setExpandedImage(img)}
+                             />
                           </div>
                           
                           {/* Corner Tape */}
@@ -304,6 +352,37 @@ const ProjectModal: React.FC<{ project: any; onClose: () => void }> = ({ project
         </div>
       </motion.div>
     </motion.div>
+
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[2000] bg-black/95 flex items-center justify-center cursor-zoom-out p-4"
+            onClick={() => setExpandedImage(null)}
+          >
+            <button 
+              onClick={() => setExpandedImage(null)} 
+              className="absolute top-4 right-4 z-[2010] p-3 text-white rounded-full hover:bg-white/10 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <motion.img
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              src={expandedImage}
+              alt="Expanded view"
+              className="max-w-full max-h-[95vh] object-contain cursor-default"
+              onClick={(e) => e.stopPropagation()}
+              onDoubleClick={() => setExpandedImage(null)}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
@@ -553,7 +632,7 @@ const Portfolio: React.FC = () => {
                   whileInView={{ opacity: 1, rotate: item.rotation }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  onClick={() => setSelectedProject({ ...item, process: [{ image: item.image, note: item.outcome }], final: [item.image] })}
+                  onClick={() => setSelectedProject({ ...item, process: item.process || [{ image: item.image, note: item.outcome }], final: item.final || [item.image] })}
                   className="group cursor-pointer relative bg-white dark:bg-[#333] p-6 pb-12 shadow-xl hover:shadow-2xl transition-all duration-500 w-full lg:flex-1 lg:max-w-[380px] polaroid"
                 >
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-stone-100 dark:bg-stone-800 washi-tape rotate-2 opacity-50"></div>
