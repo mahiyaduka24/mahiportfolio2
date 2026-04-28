@@ -48,17 +48,17 @@ const projects = [
     colSpan: 'lg:col-span-5',
     note: "Translating sound into ink.",
     process: [
-      { image: 'https://i.ibb.co/DH1fS5xK/Green-Abstract-Baby-Care-Presentation-3.png?auto=format&fit=crop&q=80&w=800', note: 'Visualizing sound frequency as letterforms.' },
-      { image: 'https://i.ibb.co/27FVnGRf/25.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/WNHpgnr1/26.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/CCjwcTy/27.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/j985YKmv/28.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/N6XzxgdG/29.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/wN73T5wW/30.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/Xrmby75j/31.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/VfqtKVK/32.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/gNnH3ss/33.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' },
-      { image: 'https://i.ibb.co/ymKN1bnL/20.png?auto=format&fit=crop&q=80&w=800', note: 'Testing legibility across heavy industrial textures.' }
+      { image: 'https://i.ibb.co/DH1fS5xK/Green-Abstract-Baby-Care-Presentation-3.png?auto=format&fit=crop&q=80&w=800', note: 'Problem Statement' },
+      { image: 'https://i.ibb.co/27FVnGRf/25.png?auto=format&fit=crop&q=80&w=800', note: 'Survey Results' },
+      { image: 'https://i.ibb.co/WNHpgnr1/26.png?auto=format&fit=crop&q=80&w=800', note: 'Survey Reviews' },
+      { image: 'https://i.ibb.co/CCjwcTy/27.png?auto=format&fit=crop&q=80&w=800', note: 'Competitor Study' },
+      { image: 'https://i.ibb.co/j985YKmv/28.png?auto=format&fit=crop&q=80&w=800', note: 'Mindmap' },
+      { image: 'https://i.ibb.co/N6XzxgdG/29.png?auto=format&fit=crop&q=80&w=800', note: 'Moodboard' },
+      { image: 'https://i.ibb.co/wN73T5wW/30.png?auto=format&fit=crop&q=80&w=800', note: 'Brand Name' },
+      { image: 'https://i.ibb.co/Xrmby75j/31.png?auto=format&fit=crop&q=80&w=800', note: 'Typography options' },
+      { image: 'https://i.ibb.co/VfqtKVK/32.png?auto=format&fit=crop&q=80&w=800', note: 'Logo Ideations' },
+      { image: 'https://i.ibb.co/gNnH3ss/33.png?auto=format&fit=crop&q=80&w=800', note: 'Colour options' },
+      { image: 'https://i.ibb.co/ymKN1bnL/20.png?auto=format&fit=crop&q=80&w=800', note: 'Final Logo' }
     ],
     final: [
       'https://i.ibb.co/DHSKL7fk/21.png?auto=format&fit=crop&q=80&w=1600',
@@ -82,14 +82,14 @@ const projects = [
     colSpan: 'lg:col-span-6',
     note: "Geometry in motion.",
     process: [
-      { image: 'https://i.ibb.co/3m2MYvfG/research.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' },
-      { image: 'https://i.ibb.co/zhKMYDr0/Paperboat-mindmap-page-0001.jpg?auto=format&fit=crop&q=80&w=800', note: 'Iteration #04: Exploring frame rates and friction.' },
-      { image: 'https://i.ibb.co/HSn05rC/Scanned-Document-2-page-0001.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' },
-      { image: 'https://i.ibb.co/zTt5Ph2P/Scanned-Document-2-page-0002.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' },
-      { image: 'https://i.ibb.co/1GXLwFcf/Whats-App-Image-2026-02-20-at-1-43-18-AM-1.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' },
-      { image: 'https://i.ibb.co/gbzCBy5L/Whats-App-Image-2026-02-20-at-1-43-18-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' },
-      { image: 'https://i.ibb.co/XrBtQ2QQ/Whats-App-Image-2026-02-20-at-1-43-52-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' },
-      { image: 'https://i.ibb.co/ynLTHqL8/Whats-App-Image-2026-02-20-at-1-48-14-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Deconstructing theory into geometric primitives.' }
+      { image: 'https://i.ibb.co/3m2MYvfG/research.jpg?auto=format&fit=crop&q=80&w=800', note: 'Project Brief' },
+      { image: 'https://i.ibb.co/zhKMYDr0/Paperboat-mindmap-page-0001.jpg?auto=format&fit=crop&q=80&w=800', note: 'Research Mindmap' },
+      { image: 'https://i.ibb.co/HSn05rC/Scanned-Document-2-page-0001.jpg?auto=format&fit=crop&q=80&w=800', note: 'Ideations' },
+      { image: 'https://i.ibb.co/zTt5Ph2P/Scanned-Document-2-page-0002.jpg?auto=format&fit=crop&q=80&w=800', note: 'Ideations' },
+      { image: 'https://i.ibb.co/1GXLwFcf/Whats-App-Image-2026-02-20-at-1-43-18-AM-1.jpg?auto=format&fit=crop&q=80&w=800', note: 'Ideations' },
+      { image: 'https://i.ibb.co/gbzCBy5L/Whats-App-Image-2026-02-20-at-1-43-18-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Selected ones' },
+      { image: 'https://i.ibb.co/XrBtQ2QQ/Whats-App-Image-2026-02-20-at-1-43-52-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Final Mascot' },
+      { image: 'https://i.ibb.co/ynLTHqL8/Whats-App-Image-2026-02-20-at-1-48-14-AM.jpg?auto=format&fit=crop&q=80&w=800', note: 'Mascot Variations' }
     ],
     final: [
       'https://i.ibb.co/PZpYRJtW/paperboat-concept-note-page-0001.jpg?auto=format&fit=crop&q=80&w=1200',
