@@ -18,7 +18,7 @@ const projects = [
     colSpan: 'lg:col-span-7',
     note: "Field study meets digital interface.",
     process: [
-      { image: 'https://images.unsplash.com/photo-1581291518062-c9a79e7e9f33?auto=format&fit=crop&q=80&w=800', note: 'Initial field studies in the local gardens.' },
+      { image: 'https://images.unsplash.com/photo-1581291518062-c9a79e7e9f33?auto=format&fit=crop&q=80&w=800', note: ' field studies in Initialthe local gardens.' },
       { image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800', note: 'Translating stem patterns into wireframe grids.' },
       { image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800', note: 'Final digital implementation.' }
     ],
