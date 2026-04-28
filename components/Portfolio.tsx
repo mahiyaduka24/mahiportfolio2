@@ -80,7 +80,7 @@ const projects = [
     tapeStyle: 'center-top',
     tapeColor: 'bg-rose/20',
     colSpan: 'lg:col-span-6',
-    note: "Geometry in motion.",
+    note: "Geometry in motion.",               
     process: [
       { image: 'https://i.ibb.co/3m2MYvfG/research.jpg?auto=format&fit=crop&q=80&w=800', note: 'Project Brief' },
       { image: 'https://i.ibb.co/zhKMYDr0/Paperboat-mindmap-page-0001.jpg?auto=format&fit=crop&q=80&w=800', note: 'Research Mindmap' },
@@ -113,7 +113,20 @@ const projects = [
       { image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' }
     ],
     final: [
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600'
+      'https://ibb.co/h1WzZSTC?auto=format&fit=crop&q=80&w=1600',
+      'https://ibb.co/3Y1YQ5Ck?auto=format&fit=crop&q=80&w=1600',
+      'https://ibb.co/MDPJPdzX?auto=format&fit=crop&q=80&w=1600',
+      'https://ibb.co/CpbZv14f?auto=format&fit=crop&q=80&w=1600',
+      'https://ibb.co/wxWpJzs?auto=format&fit=crop&q=80&w=1600',
+      'https://ibb.co/gM4NYxKC?auto=format&fit=crop&q=80&w=1600',
+      'https://ibb.co/x87CkScJ?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
     ]
   }
 ];
