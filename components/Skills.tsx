@@ -59,7 +59,7 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-stone-200 dark:border-white/10 rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-white dark:bg-[#333333] transition-all duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-stone-200 dark:border-white/10 rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-white dark:bg-[#333333] transition-all duration-500 max-w-5xl mx-auto">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.title}

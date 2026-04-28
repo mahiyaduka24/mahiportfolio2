@@ -31,11 +31,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-parchment-dark/10 dark:border-ink-light/10">
           <div>
              <h4 className="font-mono text-[10px] uppercase tracking-[0.4em] text-rose mb-6 font-bold">Inquiries</h4>
-             <a href="mailto:mahiyaduka24k5@gmail.com" className="text-base font-bold uppercase hover:text-rose transition-colors dark:text-white">mahiyaduka24k5@gmail.com</a>
+             <a href="mailto:mahiyaduka24k5@gmail.com" className="text-sm font-bold uppercase hover:text-rose transition-colors dark:text-white">mahiyaduka24k5@gmail.com</a>
           </div>
           <div>
              <h4 className="font-mono text-[10px] uppercase tracking-[0.4em] text-rose mb-6 font-bold">Connect</h4>
-             <div className="flex flex-col gap-2 text-base font-bold uppercase dark:text-white">
+             <div className="flex flex-col gap-2 text-sm font-bold uppercase dark:text-white">
                <a href="#" className="hover:text-rose transition-colors">Behance</a>
                <a href="https://www.linkedin.com/in/mahi-yaduka-318a36365/" target="_blank" rel="noopener noreferrer" className="hover:text-rose transition-colors">LinkedIn</a>
                <a href="https://www.instagram.com/yadukamahi/" target="_blank" rel="noopener noreferrer" className="hover:text-rose transition-colors">Instagram</a>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
              <h4 className="font-mono text-[10px] uppercase tracking-[0.4em] text-rose mb-6 font-bold">Status</h4>
              <div className="flex items-center gap-2">
                <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-               <span className="text-sm font-bold uppercase tracking-widest dark:text-white">Available 2026</span>
+               <span className="text-xs font-bold uppercase tracking-widest dark:text-white">Available 2026</span>
              </div>
           </div>
           <div className="flex flex-col items-end">
