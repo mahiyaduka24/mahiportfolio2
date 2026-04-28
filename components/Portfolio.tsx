@@ -103,30 +103,29 @@ const projects = [
     role: 'Creative Strategist',
     tools: ['Copywriting', 'Layout Design', 'Print Media'],
     outcome: 'Directed a city-wide social awareness campaign.',
-    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co/qFsQWv2x/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=800',
     rotation: 3,
     tapeStyle: 'two-corners',
     tapeColor: 'bg-sage/20',
     colSpan: 'lg:col-span-6',
     note: "The rhythm of the streets.",
     process: [
-      { image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' }
+      { image: 'https://i.ibb.co/qFsQWv2x/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=800', note: 'Mapping the pulse of the city through street dialogue.' }
     ],
     final: [
-      'https://ibb.co/h1WzZSTC?auto=format&fit=crop&q=80&w=1600',
-      'https://ibb.co/3Y1YQ5Ck?auto=format&fit=crop&q=80&w=1600',
-      'https://ibb.co/MDPJPdzX?auto=format&fit=crop&q=80&w=1600',
-      'https://ibb.co/CpbZv14f?auto=format&fit=crop&q=80&w=1600',
-      'https://ibb.co/wxWpJzs?auto=format&fit=crop&q=80&w=1600',
-      'https://ibb.co/gM4NYxKC?auto=format&fit=crop&q=80&w=1600',
-      'https://ibb.co/x87CkScJ?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
-      'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/qFsQWv2x/The-Fortune-of-Fair-Fountain-pages.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/YT2Tw4Lb/The-Fortune-of-Fair-Fountain-pages2.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/tMY1YR0d/The-Fortune-of-Fair-Fountain-pages3.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/Pscn4mJd/The-Fortune-of-Fair-Fountain-pages4.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/Fjw8sDV/The-Fortune-of-Fair-Fountain-pages5.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/fYDfJsw7/The-Fortune-of-Fair-Fountain-pages6.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/TqgvfBnm/The-Fortune-of-Fair-Fountain-pages7.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/jks2ZM0q/The-Fortune-of-Fair-Fountain-pages8.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/chMKf4qJ/The-Fortune-of-Fair-Fountain-pages9.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/R40kT3S3/The-Fortune-of-Fair-Fountain-pages10.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/hxxgv6zf/The-Fortune-of-Fair-Fountain-pages11.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/G384F4PN/The-Fortune-of-Fair-Fountain-pages12.png?auto=format&fit=crop&q=80&w=1600',
+      'https://i.ibb.co/5WVwscp1/The-Fortune-of-Fair-Fountain-pages13.png?auto=format&fit=crop&q=80&w=1600'
     ]
   }
 ];
